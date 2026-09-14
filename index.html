@@ -2,782 +2,1594 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Twan Clicker</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
+<title>Twan Clicker 🔥</title>
+
+<style>
+
+/* =========================
+   BASIS
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #ec4899,
+            #f59e0b
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   NAAMSCHERM
+========================= */
+
+#nameScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4c1d95,
+            #be185d
+        );
+
+    z-index: 1000;
+}
+
+
+.nameBox {
+
+    width: min(90%, 450px);
+
+    padding: 35px;
+
+    text-align: center;
+
+    background:
+        rgba(0,0,0,.35);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.3);
+}
+
+
+.nameBox h1 {
+
+    font-size: 3rem;
+
+    margin-top: 0;
+
+}
+
+
+.nameBox input {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-size: 1.2rem;
+
+    margin-bottom: 15px;
+
+}
+
+
+.nameBox button {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #facc15;
+
+    color: #422006;
+
+    font-size: 1.1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================
+   SPEL
+========================= */
+
+.game {
+
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        2fr
+        1fr;
+
+    gap: 25px;
+
+    align-items: center;
+
+    padding: 25px;
+
+}
+
+
+.panel {
+
+    background:
+        rgba(0,0,0,.3);
+
+    border:
+        2px solid
+        rgba(255,255,255,.2);
+
+    border-radius: 25px;
+
+    padding: 22px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.25);
+
+}
+
+
+.center {
+
+    text-align: center;
+
+}
+
+
+/* =========================
+   TWAN TITEL
+========================= */
+
+#title {
+
+    font-size: 3rem;
+
+    transition:
+        transform .15s;
+
+}
+
+
+/* =========================
+   TWAN KNOP
+========================= */
+
+#twan {
+
+    width:
+        min(50vw, 350px);
+
+    height:
+        min(50vw, 350px);
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            white,
+            #fde68a 15%,
+            #f97316 45%,
+            #dc2626 75%
+        );
+
+    color: white;
+
+    font-size:
+        clamp(3rem, 8vw, 6rem);
+
+    font-weight: 900;
+
+    text-shadow:
+        0 5px 0
+        rgba(0,0,0,.2);
+
+    cursor: pointer;
+
+    box-shadow:
+        0 18px 0 #991b1b,
+        0 28px 45px
+        rgba(0,0,0,.3);
+
+    transition:
+        transform .08s;
+
+}
+
+
+#twan:active {
+
+    transform:
+        translateY(10px)
+        scale(.96);
+
+    box-shadow:
+        0 8px 0 #991b1b,
+        0 18px 30px
+        rgba(0,0,0,.25);
+
+}
+
+
+/* =========================
+   SCORE
+========================= */
+
+.score {
+
+    font-size: 2rem;
+
+    font-weight: bold;
+
+    text-align: center;
+
+}
+
+
+.per-click {
+
+    text-align: center;
+
+}
+
+
+/* =========================
+   SHOP
+========================= */
+
+.shop-item {
+
+    margin: 15px 0;
+
+}
+
+
+.shop-item button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: white;
+
+    color: #4c1d95;
+
+    transition:
+        transform .1s;
+
+}
+
+
+.shop-item button:hover:not(:disabled) {
+
+    transform:
+        scale(1.03);
+
+}
+
+
+.shop-item button:disabled {
+
+    opacity: .4;
+
+    cursor: not-allowed;
+
+}
+
+
+.small {
+
+    font-size: .85rem;
+
+    opacity: .85;
+
+}
+
+
+/* =========================
+   SCOREBORD
+========================= */
+
+.leaderboard {
+
+    margin-top: 20px;
+
+}
+
+
+.leaderboard ol {
+
+    padding-left: 25px;
+
+}
+
+
+.leaderboard li {
+
+    margin: 8px 0;
+
+    padding: 9px;
+
+    background:
+        rgba(255,255,255,.1);
+
+    border-radius: 10px;
+
+}
+
+
+.myName {
+
+    color: #facc15;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   EMOJI REGEN
+========================= */
+
+#emojiRain {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 50;
+
+}
+
+
+.emoji {
+
+    position: absolute;
+
+    top: -50px;
+
+    animation:
+        fall 2.5s linear forwards;
+
+}
+
+
+@keyframes fall {
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+
     }
 
+}
+
+
+/* =========================
+   + KLIKS ANIMATIE
+========================= */
+
+.floating {
+
+    position: fixed;
+
+    pointer-events: none;
+
+    font-size: 2rem;
+
+    font-weight: bold;
+
+    animation:
+        pop .8s ease-out forwards;
+
+    z-index: 60;
+
+}
+
+
+@keyframes pop {
+
+    from {
+
+        transform:
+            translate(-50%,0)
+            scale(.7);
+
+        opacity: 1;
+
+    }
+
+    to {
+
+        transform:
+            translate(-50%,-100px)
+            scale(1.3);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================
+   MOBIEL
+========================= */
+
+@media(max-width:850px) {
+
     body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      color: white;
-      background: linear-gradient(135deg, #7c3aed, #ec4899, #f59e0b);
-      overflow-x: hidden;
+        overflow-y: auto;
     }
 
     .game {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
-      gap: 25px;
-      align-items: center;
-      padding: 25px;
-    }
 
-    .panel {
-      background: rgba(0, 0, 0, 0.3);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      border-radius: 25px;
-      padding: 22px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-    }
+        grid-template-columns:
+            1fr;
 
-    .score {
-      font-size: 2rem;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .per-click {
-      text-align: center;
-      opacity: 0.9;
     }
 
     .center {
-      text-align: center;
-    }
 
-    #title {
-      font-size: 3rem;
-      transition: transform 0.15s;
+        order: -1;
+
     }
 
     #twan {
-      width: min(50vw, 350px);
-      height: min(50vw, 350px);
 
-      border: none;
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle at 35% 30%,
-          white,
-          #fde68a 15%,
-          #f97316 45%,
-          #dc2626 75%
-        );
-
-      color: white;
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 900;
-
-      text-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
-
-      cursor: pointer;
-
-      box-shadow:
-        0 18px 0 #991b1b,
-        0 28px 45px rgba(0, 0, 0, 0.3);
-
-      transition: transform 0.08s;
-    }
-
-    #twan:active {
-      transform: translateY(10px) scale(0.96);
-
-      box-shadow:
-        0 8px 0 #991b1b,
-        0 18px 30px rgba(0, 0, 0, 0.25);
-    }
-
-    .shop-item {
-      margin: 15px 0;
-    }
-
-    .shop-item button {
-      width: 100%;
-      padding: 14px;
-
-      border: none;
-      border-radius: 15px;
-
-      font-size: 1rem;
-      font-weight: bold;
-
-      cursor: pointer;
-
-      background: white;
-      color: #4c1d95;
-
-      transition: transform 0.1s;
-    }
-
-    .shop-item button:hover:not(:disabled) {
-      transform: scale(1.03);
-    }
-
-    .shop-item button:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
-    }
-
-    .small {
-      font-size: 0.85rem;
-      opacity: 0.85;
-    }
-
-    .emoji-rain {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 10;
-    }
-
-    .emoji {
-      position: absolute;
-      top: -50px;
-
-      animation:
-        fall 2.5s linear forwards;
-    }
-
-    @keyframes fall {
-      to {
-        transform:
-          translateY(110vh)
-          rotate(720deg);
-
-        opacity: 0;
-      }
-    }
-
-    .floating-number {
-      position: fixed;
-
-      pointer-events: none;
-
-      font-size: 2rem;
-      font-weight: bold;
-
-      animation: pop 0.8s ease-out forwards;
-
-      z-index: 20;
-    }
-
-    @keyframes pop {
-      from {
-        transform: translate(-50%, 0) scale(0.7);
-        opacity: 1;
-      }
-
-      to {
-        transform: translate(-50%, -100px) scale(1.3);
-        opacity: 0;
-      }
-    }
-
-    @media (max-width: 850px) {
-      .game {
-        grid-template-columns: 1fr;
-      }
-
-      .center {
-        order: -1;
-      }
-
-      #twan {
         width: 260px;
+
         height: 260px;
-      }
+
     }
-  </style>
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <!-- Emoji's die naar beneden vallen -->
-  <div class="emoji-rain" id="emojiRain"></div>
+
+<!-- =================================
+     NAAM INVULLEN
+================================= -->
+
+<div id="nameScreen">
+
+    <div class="nameBox">
+
+        <h1>
+            🔥 TWAN CLICKER 🔥
+        </h1>
+
+        <p>
+            Vul eerst je naam in!
+        </p>
+
+        <input
+            id="nameInput"
+            type="text"
+            maxlength="20"
+            placeholder="Jouw naam..."
+        >
+
+        <button id="startButton">
+            🚀 Start het spel
+        </button>
+
+    </div>
+
+</div>
 
 
-  <main class="game">
+<!-- =================================
+     EMOJI REGEN
+================================= -->
 
-    <!-- LINKER KANT -->
+<div id="emojiRain"></div>
+
+
+<!-- =================================
+     HELE GAME
+================================= -->
+
+<main class="game">
+
+
+    <!-- ===============================
+         LINKER PANEL
+    ================================ -->
+
     <section class="panel">
 
-      <div class="score" id="score">
-        0 kliks
-      </div>
+        <h2>
+            📊 Stats
+        </h2>
 
-      <p class="per-click" id="perClick">
-        1 klik per keer
-      </p>
 
-      <hr>
+        <div
+            class="score"
+            id="score"
+        >
+            0 kliks
+        </div>
 
-      <h2>📊 Stats</h2>
 
-      <p>
-        👆 Totaal geklikt:
-        <b id="total">0</b>
-      </p>
+        <p
+            class="per-click"
+            id="perClick"
+        >
+            1 klik per keer
+        </p>
 
-      <p>
-        🤖 Autoklik:
-        <b id="autoStatus">uit</b>
-      </p>
 
-      <p>
-        ✨ Dubbelklik:
-        <b id="doubleStatus">uit</b>
-      </p>
+        <hr>
+
+
+        <p>
+            👤 Speler:
+            <b id="playerName">
+                -
+            </b>
+        </p>
+
+
+        <p>
+            👆 Totaal:
+            <b id="total">
+                0
+            </b>
+        </p>
+
+
+        <p>
+            🤖 Autoklik:
+            <b id="autoStatus">
+                uit
+            </b>
+        </p>
+
+
+        <p>
+            ✨ Dubbelklik:
+            <b id="doubleStatus">
+                uit
+            </b>
+        </p>
 
     </section>
 
 
-    <!-- MIDDEN -->
+    <!-- ===============================
+         MIDDEN
+    ================================ -->
+
     <section class="center">
 
-      <h1 id="title">
-        🔥 TWAN 🔥
-      </h1>
+        <h1 id="title">
+            🔥 TWAN 🔥
+        </h1>
 
-      <button id="twan">
-        TWAN
-      </button>
 
-      <p>
-        Klik op TWAN! 🎉
-      </p>
+        <button id="twan">
+            TWAN
+        </button>
+
+
+        <p>
+            Klik op TWAN en verdien kliks! 🎉
+        </p>
 
     </section>
 
 
-    <!-- RECHTER KANT -->
+    <!-- ===============================
+         RECHTER PANEL
+    ================================ -->
+
     <section class="panel">
 
-      <h2>
-        🛒 SHOP
-      </h2>
+        <h2>
+            🛒 SHOP
+        </h2>
 
 
-      <!-- DUBBEL KLIK -->
-      <div class="shop-item">
+        <!-- DUBBELKLIK -->
 
-        <button id="doubleBtn">
-          ✨ Dubbelklik — 20 kliks
-        </button>
+        <div class="shop-item">
 
-        <p class="small">
-          Elke aankoop wordt 2x zo duur.
-        </p>
+            <button id="doubleBtn">
+                ✨ Dubbelklik — 20 kliks
+            </button>
 
-      </div>
+            <p class="small">
+                De prijs verdubbelt iedere keer.
+            </p>
 
-
-      <!-- AUTOKLIK -->
-      <div class="shop-item">
-
-        <button id="autoBtn">
-          🤖 Autoklik — 200 kliks
-        </button>
-
-        <p class="small">
-          Eenmalig. Geeft automatisch kliks.
-        </p>
-
-      </div>
+        </div>
 
 
-      <!-- EXTRA KRACHT -->
-      <div class="shop-item">
+        <!-- AUTOKLIK -->
 
-        <button id="powerBtn">
-          💪 +1 klik — 10 kliks
-        </button>
+        <div class="shop-item">
 
-        <p class="small">
-          Geeft 1 extra klik per druk.
-        </p>
+            <button id="autoBtn">
+                🤖 Autoklik — 200 kliks
+            </button>
 
-      </div>
+            <p class="small">
+                Eenmalig kopen.
+            </p>
+
+        </div>
+
+
+        <!-- EXTRA POWER -->
+
+        <div class="shop-item">
+
+            <button id="powerBtn">
+                💪 +1 klik — 10 kliks
+            </button>
+
+            <p class="small">
+                Geeft extra kliks per druk.
+            </p>
+
+        </div>
+
+
+        <hr>
+
+
+        <!-- ===============================
+             SCOREBORD
+        ================================ -->
+
+        <div class="leaderboard">
+
+            <h2>
+                🏆 SCOREBORD
+            </h2>
+
+
+            <ol id="leaderboard">
+
+                <li>
+                    Nog geen scores!
+                </li>
+
+            </ol>
+
+        </div>
 
     </section>
 
-  </main>
+</main>
 
 
-  <script>
-
-    /* =========================
-       SPEL-VARIABELEN
-    ========================= */
-
-    let clicks = 0;
-
-    let total = 0;
-
-    let perClick = 1;
-
-    let doubleLevel = 0;
-
-    let autoClick = false;
-
-    let extraPower = 0;
-
-    let titleSize = 1;
+<script>
 
 
-    /* =========================
-       ELEMENTEN
-    ========================= */
+/* =================================
+   SPEL VARIABELEN
+================================= */
 
-    const twan =
-      document.getElementById("twan");
+let playerName = "";
 
-    const score =
-      document.getElementById("score");
+let clicks = 0;
 
-    const perClickText =
-      document.getElementById("perClick");
+let total = 0;
 
-    const totalText =
-      document.getElementById("total");
+let perClick = 1;
 
-    const autoStatus =
-      document.getElementById("autoStatus");
+let doubleLevel = 0;
 
-    const doubleStatus =
-      document.getElementById("doubleStatus");
+let autoClick = false;
 
-    const doubleBtn =
-      document.getElementById("doubleBtn");
+let extraPower = 0;
 
-    const autoBtn =
-      document.getElementById("autoBtn");
-
-    const powerBtn =
-      document.getElementById("powerBtn");
-
-    const title =
-      document.getElementById("title");
-
-    const emojiRain =
-      document.getElementById("emojiRain");
+let titleSize = 1;
 
 
-    /* =========================
-       EMOJI'S
-    ========================= */
+/* =================================
+   HTML ELEMENTEN
+================================= */
 
-    const emojis = [
-      "🎉",
-      "🔥",
-      "😂",
-      "💥",
-      "⭐",
-      "🚀",
-      "😎",
-      "✨",
-      "💰",
-      "🤑",
-      "❤️",
-      "🤣",
-      "👑",
-      "⚡",
-      "🍕",
-      "🐸",
-      "🦄",
-      "🥳",
-      "💎",
-      "🤯"
-    ];
+const nameScreen =
+    document.getElementById(
+        "nameScreen"
+    );
 
 
-    /* =========================
-       PRIJS DUBBELKLIK
-    ========================= */
+const nameInput =
+    document.getElementById(
+        "nameInput"
+    );
 
-    function doubleCost() {
 
-      return 20 * Math.pow(2, doubleLevel);
+const startButton =
+    document.getElementById(
+        "startButton"
+    );
+
+
+const playerNameText =
+    document.getElementById(
+        "playerName"
+    );
+
+
+const twan =
+    document.getElementById(
+        "twan"
+    );
+
+
+const score =
+    document.getElementById(
+        "score"
+    );
+
+
+const totalText =
+    document.getElementById(
+        "total"
+    );
+
+
+const perClickText =
+    document.getElementById(
+        "perClick"
+    );
+
+
+const doubleBtn =
+    document.getElementById(
+        "doubleBtn"
+    );
+
+
+const autoBtn =
+    document.getElementById(
+        "autoBtn"
+    );
+
+
+const powerBtn =
+    document.getElementById(
+        "powerBtn"
+    );
+
+
+const autoStatus =
+    document.getElementById(
+        "autoStatus"
+    );
+
+
+const doubleStatus =
+    document.getElementById(
+        "doubleStatus"
+    );
+
+
+const leaderboard =
+    document.getElementById(
+        "leaderboard"
+    );
+
+
+const title =
+    document.getElementById(
+        "title"
+    );
+
+
+const emojiRain =
+    document.getElementById(
+        "emojiRain"
+    );
+
+
+/* =================================
+   START GAME
+================================= */
+
+startButton.addEventListener(
+    "click",
+    startGame
+);
+
+
+nameInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if(event.key === "Enter") {
+
+            startGame();
+
+        }
+
+    }
+);
+
+
+function startGame() {
+
+    const name =
+        nameInput.value.trim();
+
+
+    if(name === "") {
+
+        alert(
+            "Vul eerst je naam in! 😄"
+        );
+
+        return;
 
     }
 
 
-    /* =========================
-       SCHERM UPDATEN
-    ========================= */
-
-    function update() {
-
-      score.textContent =
-        Math.floor(clicks) + " kliks";
+    playerName =
+        name;
 
 
-      perClickText.textContent =
-        perClick +
-        " klik" +
-        (perClick === 1 ? "" : "s") +
-        " per keer";
+    playerNameText.textContent =
+        playerName;
 
 
-      totalText.textContent =
+    nameScreen.style.display =
+        "none";
+
+
+    update();
+
+}
+
+
+/* =================================
+   DUBBELKLIK PRIJS
+================================= */
+
+function doubleCost() {
+
+    /*
+       20 → 40 → 80 → 160 → 320
+    */
+
+    return 20 *
+        Math.pow(
+            2,
+            doubleLevel
+        );
+
+}
+
+
+/* =================================
+   GAME UPDATE
+================================= */
+
+function update() {
+
+
+    /* SCORE */
+
+    score.textContent =
+        Math.floor(clicks)
+        + " kliks";
+
+
+    /* TOTAAL */
+
+    totalText.textContent =
         Math.floor(total);
 
 
-      autoStatus.textContent =
-        autoClick ? "AAN 🤖" : "uit";
+    /* KLIKS PER KLIK */
+
+    const clickPower =
+        perClick *
+        Math.pow(
+            2,
+            doubleLevel
+        )
+        + extraPower;
 
 
-      doubleStatus.textContent =
+    perClickText.textContent =
+        clickPower +
+        " kliks per klik";
+
+
+    /* AUTOKLIK */
+
+    autoStatus.textContent =
+        autoClick
+        ? "AAN 🤖"
+        : "uit";
+
+
+    /* DUBBELKLIK */
+
+    doubleStatus.textContent =
         doubleLevel > 0
-          ? "x" + Math.pow(2, doubleLevel) + " ✨"
-          : "uit";
+        ? "x" +
+          Math.pow(
+              2,
+              doubleLevel
+          )
+        : "uit";
 
 
-      /* Dubbelklik-knop */
+    /* SHOP DUBBELKLIK */
 
-      doubleBtn.textContent =
+    doubleBtn.textContent =
         "✨ Dubbelklik — " +
         doubleCost() +
         " kliks";
 
 
-      doubleBtn.disabled =
+    doubleBtn.disabled =
         clicks < doubleCost();
 
 
-      /* Autoklik-knop */
+    /* AUTOKLIKKER */
 
-      if (autoClick) {
-
-        autoBtn.textContent =
-          "🤖 Autoklik — GEKOCHT!";
-
-        autoBtn.disabled = true;
-
-      } else {
-
-        autoBtn.textContent =
-          "🤖 Autoklik — 200 kliks";
-
-        autoBtn.disabled =
-          clicks < 200;
-
-      }
+    autoBtn.disabled =
+        clicks < 200 ||
+        autoClick;
 
 
-      /* Extra kracht */
+    autoBtn.textContent =
+        autoClick
+        ? "🤖 Autoklik GEKOCHT!"
+        : "🤖 Autoklik — 200 kliks";
 
-      powerBtn.disabled =
+
+    /* POWER */
+
+    powerBtn.disabled =
         clicks < 10;
 
 
-      /* Titel groter maken */
+    /* GROTERE TWAN NAAM */
 
-      title.style.transform =
+    title.style.transform =
         `scale(${titleSize})`;
 
-    }
+
+    /* SCOREBORD */
+
+    updateLeaderboard();
+
+}
 
 
-    /* =========================
-       KLIKS TOEVOEGEN
-    ========================= */
+/* =================================
+   KLIKS TOEVOEGEN
+================================= */
 
-    function addClicks(amount, x, y) {
+function addClicks(
+    amount,
+    x,
+    y
+) {
 
-      clicks += amount;
+    clicks += amount;
 
-      total += amount;
+    total += amount;
 
 
-      showFloatingNumber(
+    showFloating(
         "+" + amount + " 💥",
         x,
         y
-      );
-
-
-      update();
-
-    }
-
-
-    /* =========================
-       EMOJI'S LATEN VALLEN
-    ========================= */
-
-    function createEmojiRain() {
-
-      for (let i = 0; i < 15; i++) {
-
-        const emoji =
-          document.createElement("span");
-
-        emoji.className = "emoji";
-
-        emoji.textContent =
-          emojis[
-            Math.floor(
-              Math.random() *
-              emojis.length
-            )
-          ];
-
-
-        emoji.style.left =
-          Math.random() * 100 + "vw";
-
-
-        emoji.style.fontSize =
-          (1.2 + Math.random() * 2.5)
-          + "rem";
-
-
-        emoji.style.animationDuration =
-          (1.2 + Math.random() * 2)
-          + "s";
-
-
-        emojiRain.appendChild(emoji);
-
-
-        setTimeout(() => {
-
-          emoji.remove();
-
-        }, 3500);
-
-      }
-
-    }
-
-
-    /* =========================
-       +1 EFFECT
-    ========================= */
-
-    function showFloatingNumber(
-      text,
-      x,
-      y
-    ) {
-
-      const element =
-        document.createElement("div");
-
-
-      element.className =
-        "floating-number";
-
-
-      element.textContent =
-        text;
-
-
-      element.style.left =
-        x + "px";
-
-
-      element.style.top =
-        y + "px";
-
-
-      document.body.appendChild(
-        element
-      );
-
-
-      setTimeout(() => {
-
-        element.remove();
-
-      }, 800);
-
-    }
-
-
-    /* =========================
-       OP TWAN KLIKKEN
-    ========================= */
-
-    twan.addEventListener(
-      "click",
-      function(event) {
-
-        /*
-          Basis aantal kliks
-          × dubbelklik-upgrades
-          + extra kracht
-        */
-
-        const amount =
-          perClick *
-          Math.pow(2, doubleLevel)
-          + extraPower;
-
-
-        addClicks(
-          amount,
-          event.clientX,
-          event.clientY
-        );
-
-
-        /* Naam wordt groter */
-
-        titleSize =
-          Math.min(
-            1.6,
-            titleSize + 0.015
-          );
-
-
-        /* Willekeurige emoji naast TWAN */
-
-        const randomEmoji =
-          emojis[
-            Math.floor(
-              Math.random() *
-              emojis.length
-            )
-          ];
-
-
-        title.textContent =
-          "TWAN " +
-          randomEmoji;
-
-
-        /* Emoji-regen */
-
-        createEmojiRain();
-
-      }
     );
 
-
-    /* =========================
-       DUBBELKLIK KOPEN
-    ========================= */
-
-    doubleBtn.addEventListener(
-      "click",
-      function() {
-
-        const cost =
-          doubleCost();
-
-
-        if (clicks >= cost) {
-
-          clicks -= cost;
-
-          doubleLevel++;
-
-          createEmojiRain();
-
-          update();
-
-        }
-
-      }
-    );
-
-
-    /* =========================
-       AUTOKLIK KOPEN
-    ========================= */
-
-    autoBtn.addEventListener(
-      "click",
-      function() {
-
-        if (
-          clicks >= 200 &&
-          !autoClick
-        ) {
-
-          clicks -= 200;
-
-          autoClick = true;
-
-          createEmojiRain();
-
-          update();
-
-        }
-
-      }
-    );
-
-
-    /* =========================
-       EXTRA KRACHT KOPEN
-    ========================= */
-
-    powerBtn.addEventListener(
-      "click",
-      function() {
-
-        if (clicks >= 10) {
-
-          clicks -= 10;
-
-          extraPower++;
-
-          update();
-
-        }
-
-      }
-    );
-
-
-    /* =========================
-       AUTOKLIKKER
-    ========================= */
-
-    setInterval(
-      function() {
-
-        if (autoClick) {
-
-          const amount =
-            perClick *
-            Math.pow(2, doubleLevel)
-            + extraPower;
-
-
-          addClicks(
-            amount,
-            window.innerWidth / 2,
-            150
-          );
-
-        }
-
-      },
-      1000
-    );
-
-
-    /* =========================
-       START
-    ========================= */
 
     update();
 
-  </script>
+}
+
+
+/* =================================
+   TWAN KLIKKEN
+================================= */
+
+twan.addEventListener(
+    "click",
+    function(event) {
+
+
+        const amount =
+            perClick *
+            Math.pow(
+                2,
+                doubleLevel
+            )
+            + extraPower;
+
+
+        addClicks(
+            amount,
+            event.clientX,
+            event.clientY
+        );
+
+
+        /* NAAM WORDT GROTER */
+
+        titleSize =
+            Math.min(
+                1.7,
+                titleSize + .02
+            );
+
+
+        /* ANDERE EMOJI */
+
+        title.textContent =
+            "TWAN " +
+            randomEmoji();
+
+
+        /* EMOJI REGEN */
+
+        createEmojiRain();
+
+    }
+);
+
+
+/* =================================
+   DUBBELKLIK KOPEN
+================================= */
+
+doubleBtn.addEventListener(
+    "click",
+    function() {
+
+        const cost =
+            doubleCost();
+
+
+        if(clicks >= cost) {
+
+            clicks -= cost;
+
+            doubleLevel++;
+
+            createEmojiRain();
+
+            update();
+
+        }
+
+    }
+);
+
+
+/* =================================
+   AUTOKLIK KOPEN
+================================= */
+
+autoBtn.addEventListener(
+    "click",
+    function() {
+
+
+        if(
+            clicks >= 200 &&
+            !autoClick
+        ) {
+
+            clicks -= 200;
+
+            autoClick = true;
+
+            createEmojiRain();
+
+            update();
+
+        }
+
+    }
+);
+
+
+/* =================================
+   +1 POWER KOPEN
+================================= */
+
+powerBtn.addEventListener(
+    "click",
+    function() {
+
+
+        if(clicks >= 10) {
+
+            clicks -= 10;
+
+            extraPower++;
+
+            update();
+
+        }
+
+    }
+);
+
+
+/* =================================
+   AUTOKLIKKER
+================================= */
+
+setInterval(
+    function() {
+
+
+        if(autoClick) {
+
+
+            const amount =
+                perClick *
+                Math.pow(
+                    2,
+                    doubleLevel
+                )
+                + extraPower;
+
+
+            addClicks(
+                amount,
+                window.innerWidth / 2,
+                150
+            );
+
+        }
+
+
+    },
+    1000
+);
+
+
+/* =================================
+   EMOJI LIJST
+================================= */
+
+function randomEmoji() {
+
+
+    const emojis = [
+
+        "🎉",
+        "🔥",
+        "😂",
+        "💥",
+        "⭐",
+        "🚀",
+        "😎",
+        "✨",
+        "💰",
+        "🤑",
+        "❤️",
+        "🤣",
+        "👑",
+        "⚡",
+        "🍕",
+        "🐸",
+        "🦄",
+        "🥳",
+        "💎",
+        "🤯"
+
+    ];
+
+
+    return emojis[
+        Math.floor(
+            Math.random() *
+            emojis.length
+        )
+    ];
+
+}
+
+
+/* =================================
+   EMOJI REGEN
+================================= */
+
+function createEmojiRain() {
+
+
+    for(
+        let i = 0;
+        i < 15;
+        i++
+    ) {
+
+
+        const emoji =
+            document.createElement(
+                "span"
+            );
+
+
+        emoji.className =
+            "emoji";
+
+
+        emoji.textContent =
+            randomEmoji();
+
+
+        emoji.style.left =
+            Math.random() *
+            100 +
+            "vw";
+
+
+        emoji.style.fontSize =
+            (
+                1.2 +
+                Math.random() * 2.5
+            ) +
+            "rem";
+
+
+        emoji.style.animationDuration =
+            (
+                1.2 +
+                Math.random() * 2
+            ) +
+            "s";
+
+
+        emojiRain.appendChild(
+            emoji
+        );
+
+
+        setTimeout(
+            function() {
+
+                emoji.remove();
+
+            },
+            3500
+        );
+
+    }
+
+}
+
+
+/* =================================
+   +KLIKS EFFECT
+================================= */
+
+function showFloating(
+    text,
+    x,
+    y
+) {
+
+
+    const element =
+        document.createElement(
+            "div"
+        );
+
+
+    element.className =
+        "floating";
+
+
+    element.textContent =
+        text;
+
+
+    element.style.left =
+        x + "px";
+
+
+    element.style.top =
+        y + "px";
+
+
+    document.body.appendChild(
+        element
+    );
+
+
+    setTimeout(
+        function() {
+
+            element.remove();
+
+        },
+        800
+    );
+
+}
+
+
+/* =================================
+   SCOREBORD
+================================= */
+
+function updateLeaderboard() {
+
+
+    if(!playerName) {
+
+        return;
+
+    }
+
+
+    /*
+       Scores worden opgeslagen
+       in de browser.
+    */
+
+    let scores =
+        JSON.parse(
+            localStorage.getItem(
+                "twanLeaderboard"
+            )
+        ) || [];
+
+
+    /*
+       Zoek speler
+    */
+
+    const existing =
+        scores.find(
+            player =>
+                player.name ===
+                playerName
+        );
+
+
+    /*
+       Nieuwe score
+    */
+
+    if(existing) {
+
+
+        if(
+            clicks >
+            existing.score
+        ) {
+
+            existing.score =
+                Math.floor(clicks);
+
+        }
+
+
+    } else {
+
+
+        scores.push({
+
+            name:
+                playerName,
+
+            score:
+                Math.floor(clicks)
+
+        });
+
+    }
+
+
+    /*
+       Hoogste eerst
+    */
+
+    scores.sort(
+        function(a,b) {
+
+            return b.score -
+                   a.score;
+
+        }
+    );
+
+
+    /*
+       Top 10
+    */
+
+    scores =
+        scores.slice(
+            0,
+            10
+        );
+
+
+    /*
+       Opslaan
+    */
+
+    localStorage.setItem(
+        "twanLeaderboard",
+        JSON.stringify(
+            scores
+        )
+    );
+
+
+    /*
+       Scorebord leegmaken
+    */
+
+    leaderboard.innerHTML =
+        "";
+
+
+    /*
+       Scores tonen
+    */
+
+    scores.forEach(
+        function(
+            player,
+            index
+        ) {
+
+
+            const li =
+                document.createElement(
+                    "li"
+                );
+
+
+            let medal = "";
+
+
+            if(index === 0) {
+
+                medal = "🥇";
+
+            }
+
+            else if(index === 1) {
+
+                medal = "🥈";
+
+            }
+
+            else if(index === 2) {
+
+                medal = "🥉";
+
+            }
+
+
+            li.textContent =
+                medal +
+                " " +
+                player.name +
+                " — " +
+                player.score +
+                " kliks";
+
+
+            /*
+               Eigen naam geel
+            */
+
+            if(
+                player.name ===
+                playerName
+            ) {
+
+                li.classList.add(
+                    "myName"
+                );
+
+            }
+
+
+            leaderboard.appendChild(
+                li
+            );
+
+        }
+    );
+
+}
+
+
+/* =================================
+   START
+================================= */
+
+update();
+
+</script>
 
 </body>
 </html>
