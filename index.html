@@ -1,120 +1,315 @@
 ```html
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
-    <title>TWAN!</title>
+    <title>TWAN 😏</title>
 
     <style>
-        /* Achtergrond van de website */
+        /* =========================
+           BASIS VAN DE WEBSITE
+           ========================= */
+
         body {
             margin: 0;
             height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff0080, #7928ff);
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #6a00ff, #00d4ff);
-            font-family: Arial, sans-serif;
         }
 
-        /* De knop */
-        button {
-            padding: 20px 40px;
-            font-size: 28px;
+
+        /* =========================
+           DE KLIKKNOP
+           ========================= */
+
+        #knop {
+            position: fixed;
+            top: 30px;
+            z-index: 1000;
+
+            padding: 18px 35px;
+            font-size: 25px;
             font-weight: bold;
+
             border: none;
             border-radius: 15px;
-            background-color: #ffcc00;
+
+            background-color: #ffd700;
             color: #222;
+
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
         }
 
-        /* Effect wanneer je met je muis over de knop gaat */
-        button:hover {
+        /* De knop wordt iets groter als je eroverheen gaat. */
+        #knop:hover {
             transform: scale(1.1);
-            background-color: #ff6600;
-            color: white;
+            background-color: #fff;
         }
 
-        /* Het grote TWAN-scherm */
+
+        /* =========================
+           TWAN
+           ========================= */
+
         #twan {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background-color: #ff006e;
             color: white;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            z-index: 999;
-        }
-
-        /* Het woord TWAN */
-        #twan h1 {
-            margin: 0;
-            font-size: 20vw;
+            font-size: 100px;
             font-weight: 900;
-            text-shadow: 10px 10px 0 #000;
-            animation: groot 0.5s ease-out;
+            text-align: center;
+
+            text-shadow:
+                5px 5px 0 #ff006e,
+                10px 10px 20px rgba(0, 0, 0, 0.5);
+
+            transition: font-size 0.3s ease,
+                        transform 0.3s ease;
         }
 
-        /* Animatie waardoor TWAN groot in beeld komt */
-        @keyframes groot {
-            from {
-                transform: scale(0);
-                opacity: 0;
+
+        /* =========================
+           EMOJI'S
+           ========================= */
+
+        .emoji {
+            position: absolute;
+            font-size: 50px;
+            pointer-events: none;
+
+            animation: zweven 2s ease-in-out infinite;
+        }
+
+
+        /* Emoji's bewegen een beetje heen en weer. */
+        @keyframes zweven {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
             }
 
-            to {
-                transform: scale(1);
-                opacity: 1;
+            50% {
+                transform: translateY(-25px) rotate(10deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
             }
         }
 
-        /* Terug-knop */
-        #terug {
-            padding: 12px 25px;
-            font-size: 20px;
-            border: none;
+
+        /* =========================
+           KLIK-TELLER
+           ========================= */
+
+        #teller {
+            position: fixed;
+            bottom: 25px;
+
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
             border-radius: 10px;
-            cursor: pointer;
-            background-color: white;
-            color: #ff006e;
         }
+
+
+        /* =========================
+           FLASH EFFECT
+           ========================= */
+
+        .flash {
+            animation: flash 0.2s;
+        }
+
+        @keyframes flash {
+
+            0% {
+                background-color: white;
+            }
+
+            100% {
+                background-color: transparent;
+            }
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- De normale knop -->
-    <button onclick="toonTwan()">
-        KLIK HIER 👀
+
+    <!-- =========================
+         KNOP
+         ========================= -->
+
+    <button id="knop" onclick="klikTwan()">
+        KLIK VOOR TWAN 😏
     </button>
 
 
-    <!-- Dit verschijnt zodra je op de knop klikt -->
+    <!-- =========================
+         TWAN
+         ========================= -->
+
     <div id="twan">
+        TWAN
+    </div>
 
-        <h1>TWAN</h1>
 
-        <button id="terug" onclick="verbergTwan()">
-            Terug
-        </button>
+    <!-- =========================
+         KLIKTELLER
+         ========================= -->
 
+    <div id="teller">
+        Klikken: 0
     </div>
 
 
     <script>
-        /* Deze functie maakt TWAN zichtbaar */
-        function toonTwan() {
-            document.getElementById("twan").style.display = "flex";
+
+        /* Hoe vaak er geklikt is. */
+        let aantalKlikken = 0;
+
+
+        /* De verschillende emoji's die rondom TWAN verschijnen. */
+        const emojis = [
+            "😍",
+            "😘",
+            "🥵",
+            "😏",
+            "❤️",
+            "🔥",
+            "💋",
+            "👀",
+            "😉",
+            "💖",
+            "✨",
+            "😈"
+        ];
+
+
+        /* Deze functie wordt iedere keer uitgevoerd
+           wanneer op de knop wordt geklikt. */
+        function klikTwan() {
+
+            aantalKlikken++;
+
+
+            /* =========================
+               TWAN STEEDS GROTER
+               ========================= */
+
+            const twan = document.getElementById("twan");
+
+            /*
+             * Iedere klik maakt TWAN groter.
+             * De Math.min zorgt ervoor dat hij
+             * uiteindelijk niet oneindig buiten
+             * beeld groeit.
+             */
+            let nieuweGrootte = 100 + (aantalKlikken * 20);
+
+            nieuweGrootte = Math.min(nieuweGrootte, 500);
+
+            twan.style.fontSize = nieuweGrootte + "px";
+
+
+            /* =========================
+               MEER EMOJI'S
+               ========================= */
+
+            /*
+             * Bij iedere klik komen er meerdere
+             * nieuwe emoji's bij.
+             */
+            let aantalEmojis = 3 + aantalKlikken;
+
+            /* Maximaal 15 emoji's per klik. */
+            aantalEmojis = Math.min(aantalEmojis, 15);
+
+
+            for (let i = 0; i < aantalEmojis; i++) {
+
+                /* Maak een nieuwe emoji */
+                const emoji = document.createElement("div");
+
+                emoji.classList.add("emoji");
+
+
+                /* Kies willekeurig een emoji */
+                const willekeurig =
+                    emojis[Math.floor(Math.random() * emojis.length)];
+
+                emoji.innerHTML = willekeurig;
+
+
+                /* Willekeurige positie op het scherm */
+                emoji.style.left =
+                    Math.random() * 90 + 5 + "%";
+
+                emoji.style.top =
+                    Math.random() * 80 + 10 + "%";
+
+
+                /* Willekeurige grootte */
+                emoji.style.fontSize =
+                    Math.random() * 50 + 30 + "px";
+
+
+                /* Willekeurige animatiesnelheid */
+                emoji.style.animationDuration =
+                    Math.random() * 2 + 1 + "s";
+
+
+                /* Voeg de emoji toe aan de pagina */
+                document.body.appendChild(emoji);
+
+
+                /*
+                 * Na 4 seconden wordt de emoji
+                 * automatisch verwijderd.
+                 */
+                setTimeout(function () {
+                    emoji.remove();
+                }, 4000);
+
+            }
+
+
+            /* =========================
+               KLIKTELLER BIJWERKEN
+               ========================= */
+
+            document.getElementById("teller").innerHTML =
+                "Klikken: " + aantalKlikken +
+                " 🔥";
+
+
+            /* =========================
+               KORTE FLASH
+               ========================= */
+
+            document.body.classList.remove("flash");
+
+            /*
+             * Een kleine vertraging zorgt ervoor
+             * dat de animatie opnieuw kan starten.
+             */
+            void document.body.offsetWidth;
+
+            document.body.classList.add("flash");
+
         }
 
-        /* Deze functie verbergt TWAN weer */
-        function verbergTwan() {
-            document.getElementById("twan").style.display = "none";
-        }
     </script>
 
 </body>
