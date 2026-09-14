@@ -1,154 +1,121 @@
 ```html
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
-    <!-- De head bevat informatie over de website die niet direct op de pagina staat. -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TWAN!</title>
 
-    <!-- De titel verschijnt bovenaan in het browsertabblad. -->
-    <title>Mijn website - Home</title>
+    <style>
+        /* Achtergrond van de website */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6a00ff, #00d4ff);
+            font-family: Arial, sans-serif;
+        }
 
-    <!-- Hiermee koppel ik mijn CSS-bestand aan deze HTML-pagina. -->
-    <link rel="stylesheet" type="text/css" href="opmaak.css">
+        /* De knop */
+        button {
+            padding: 20px 40px;
+            font-size: 28px;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            background-color: #ffcc00;
+            color: #222;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Effect wanneer je met je muis over de knop gaat */
+        button:hover {
+            transform: scale(1.1);
+            background-color: #ff6600;
+            color: white;
+        }
+
+        /* Het grote TWAN-scherm */
+        #twan {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: #ff006e;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 999;
+        }
+
+        /* Het woord TWAN */
+        #twan h1 {
+            margin: 0;
+            font-size: 20vw;
+            font-weight: 900;
+            text-shadow: 10px 10px 0 #000;
+            animation: groot 0.5s ease-out;
+        }
+
+        /* Animatie waardoor TWAN groot in beeld komt */
+        @keyframes groot {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Terug-knop */
+        #terug {
+            padding: 12px 25px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: white;
+            color: #ff006e;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ========================= -->
-    <!-- HEADER                    -->
-    <!-- ========================= -->
-
-    <header>
-        <h1>Digitale Wereld</h1>
-        <p>Mijn website over computers en digitale technologie</p>
-    </header>
+    <!-- De normale knop -->
+    <button onclick="toonTwan()">
+        KLIK HIER 👀
+    </button>
 
 
-    <!-- ========================= -->
-    <!-- NAVIGATIEMENU             -->
-    <!-- ========================= -->
+    <!-- Dit verschijnt zodra je op de knop klikt -->
+    <div id="twan">
 
-    <nav>
-        <ul>
+        <h1>TWAN</h1>
 
-            <!-- Link naar de homepage. -->
-            <li>
-                <a href="index.html">Home</a>
-            </li>
+        <button id="terug" onclick="verbergTwan()">
+            Terug
+        </button>
 
-            <!-- Dit is het dropdownmenu. -->
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Onderwerpen ▾</a>
-
-                <div class="dropdown-content">
-                    <a href="binairstelsel.html">Binaire stelsel</a>
-                    <a href="kleurmodellen.html">Kleurmodellen</a>
-                </div>
-            </li>
-
-            <!-- Extra link naar de pagina over het binaire stelsel. -->
-            <li>
-                <a href="binairstelsel.html">Binaire stelsel</a>
-            </li>
-
-            <!-- Extra link naar de pagina over kleurmodellen. -->
-            <li>
-                <a href="kleurmodellen.html">Kleurmodellen</a>
-            </li>
-
-        </ul>
-    </nav>
+    </div>
 
 
-    <!-- ========================= -->
-    <!-- HOOFDGEDEELTE             -->
-    <!-- ========================= -->
+    <script>
+        /* Deze functie maakt TWAN zichtbaar */
+        function toonTwan() {
+            document.getElementById("twan").style.display = "flex";
+        }
 
-    <main>
-
-        <section class="hero">
-            <h2>Welkom op mijn website!</h2>
-
-            <p>
-                Welkom op mijn website over de digitale wereld.
-                Op deze website leg ik uit hoe computers informatie
-                verwerken en hoe digitale kleuren worden opgebouwd.
-            </p>
-
-            <p>
-                Gebruik het menu hierboven om naar de verschillende
-                onderwerpen te gaan.
-            </p>
-        </section>
-
-
-        <!-- Een div is een block-element waarmee ik een gedeelte
-             van de pagina kan groeperen. -->
-        <div class="card-container">
-
-            <div class="card">
-                <h2>Binaire stelsel</h2>
-
-                <p>
-                    Computers werken met nullen en enen.
-                    Op mijn pagina over het binaire stelsel
-                    leg ik uit hoe dit werkt.
-                </p>
-
-                <a class="button" href="binairstelsel.html">
-                    Bekijk binaire stelsel
-                </a>
-            </div>
-
-
-            <div class="card">
-                <h2>Kleurmodellen</h2>
-
-                <p>
-                    Digitale kleuren kunnen op verschillende manieren
-                    worden weergegeven. Bijvoorbeeld met RGB, CMYK
-                    en HEX-kleuren.
-                </p>
-
-                <a class="button" href="kleurmodellen.html">
-                    Bekijk kleurmodellen
-                </a>
-            </div>
-
-        </div>
-
-
-        <!-- ========================= -->
-        <!-- CSS POSITIONERING          -->
-        <!-- ========================= -->
-
-        <section class="position-demo">
-
-            <h2>Positioneren met CSS</h2>
-
-            <p>
-                Met CSS kun je bepalen waar onderdelen van een website
-                worden geplaatst. Hieronder zie je een voorbeeld.
-            </p>
-
-            <div class="position-box">
-                Dit element is gepositioneerd met CSS.
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ========================= -->
-    <!-- FOOTER                    -->
-    <!-- ========================= -->
-
-    <footer>
-        <p>© 2026 Mijn website - Gemaakt met HTML, CSS en GitHub Pages</p>
-    </footer>
+        /* Deze functie verbergt TWAN weer */
+        function verbergTwan() {
+            document.getElementById("twan").style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
