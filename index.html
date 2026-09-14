@@ -1,10 +1,155 @@
-<html>
-    <head>
+```html
+<!DOCTYPE html>
+<html lang="nl">
 
-    </head>
+<head>
+    <!-- De head bevat informatie over de website die niet direct op de pagina staat. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body>
-        Dit is mijn eerste website!
-    </body>
+    <!-- De titel verschijnt bovenaan in het browsertabblad. -->
+    <title>Mijn website - Home</title>
 
+    <!-- Hiermee koppel ik mijn CSS-bestand aan deze HTML-pagina. -->
+    <link rel="stylesheet" type="text/css" href="opmaak.css">
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- HEADER                    -->
+    <!-- ========================= -->
+
+    <header>
+        <h1>Digitale Wereld</h1>
+        <p>Mijn website over computers en digitale technologie</p>
+    </header>
+
+
+    <!-- ========================= -->
+    <!-- NAVIGATIEMENU             -->
+    <!-- ========================= -->
+
+    <nav>
+        <ul>
+
+            <!-- Link naar de homepage. -->
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <!-- Dit is het dropdownmenu. -->
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Onderwerpen ▾</a>
+
+                <div class="dropdown-content">
+                    <a href="binairstelsel.html">Binaire stelsel</a>
+                    <a href="kleurmodellen.html">Kleurmodellen</a>
+                </div>
+            </li>
+
+            <!-- Extra link naar de pagina over het binaire stelsel. -->
+            <li>
+                <a href="binairstelsel.html">Binaire stelsel</a>
+            </li>
+
+            <!-- Extra link naar de pagina over kleurmodellen. -->
+            <li>
+                <a href="kleurmodellen.html">Kleurmodellen</a>
+            </li>
+
+        </ul>
+    </nav>
+
+
+    <!-- ========================= -->
+    <!-- HOOFDGEDEELTE             -->
+    <!-- ========================= -->
+
+    <main>
+
+        <section class="hero">
+            <h2>Welkom op mijn website!</h2>
+
+            <p>
+                Welkom op mijn website over de digitale wereld.
+                Op deze website leg ik uit hoe computers informatie
+                verwerken en hoe digitale kleuren worden opgebouwd.
+            </p>
+
+            <p>
+                Gebruik het menu hierboven om naar de verschillende
+                onderwerpen te gaan.
+            </p>
+        </section>
+
+
+        <!-- Een div is een block-element waarmee ik een gedeelte
+             van de pagina kan groeperen. -->
+        <div class="card-container">
+
+            <div class="card">
+                <h2>Binaire stelsel</h2>
+
+                <p>
+                    Computers werken met nullen en enen.
+                    Op mijn pagina over het binaire stelsel
+                    leg ik uit hoe dit werkt.
+                </p>
+
+                <a class="button" href="binairstelsel.html">
+                    Bekijk binaire stelsel
+                </a>
+            </div>
+
+
+            <div class="card">
+                <h2>Kleurmodellen</h2>
+
+                <p>
+                    Digitale kleuren kunnen op verschillende manieren
+                    worden weergegeven. Bijvoorbeeld met RGB, CMYK
+                    en HEX-kleuren.
+                </p>
+
+                <a class="button" href="kleurmodellen.html">
+                    Bekijk kleurmodellen
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- CSS POSITIONERING          -->
+        <!-- ========================= -->
+
+        <section class="position-demo">
+
+            <h2>Positioneren met CSS</h2>
+
+            <p>
+                Met CSS kun je bepalen waar onderdelen van een website
+                worden geplaatst. Hieronder zie je een voorbeeld.
+            </p>
+
+            <div class="position-box">
+                Dit element is gepositioneerd met CSS.
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================= -->
+    <!-- FOOTER                    -->
+    <!-- ========================= -->
+
+    <footer>
+        <p>© 2026 Mijn website - Gemaakt met HTML, CSS en GitHub Pages</p>
+    </footer>
+
+</body>
 </html>
+```
