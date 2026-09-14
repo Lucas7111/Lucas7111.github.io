@@ -1,1166 +1,2631 @@
-```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Twan Clicker</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twan Clicker 2.0</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      color: white;
-      background: linear-gradient(135deg, #111827, #4c1d95, #7c3aed);
-      overflow: hidden;
-    }
+:root {
+  --bg1:#090b18;
+  --bg2:#25105a;
+  --bg3:#6319a8;
+  --card:rgba(20,20,40,.88);
+  --purple:#8b5cf6;
+  --pink:#ec4899;
+  --gold:#facc15;
+  --green:#22c55e;
+  --blue:#38bdf8;
+}
 
-    button {
-      font-family: inherit;
-      cursor: pointer;
-    }
+body {
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  color:white;
+  background:
+    radial-gradient(circle at 50% 30%,#4c1d95 0%,transparent 35%),
+    linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+  overflow-x:hidden;
+}
 
-    /* Bovenbalk */
-    .topbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 70px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
-      z-index: 10;
-    }
+button {
+  font-family:inherit;
+  cursor:pointer;
+}
 
-    .top-left,
-    .top-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+button:disabled {
+  opacity:.4;
+  cursor:not-allowed;
+}
 
-    .small-button,
-    .shop-button {
-      border: none;
-      padding: 11px 16px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.15);
-      color: white;
-      font-weight: bold;
-    }
+/* TOPBAR */
 
-    .small-button:hover,
-    .shop-button:hover {
-      background: rgba(255,255,255,0.25);
-    }
+.topbar {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  background:rgba(0,0,0,.35);
+  backdrop-filter:blur(15px);
+  z-index:100;
+}
 
-    /* Score */
-    .score-container {
-      position: fixed;
-      top: 90px;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      z-index: 2;
-    }
+.top-left,
+.top-right {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
 
-    #score {
-      font-size: 50px;
-      font-weight: 900;
-    }
+.top-button {
+  border:0;
+  border-radius:12px;
+  padding:11px 15px;
+  color:white;
+  background:rgba(255,255,255,.13);
+  font-weight:bold;
+}
 
-    .score-label {
-      opacity: 0.8;
-    }
+.top-button:hover {
+  background:rgba(255,255,255,.23);
+}
 
-    /* Twan knop */
-    .click-area {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+#playerName {
+  font-weight:bold;
+}
 
-    #twanButton {
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      border: 8px solid rgba(255,255,255,0.4);
-      background: radial-gradient(
-        circle at 35% 30%,
-        #f472b6,
-        #9333ea 55%,
-        #4c1d95
-      );
-      color: white;
-      font-size: 52px;
-      font-weight: 900;
-      box-shadow:
-        0 20px 70px rgba(0,0,0,0.4),
-        inset 0 0 30px rgba(255,255,255,0.2);
-      transition: transform 0.08s;
-    }
+/* SCORE */
 
-    #twanButton:active {
-      transform: scale(0.9);
-    }
+.score-area {
+  position:fixed;
+  top:85px;
+  left:50%;
+  transform:translateX(-50%);
+  text-align:center;
+  z-index:5;
+}
 
-    /* Winkel */
-    .shop {
-      position: fixed;
-      top: 85px;
-      right: 20px;
-      width: 350px;
-      max-height: 80vh;
-      overflow-y: auto;
-      padding: 20px;
-      background: rgba(17,24,39,0.97);
-      border-radius: 18px;
-      box-shadow: 0 20px 70px rgba(0,0,0,0.5);
-      z-index: 20;
-    }
+#score {
+  font-size:54px;
+  font-weight:900;
+  text-shadow:0 0 30px #a78bfa;
+}
 
-    .hidden {
-      display: none !important;
-    }
+#levelText {
+  color:#ddd;
+}
 
-    .shop h2 {
-      margin-top: 0;
-    }
+#multiplierText {
+  color:#facc15;
+  font-weight:bold;
+}
 
-    .upgrade {
-      width: 100%;
-      padding: 15px;
-      margin: 8px 0;
-      text-align: left;
-      color: white;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 12px;
-    }
+/* MAIN BUTTON */
 
-    .upgrade:hover:not(:disabled) {
-      background: rgba(255,255,255,0.16);
-    }
+.main-area {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    .upgrade:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
-    }
+#twanButton {
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  border:9px solid rgba(255,255,255,.3);
+  color:white;
+  font-size:52px;
+  font-weight:900;
+  background:
+    radial-gradient(circle at 35% 25%,#f9a8d4,#c026d3 45%,#581c87 80%);
+  box-shadow:
+    0 0 40px #9333ea,
+    0 25px 80px rgba(0,0,0,.6),
+    inset 0 0 35px rgba(255,255,255,.25);
+  transition:.08s;
+  position:relative;
+}
 
-    .upgrade strong {
-      display: block;
-      margin-bottom: 5px;
-    }
+#twanButton:hover {
+  transform:scale(1.04);
+}
 
-    /* Scorebord */
-    .leaderboard {
-      position: fixed;
-      left: 20px;
-      bottom: 20px;
-      width: 300px;
-      max-height: 300px;
-      overflow-y: auto;
-      padding: 16px;
-      background: rgba(17,24,39,0.85);
-      border-radius: 16px;
-      z-index: 5;
-    }
+#twanButton:active {
+  transform:scale(.90);
+}
 
-    .leaderboard h3 {
-      margin-top: 0;
-    }
+.gold-button {
+  background:
+    radial-gradient(circle at 35% 25%,#fff7ae,#facc15 45%,#a16207 85%) !important;
+  box-shadow:0 0 70px #facc15 !important;
+  color:#4a2b00 !important;
+}
 
-    .leader-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
+/* COMBO */
 
-    /* Modals */
-    .modal-background {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0,0,0,0.75);
-      z-index: 100;
-    }
+#comboBox {
+  position:fixed;
+  top:180px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:22px;
+  font-weight:bold;
+  color:#fb7185;
+  opacity:0;
+  transition:.2s;
+  z-index:20;
+}
 
-    .modal {
-      width: min(420px, 90%);
-      padding: 25px;
-      background: #111827;
-      border-radius: 18px;
-      box-shadow: 0 30px 100px rgba(0,0,0,0.6);
-    }
+#comboBox.show {
+  opacity:1;
+}
 
-    .modal h2 {
-      margin-top: 0;
-    }
+/* PANELS */
 
-    .modal input {
-      width: 100%;
-      padding: 13px;
-      margin: 8px 0 12px;
-      color: white;
-      background: #1f2937;
-      border: 1px solid #374151;
-      border-radius: 10px;
-    }
+.panel {
+  position:fixed;
+  top:80px;
+  right:15px;
+  width:380px;
+  max-width:calc(100vw - 30px);
+  max-height:calc(100vh - 100px);
+  overflow-y:auto;
+  padding:20px;
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:20px;
+  box-shadow:0 25px 100px rgba(0,0,0,.6);
+  backdrop-filter:blur(15px);
+  z-index:200;
+}
 
-    .primary-button {
-      width: 100%;
-      padding: 13px;
-      color: white;
-      background: #8b5cf6;
-      border: none;
-      border-radius: 10px;
-      font-weight: bold;
-    }
+.hidden {
+  display:none !important;
+}
 
-    /* Vaseline event */
-    #vaselineEvent {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: rgba(0,0,0,0.8);
-      z-index: 80;
-    }
+.panel h2 {
+  margin-top:0;
+}
 
-    #vaselineImage {
-      width: min(75vw, 650px);
-      max-height: 75vh;
-      object-fit: contain;
-      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
-      cursor: pointer;
-    }
+.close {
+  float:right;
+  border:0;
+  background:#ef4444;
+  color:white;
+  border-radius:8px;
+  padding:6px 10px;
+}
 
-    .vaseline-text {
-      margin-top: 15px;
-      font-size: 24px;
-      font-weight: bold;
-    }
+/* SHOP */
 
-    /* Melding */
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 30px;
-      transform: translateX(-50%);
-      padding: 13px 20px;
-      background: #10b981;
-      border-radius: 30px;
-      font-weight: bold;
-      z-index: 200;
-    }
+.shop-item {
+  width:100%;
+  padding:14px;
+  margin:7px 0;
+  text-align:left;
+  color:white;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:13px;
+}
 
-    @media (max-width: 700px) {
-      #twanButton {
-        width: 190px;
-        height: 190px;
-        font-size: 42px;
-      }
+.shop-item:hover:not(:disabled) {
+  background:rgba(139,92,246,.35);
+}
 
-      .leaderboard {
-        width: 220px;
-        font-size: 13px;
-      }
+.shop-item strong {
+  display:block;
+  font-size:16px;
+  margin-bottom:4px;
+}
 
-      .shop {
-        width: calc(100% - 30px);
-        right: 15px;
-      }
-    }
-  </style>
+.price {
+  color:#facc15;
+  font-weight:bold;
+}
+
+/* STATS */
+
+.stat {
+  display:flex;
+  justify-content:space-between;
+  padding:9px 0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+/* LEADERBOARD */
+
+.leaderboard {
+  position:fixed;
+  left:15px;
+  bottom:15px;
+  width:310px;
+  max-height:310px;
+  overflow-y:auto;
+  padding:16px;
+  background:rgba(10,10,25,.82);
+  border-radius:18px;
+  z-index:30;
+}
+
+.leader-row {
+  display:flex;
+  justify-content:space-between;
+  padding:8px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.gold {
+  color:#facc15;
+}
+
+/* MODAL */
+
+.modal-bg {
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.8);
+  z-index:1000;
+}
+
+.modal {
+  width:min(450px,90%);
+  max-height:90vh;
+  overflow:auto;
+  padding:25px;
+  background:#111827;
+  border-radius:20px;
+  box-shadow:0 30px 100px #000;
+}
+
+.modal input {
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  background:#1f2937;
+  border:1px solid #374151;
+  color:white;
+  border-radius:10px;
+}
+
+.primary {
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:linear-gradient(90deg,#8b5cf6,#ec4899);
+  color:white;
+  font-weight:bold;
+}
+
+/* VASELINE */
+
+#eventOverlay {
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  background:rgba(0,0,0,.85);
+  z-index:900;
+}
+
+#vaselineImage {
+  width:min(75vw,650px);
+  max-height:70vh;
+  object-fit:contain;
+  cursor:pointer;
+  filter:drop-shadow(0 20px 60px rgba(255,255,255,.25));
+  animation:vaselinePulse 1s infinite alternate;
+}
+
+@keyframes vaselinePulse {
+  from { transform:scale(1); }
+  to { transform:scale(1.06); }
+}
+
+.event-title {
+  font-size:25px;
+  font-weight:bold;
+  text-align:center;
+  margin-top:10px;
+}
+
+/* ACHIEVEMENTS */
+
+.achievement {
+  padding:12px;
+  margin:7px 0;
+  border-radius:12px;
+  background:rgba(255,255,255,.06);
+}
+
+.achievement.done {
+  border:1px solid #22c55e;
+  background:rgba(34,197,94,.15);
+}
+
+.badge {
+  font-size:28px;
+}
+
+/* NOTIFICATION */
+
+.toast {
+  position:fixed;
+  left:50%;
+  bottom:30px;
+  transform:translateX(-50%);
+  padding:13px 20px;
+  border-radius:30px;
+  background:#22c55e;
+  color:white;
+  font-weight:bold;
+  z-index:2000;
+  box-shadow:0 10px 40px #000;
+}
+
+/* PARTICLES */
+
+.particle {
+  position:fixed;
+  pointer-events:none;
+  font-size:20px;
+  font-weight:bold;
+  animation:particleUp 1s forwards;
+  z-index:500;
+}
+
+@keyframes particleUp {
+  0% {
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+
+  100% {
+    opacity:0;
+    transform:translateY(-100px) scale(1.5);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+  #twanButton {
+    width:200px;
+    height:200px;
+    font-size:40px;
+  }
+
+  #score {
+    font-size:40px;
+  }
+
+  .leaderboard {
+    width:220px;
+    font-size:13px;
+  }
+
+  .panel {
+    left:15px;
+    right:15px;
+    width:auto;
+  }
+
+}
+</style>
 </head>
 
 <body>
 
-  <!-- BOVENBALK -->
-  <header class="topbar">
-    <div class="top-left">
-      <button class="small-button" id="accountButton">
-        👤 Account
-      </button>
+<!-- TOPBAR -->
 
-      <span id="playerName">Gast</span>
-    </div>
+<header class="topbar">
 
-    <div class="top-right">
-      <button class="shop-button" id="shopButton">
-        🛒 Winkel
-      </button>
-    </div>
-  </header>
+  <div class="top-left">
 
+    <button class="top-button" onclick="openPanel('accountPanel')">
+      👤 Account
+    </button>
 
-  <!-- SCORE -->
-  <div class="score-container">
-    <div id="score">0</div>
-    <div class="score-label">kliks</div>
+    <span id="playerName">Gast</span>
+
   </div>
 
+  <div class="top-right">
 
-  <!-- HOOFDKNOP -->
-  <main class="click-area">
-    <button id="twanButton">
-      twan
-    </button>
-  </main>
-
-
-  <!-- WINKEL -->
-  <aside class="shop hidden" id="shop">
-
-    <h2>🛒 Winkel</h2>
-
-    <button
-      class="upgrade"
-      id="doubleUpgrade"
-    >
-      <strong id="doubleTitle">
-        Dubbel klik — 20 kliks
-      </strong>
-
-      Per keer klikken krijg je 2 kliks.
+    <button class="top-button" onclick="openPanel('statsPanel')">
+      📊 Stats
     </button>
 
-
-    <button
-      class="upgrade"
-      id="autoUpgrade"
-    >
-      <strong id="autoTitle">
-        Autoklik — 200 kliks
-      </strong>
-
-      De autoklik klikt automatisch.
-      Iedere aankoop maakt hem sneller.
+    <button class="top-button" onclick="openPanel('shopPanel')">
+      🛒 Winkel
     </button>
 
+  </div>
 
-    <p id="autoInfo">
-      Autokliks: 0
+</header>
+
+
+<!-- SCORE -->
+
+<div class="score-area">
+
+  <div id="score">0</div>
+
+  <div id="levelText">
+    Level 1 — Beginner
+  </div>
+
+  <div id="multiplierText">
+    x1 klik
+  </div>
+
+</div>
+
+
+<!-- COMBO -->
+
+<div id="comboBox">
+  🔥 Combo x1
+</div>
+
+
+<!-- MAIN -->
+
+<main class="main-area">
+
+  <button id="twanButton" onclick="clickTwan()">
+    TWAN
+  </button>
+
+</main>
+
+
+<!-- LEADERBOARD -->
+
+<section class="leaderboard">
+
+  <h3>🏆 Scorebord</h3>
+
+  <div id="leaderboardList"></div>
+
+</section>
+
+
+<!-- SHOP -->
+
+<div class="panel hidden" id="shopPanel">
+
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>🛒 Twan Winkel</h2>
+
+
+  <h3>🖱️ Klik upgrades</h3>
+
+  <button class="shop-item" id="doubleButton" onclick="buyDouble()">
+    <strong>✌️ Dubbel klik</strong>
+    Iedere klik geeft +2.
+    <br>
+    <span class="price">20 kliks</span>
+  </button>
+
+
+  <button class="shop-item" onclick="buyTriple()">
+    <strong>⚡ Triple klik</strong>
+    Iedere klik geeft +3.
+    <br>
+    <span class="price" id="triplePrice">5.000 kliks</span>
+  </button>
+
+
+  <button class="shop-item" onclick="buyCritical()">
+    <strong>💥 Kritieke klik</strong>
+    Kans op x5 kliks.
+    <br>
+    <span class="price" id="criticalPrice">2.000 kliks</span>
+  </button>
+
+
+  <button class="shop-item" onclick="buyMegaClick()">
+    <strong>💎 Mega klik</strong>
+    Kans op een enorme bonus.
+    <br>
+    <span class="price" id="megaPrice">10.000 kliks</span>
+  </button>
+
+
+  <h3>🤖 Autoklikkers</h3>
+
+  <button class="shop-item" onclick="buyAuto()">
+    <strong>🤖 Autoklikker</strong>
+    <span id="autoDescription">
+      1 klik per seconde.
+    </span>
+    <br>
+    <span class="price" id="autoPrice">
+      200 kliks
+    </span>
+  </button>
+
+
+  <button class="shop-item" onclick="buyTurbo()">
+    <strong>🚀 Turbo autoklikker</strong>
+    Maakt alle autoklikkers sneller.
+    <br>
+    <span class="price" id="turboPrice">10.000 kliks</span>
+  </button>
+
+
+  <button class="shop-item" onclick="buySuperComputer()">
+    <strong>💻 Supercomputer</strong>
+    Gigantische automatische productie.
+    <br>
+    <span class="price" id="computerPrice">100.000 kliks</span>
+  </button>
+
+
+  <h3>💎 Diamanten</h3>
+
+  <button class="shop-item" onclick="buyScoreBoost()">
+    <strong>💎 Permanente boost</strong>
+    Permanente +10% score.
+    <br>
+    <span class="price">10 diamanten</span>
+  </button>
+
+
+  <h3>🎨 Skins</h3>
+
+  <button class="shop-item" onclick="buySkin('gold')">
+    <strong>👑 Golden Twan</strong>
+    <span class="price">25 diamanten</span>
+  </button>
+
+  <button class="shop-item" onclick="buySkin('ice')">
+    <strong>❄️ Ice Twan</strong>
+    <span class="price">20 diamanten</span>
+  </button>
+
+  <button class="shop-item" onclick="buySkin('fire')">
+    <strong>🔥 Fire Twan</strong>
+    <span class="price">20 diamanten</span>
+  </button>
+
+  <button class="shop-item" onclick="buySkin('rainbow')">
+    <strong>🌈 Rainbow Twan</strong>
+    <span class="price">30 diamanten</span>
+  </button>
+
+
+  <h3>🔥 Prestige</h3>
+
+  <button class="shop-item" onclick="prestige()">
+    <strong>🔥 Prestige</strong>
+    Reset je kliks en krijg een permanente multiplier.
+    <br>
+    <span class="price">
+      Vereist 1.000.000 kliks
+    </span>
+  </button>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="panel hidden" id="statsPanel">
+
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>📊 Statistieken</h2>
+
+  <div class="stat">
+    <span>Totale kliks</span>
+    <b id="statTotal">0</b>
+  </div>
+
+  <div class="stat">
+    <span>Hoogste score</span>
+    <b id="statHigh">0</b>
+  </div>
+
+  <div class="stat">
+    <span>Autokliks</span>
+    <b id="statAuto">0</b>
+  </div>
+
+  <div class="stat">
+    <span>Vaseline bonussen</span>
+    <b id="statVaseline">0</b>
+  </div>
+
+  <div class="stat">
+    <span>Kritieke kliks</span>
+    <b id="statCritical">0</b>
+  </div>
+
+  <div class="stat">
+    <span>Golden Twans</span>
+    <b id="statGolden">0</b>
+  </div>
+
+  <div class="stat">
+    <span>Combo record</span>
+    <b id="statCombo">0</b>
+  </div>
+
+  <div class="stat">
+    <span>Diamanten</span>
+    <b id="statDiamonds">0</b>
+  </div>
+
+  <div class="stat">
+    <span>Prestige</span>
+    <b id="statPrestige">0</b>
+  </div>
+
+</div>
+
+
+<!-- ACCOUNT -->
+
+<div class="panel hidden" id="accountPanel">
+
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>👤 Account</h2>
+
+  <input
+    id="nameInput"
+    maxlength="20"
+    placeholder="Naam"
+    style="width:100%;padding:12px;border-radius:10px;border:0"
+  >
+
+  <br><br>
+
+  <button class="primary" onclick="saveName()">
+    Naam opslaan
+  </button>
+
+  <hr>
+
+  <p>
+    Level: <b id="accountLevel">1</b>
+  </p>
+
+  <p>
+    Diamanten: 💎 <b id="accountDiamonds">0</b>
+  </p>
+
+  <p>
+    Prestige: 🔥 <b id="accountPrestige">0</b>
+  </p>
+
+  <button class="top-button" onclick="dailyReward()">
+    🎁 Dagelijkse bonus
+  </button>
+
+</div>
+
+
+<!-- ACHIEVEMENTS -->
+
+<div class="panel hidden" id="achievementPanel">
+
+  <button class="close" onclick="closePanels()">X</button>
+
+  <h2>🏆 Achievements</h2>
+
+  <div id="achievementList"></div>
+
+</div>
+
+
+<!-- EVENT -->
+
+<div id="eventOverlay" class="hidden">
+
+  <img
+    id="vaselineImage"
+    alt="Grote Vaseline pot"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThj9fzBLw9iQS26WYscuAg-nHX-Dd36d8vu1tOCuTYXx2WfGtRQhcygKZA3MucvK9r5TgEwnWW6NDyhASahDprB45687UqOWWW54SfLIuk&s=10"
+  >
+
+  <div class="event-title">
+    🧴 KLIK OP DE VASELINE!<br>
+    JE SCORE WORDT x2!
+  </div>
+
+</div>
+
+
+<!-- NAME MODAL -->
+
+<div class="modal-bg hidden" id="nameModal">
+
+  <div class="modal">
+
+    <h2>👋 Welkom bij Twan Clicker!</h2>
+
+    <p>
+      Kies eerst je naam.
     </p>
 
-  </aside>
-
-
-  <!-- SCOREBORD -->
-  <section class="leaderboard">
-
-    <h3>🏆 Scorebord</h3>
-
-    <div id="leaderboardList">
-      Nog geen spelers.
-    </div>
-
-  </section>
-
-
-  <!-- NAAM INVULLEN -->
-  <div
-    class="modal-background hidden"
-    id="nameModal"
-  >
-
-    <div class="modal">
-
-      <h2>Welkom bij Twan Clicker!</h2>
-
-      <p>
-        Vul eerst je naam in.
-      </p>
-
-      <input
-        id="nameInput"
-        maxlength="20"
-        placeholder="Jouw naam"
-      >
-
-      <button
-        class="primary-button"
-        id="startButton"
-      >
-        Start met klikken
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- ACCOUNT -->
-  <div
-    class="modal-background hidden"
-    id="accountModal"
-  >
-
-    <div class="modal">
-
-      <h2>👤 Account</h2>
-
-      <p>
-        Je naam en score worden automatisch op deze
-        browser opgeslagen.
-      </p>
-
-      <input
-        id="accountNameInput"
-        maxlength="20"
-        placeholder="Jouw naam"
-      >
-
-      <button
-        class="primary-button"
-        id="saveAccountButton"
-      >
-        Naam opslaan
-      </button>
-
-      <br><br>
-
-      <button
-        class="small-button"
-        style="width:100%"
-        id="closeAccountButton"
-      >
-        Sluiten
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- VASELINE EVENT -->
-  <div
-    id="vaselineEvent"
-    class="hidden"
-  >
-
-    <img
-      id="vaselineImage"
-      alt="Grote pot Vaseline"
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Vaseline-petroleum-jelly.jpg/640px-Vaseline-petroleum-jelly.jpg"
+    <input
+      id="firstName"
+      maxlength="20"
+      placeholder="Jouw naam"
     >
 
-    <div class="vaseline-text">
-      🧴 KLIK OP DE VASELINE EN VERDUBBEL JE SCORE!
-    </div>
+    <button class="primary" onclick="startGame()">
+      🚀 Start
+    </button>
 
   </div>
 
-
-  <script>
-
-    /*
-      ==========================================
-      TWAN CLICKER
-      ==========================================
-    */
-
-    const SAVE_KEY = "twanClickerSave";
-    const SCOREBOARD_KEY = "twanClickerScoreboard";
+</div>
 
 
-    let game = {
-      name: "",
-      score: 0,
+<script>
 
-      // Dubbelklik
-      doubleClick: false,
+/* =========================================================
+   GAME DATA
+========================================================= */
 
-      // Aantal autoklik upgrades
-      autoClicks: 0,
+const SAVE_KEY = "TWAN_CLICKER_2";
 
-      // Eerste prijs is 200
-      autoCost: 200
-    };
+let game = {
+
+  name:"",
+
+  score:0,
+
+  totalClicks:0,
+
+  highestScore:0,
+
+  clickPower:1,
+
+  double:false,
+
+  triple:false,
+
+  critical:false,
+
+  mega:false,
+
+  criticalChance:0.05,
+
+  autoClicks:0,
+
+  autoRate:1,
+
+  turbo:0,
+
+  superComputer:0,
+
+  diamonds:0,
+
+  permanentBoost:1,
+
+  level:1,
+
+  prestige:0,
+
+  combo:0,
+
+  comboRecord:0,
+
+  lastClick:0,
+
+  vaselineCount:0,
+
+  criticalCount:0,
+
+  goldenCount:0,
+
+  playTime:0,
+
+  skins:["default"],
+
+  currentSkin:"default",
+
+  dailyClaim:0,
+
+  achievements:[]
+
+};
 
 
-    /*
-      ELEMENTEN
-    */
+/* =========================================================
+   LADEN
+========================================================= */
 
-    const scoreElement =
-      document.getElementById("score");
+function loadGame(){
 
-    const playerNameElement =
-      document.getElementById("playerName");
+  const saved =
+    localStorage.getItem(SAVE_KEY);
 
-    const twanButton =
-      document.getElementById("twanButton");
+  if(saved){
 
-    const shopButton =
-      document.getElementById("shopButton");
+    try{
 
-    const shop =
-      document.getElementById("shop");
+      game={
+        ...game,
+        ...JSON.parse(saved)
+      };
 
-    const doubleUpgrade =
-      document.getElementById("doubleUpgrade");
+    }catch(e){
 
-    const autoUpgrade =
-      document.getElementById("autoUpgrade");
+      console.log("Save beschadigd.");
 
-    const autoTitle =
-      document.getElementById("autoTitle");
-
-    const doubleTitle =
-      document.getElementById("doubleTitle");
-
-    const autoInfo =
-      document.getElementById("autoInfo");
-
-    const nameModal =
-      document.getElementById("nameModal");
-
-    const accountModal =
-      document.getElementById("accountModal");
-
-    const leaderboardList =
-      document.getElementById("leaderboardList");
-
-
-    /*
-      OPSLAAN
-    */
-
-    function saveGame() {
-
-      localStorage.setItem(
-        SAVE_KEY,
-        JSON.stringify(game)
-      );
-
-      updateScoreboard();
     }
 
+  }
 
-    /*
-      LADEN
-    */
+}
 
-    function loadGame() {
 
-      const saved =
-        localStorage.getItem(SAVE_KEY);
+/* =========================================================
+   OPSLAAN
+========================================================= */
 
-      if (saved) {
+function saveGame(){
 
-        try {
+  if(game.score>game.highestScore){
 
-          const parsed =
-            JSON.parse(saved);
+    game.highestScore=
+      Math.floor(game.score);
 
-          game = {
-            ...game,
-            ...parsed
-          };
+  }
 
-        } catch (error) {
+  localStorage.setItem(
+    SAVE_KEY,
+    JSON.stringify(game)
+  );
 
-          console.log(
-            "Opslaan kon niet worden geladen."
-          );
+  updateUI();
+  updateLeaderboard();
+}
 
-        }
 
-      }
-    }
+/* =========================================================
+   NAAM
+========================================================= */
 
+function startGame(){
 
-    /*
-      SCOREBORD OPHALEN
-    */
-
-    function getScoreboard() {
-
-      const saved =
-        localStorage.getItem(SCOREBOARD_KEY);
-
-      if (!saved) {
-        return {};
-      }
-
-      try {
-        return JSON.parse(saved);
-      } catch {
-        return {};
-      }
-    }
-
-
-    /*
-      SCOREBORD UPDATEN
-    */
-
-    function updateScoreboard() {
-
-      if (!game.name) {
-        return;
-      }
-
-      const scoreboard =
-        getScoreboard();
-
-
-      /*
-        Bewaar de hoogste score
-      */
-
-      if (
-        !scoreboard[game.name] ||
-        game.score > scoreboard[game.name]
-      ) {
-
-        scoreboard[game.name] =
-          Math.floor(game.score);
-
-      }
-
-
-      localStorage.setItem(
-        SCOREBOARD_KEY,
-        JSON.stringify(scoreboard)
-      );
-
-
-      /*
-        Sorteer spelers
-      */
-
-      const players =
-        Object.entries(scoreboard)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 10);
-
-
-      if (players.length === 0) {
-
-        leaderboardList.innerHTML =
-          "Nog geen spelers.";
-
-        return;
-      }
-
-
-      leaderboardList.innerHTML =
-        players
-        .map((player, index) => {
-
-          return `
-            <div class="leader-row">
-
-              <span>
-                ${index + 1}.
-                ${escapeHTML(player[0])}
-              </span>
-
-              <strong>
-                ${player[1]}
-              </strong>
-
-            </div>
-          `;
-
-        })
-        .join("");
-    }
-
-
-    /*
-      HTML VEILIG MAKEN
-    */
-
-    function escapeHTML(text) {
-
-      const div =
-        document.createElement("div");
-
-      div.textContent = text;
-
-      return div.innerHTML;
-    }
-
-
-    /*
-      SCHERM UPDATEN
-    */
-
-    function render() {
-
-      scoreElement.textContent =
-        Math.floor(game.score);
-
-      playerNameElement.textContent =
-        game.name || "Gast";
-
-
-      /*
-        Dubbelklik knop
-      */
-
-      if (game.doubleClick) {
-
-        doubleTitle.textContent =
-          "Dubbel klik — GEKOCHT ✓";
-
-        doubleUpgrade.disabled = true;
-
-      } else {
-
-        doubleTitle.textContent =
-          "Dubbel klik — 20 kliks";
-
-        doubleUpgrade.disabled =
-          game.score < 20;
-
-      }
-
-
-      /*
-        Autoklik
-      */
-
-      autoTitle.textContent =
-        `Autoklik — ${game.autoCost} kliks`;
-
-      autoUpgrade.disabled =
-        game.score < game.autoCost;
-
-
-      autoInfo.textContent =
-        `Autokliks: ${game.autoClicks}`;
-    }
-
-
-    /*
-      KLIKKEN
-    */
-
-    function clickTwan() {
-
-      if (game.doubleClick) {
-
-        game.score += 2;
-
-      } else {
-
-        game.score += 1;
-
-      }
-
-      saveGame();
-      render();
-    }
-
-
-    twanButton.addEventListener(
-      "click",
-      clickTwan
-    );
-
-
-    /*
-      WINKEL OPENEN
-    */
-
-    shopButton.addEventListener(
-      "click",
-      () => {
-
-        shop.classList.toggle("hidden");
-
-      }
-    );
-
-
-    /*
-      DUBBEL KLIK KOPEN
-    */
-
-    doubleUpgrade.addEventListener(
-      "click",
-      () => {
-
-        if (game.doubleClick) {
-          return;
-        }
-
-        if (game.score < 20) {
-          return;
-        }
-
-
-        game.score -= 20;
-
-        game.doubleClick = true;
-
-
-        saveGame();
-        render();
-
-        showMessage(
-          "Dubbel klik gekocht! 🎉"
-        );
-
-      }
-    );
-
-
-    /*
-      AUTOKLIK KOPEN
-    */
-
-    autoUpgrade.addEventListener(
-      "click",
-      () => {
-
-        if (game.score < game.autoCost) {
-          return;
-        }
-
-
-        game.score -= game.autoCost;
-
-        game.autoClicks++;
-
-
-        /*
-          Prijzen:
-
-          1e = 200
-          2e = 1000
-          3e = 2000
-          4e = 4000
-          5e = 8000
-          enz.
-        */
-
-        if (game.autoCost === 200) {
-
-          game.autoCost = 1000;
-
-        } else {
-
-          game.autoCost *= 2;
-
-        }
-
-
-        saveGame();
-        render();
-
-        showMessage(
-          "Autoklik gekocht! 🤖"
-        );
-
-      }
-    );
-
-
-    /*
-      AUTOKLIKKER
-      --------------------------
-      Iedere seconde worden er
-      zoveel kliks toegevoegd als
-      je autokliks hebt.
-    */
-
-    setInterval(
-      () => {
-
-        if (game.autoClicks > 0) {
-
-          game.score +=
-            game.autoClicks;
-
-          saveGame();
-          render();
-
-        }
-
-      },
-      1000
-    );
-
-
-    /*
-      ACCOUNT KNOP
-    */
-
+  const name =
     document
-      .getElementById("accountButton")
-      .addEventListener(
-        "click",
-        () => {
+      .getElementById("firstName")
+      .value
+      .trim();
 
-          document
-            .getElementById("accountNameInput")
-            .value = game.name;
+  if(!name)return;
 
-          accountModal
-            .classList
-            .remove("hidden");
+  game.name=name;
 
-        }
-      );
+  document
+    .getElementById("nameModal")
+    .classList.add("hidden");
 
+  saveGame();
 
-    /*
-      ACCOUNT SLUITEN
-    */
+  showToast(
+    "Welkom "+name+"! 🎉"
+  );
 
-    document
-      .getElementById("closeAccountButton")
-      .addEventListener(
-        "click",
-        () => {
-
-          accountModal
-            .classList
-            .add("hidden");
-
-        }
-      );
+}
 
 
-    /*
-      ACCOUNT NAAM OPSLAAN
-    */
+function saveName(){
 
-    document
-      .getElementById("saveAccountButton")
-      .addEventListener(
-        "click",
-        () => {
-
-          const name =
-            document
-              .getElementById("accountNameInput")
-              .value
-              .trim();
-
-
-          if (!name) {
-            return;
-          }
-
-
-          game.name = name;
-
-          saveGame();
-          render();
-
-
-          accountModal
-            .classList
-            .add("hidden");
-
-
-          showMessage(
-            "Naam opgeslagen! 👤"
-          );
-
-        }
-      );
-
-
-    /*
-      EERSTE NAAM INVULLEN
-    */
-
-    document
-      .getElementById("startButton")
-      .addEventListener(
-        "click",
-        () => {
-
-          const name =
-            document
-              .getElementById("nameInput")
-              .value
-              .trim();
-
-
-          if (!name) {
-            return;
-          }
-
-
-          game.name = name;
-
-          saveGame();
-          render();
-
-
-          nameModal
-            .classList
-            .add("hidden");
-
-        }
-      );
-
-
-    /*
-      ENTER BIJ NAAM
-    */
-
+  const name =
     document
       .getElementById("nameInput")
-      .addEventListener(
-        "keydown",
-        event => {
+      .value
+      .trim();
 
-          if (event.key === "Enter") {
+  if(!name)return;
 
-            document
-              .getElementById("startButton")
-              .click();
+  game.name=name;
 
-          }
+  saveGame();
 
-        }
+  showToast("Naam opgeslagen!");
+
+}
+
+
+/* =========================================================
+   KLIKKEN
+========================================================= */
+
+function clickTwan(){
+
+  const now=Date.now();
+
+  /*
+    Combo
+  */
+
+  if(now-game.lastClick<1200){
+
+    game.combo++;
+
+  }else{
+
+    game.combo=1;
+
+  }
+
+  game.lastClick=now;
+
+  if(game.combo>game.comboRecord){
+
+    game.comboRecord=
+      game.combo;
+
+  }
+
+
+  /*
+    Basis
+  */
+
+  let amount=game.clickPower;
+
+
+  /*
+    Combo bonus
+  */
+
+  if(game.combo>=10){
+
+    amount*=2;
+
+  }
+
+  if(game.combo>=25){
+
+    amount*=5;
+
+  }
+
+  if(game.combo>=50){
+
+    amount*=10;
+
+  }
+
+
+  /*
+    Kritieke klik
+  */
+
+  if(
+    game.critical &&
+    Math.random()<game.criticalChance
+  ){
+
+    amount*=5;
+
+    game.criticalCount++;
+
+    createParticle(
+      "💥 x5!",
+      "#f43f5e"
+    );
+
+  }
+
+
+  /*
+    Mega klik
+  */
+
+  if(
+    game.mega &&
+    Math.random()<0.01
+  ){
+
+    amount*=50;
+
+    createParticle(
+      "💎 MEGA x50!",
+      "#38bdf8"
+    );
+
+  }
+
+
+  /*
+    Permanente boost
+  */
+
+  amount*=game.permanentBoost;
+
+
+  /*
+    Prestige
+  */
+
+  amount*=
+    Math.pow(2,game.prestige);
+
+
+  game.score+=amount;
+
+  game.totalClicks++;
+
+
+  /*
+    Soms diamant
+  */
+
+  if(Math.random()<0.005){
+
+    game.diamonds++;
+
+    showToast("💎 Je vond een diamant!");
+
+  }
+
+
+  updateCombo();
+
+  createParticle(
+    "+"+Math.floor(amount),
+    "#ffffff"
+  );
+
+  checkAchievements();
+
+  saveGame();
+
+}
+
+
+/* =========================================================
+   DUBBEL KLIK
+========================================================= */
+
+function buyDouble(){
+
+  if(game.double)return;
+
+  if(game.score<20){
+
+    showToast(
+      "Je hebt 20 kliks nodig!"
+    );
+
+    return;
+
+  }
+
+  game.score-=20;
+
+  game.double=true;
+
+  game.clickPower=Math.max(
+    game.clickPower,
+    2
+  );
+
+  showToast(
+    "✌️ DUBBEL KLIK GEKOCHT!"
+  );
+
+  saveGame();
+
+}
+
+
+/* =========================================================
+   TRIPLE
+========================================================= */
+
+function buyTriple(){
+
+  const price=5000;
+
+  if(game.triple)return;
+
+  if(game.score<price){
+
+    showToast(
+      "Je hebt 5.000 kliks nodig!"
+    );
+
+    return;
+
+  }
+
+  game.score-=price;
+
+  game.triple=true;
+
+  game.clickPower=Math.max(
+    game.clickPower,
+    3
+  );
+
+  showToast(
+    "⚡ TRIPLE KLIK!"
+  );
+
+  saveGame();
+
+}
+
+
+/* =========================================================
+   CRITICAL
+========================================================= */
+
+function buyCritical(){
+
+  const price=2000;
+
+  if(game.critical)return;
+
+  if(game.score<price){
+
+    showToast(
+      "Je hebt 2.000 kliks nodig!"
+    );
+
+    return;
+
+  }
+
+  game.score-=price;
+
+  game.critical=true;
+
+  showToast(
+    "💥 Kritieke kliks vrijgespeeld!"
+  );
+
+  saveGame();
+
+}
+
+
+/* =========================================================
+   MEGA
+========================================================= */
+
+function buyMegaClick(){
+
+  const price=10000;
+
+  if(game.mega)return;
+
+  if(game.score<price){
+
+    showToast(
+      "Je hebt 10.000 kliks nodig!"
+    );
+
+    return;
+
+  }
+
+  game.score-=price;
+
+  game.mega=true;
+
+  showToast(
+    "💎 Mega klik vrijgespeeld!"
+  );
+
+  saveGame();
+
+}
+
+
+/* =========================================================
+   AUTOKLIK
+========================================================= */
+
+function getAutoPrice(){
+
+  if(game.autoClicks===0)
+    return 200;
+
+  if(game.autoClicks===1)
+    return 1000;
+
+  return 1000*
+    Math.pow(2,game.autoClicks-1);
+
+}
+
+
+function buyAuto(){
+
+  const price=getAutoPrice();
+
+  if(game.score<price){
+
+    showToast(
+      "Niet genoeg kliks!"
+    );
+
+    return;
+
+  }
+
+  game.score-=price;
+
+  game.autoClicks++;
+
+  /*
+    Iedere aankoop maakt hem sneller.
+  */
+
+  game.autoRate =
+    1+
+    (game.autoClicks-1)*2+
+    game.turbo*5;
+
+  showToast(
+    "🤖 Autoklikker gekocht!"
+  );
+
+  saveGame();
+
+}
+
+
+/* =========================================================
+   TURBO
+========================================================= */
+
+function buyTurbo(){
+
+  const price=10000;
+
+  if(game.score<price){
+
+    showToast(
+      "Je hebt 10.000 kliks nodig!"
+    );
+
+    return;
+
+  }
+
+  game.score-=price;
+
+  game.turbo++;
+
+  game.autoRate+=5;
+
+  showToast(
+    "🚀 Turbo geactiveerd!"
+  );
+
+  saveGame();
+
+}
+
+
+/* =========================================================
+   SUPER COMPUTER
+========================================================= */
+
+function buySuperComputer(){
+
+  const price=100000;
+
+  if(game.score<price){
+
+    showToast(
+      "Je hebt 100.000 kliks nodig!"
+    );
+
+    return;
+
+  }
+
+  game.score-=price;
+
+  game.superComputer++;
+
+  game.autoRate+=100;
+
+  showToast(
+    "💻 SUPERCOMPUTER GEKOCHT!"
+  );
+
+  saveGame();
+
+}
+
+
+/* =========================================================
+   DIAMOND BOOST
+========================================================= */
+
+function buyScoreBoost(){
+
+  if(game.diamonds<10){
+
+    showToast(
+      "Je hebt 10 diamanten nodig!"
+    );
+
+    return;
+
+  }
+
+  game.diamonds-=10;
+
+  game.permanentBoost+=0.10;
+
+  showToast(
+    "💎 Permanente +10% boost!"
+  );
+
+  saveGame();
+
+}
+
+
+/* =========================================================
+   SKINS
+========================================================= */
+
+function buySkin(skin){
+
+  const prices={
+
+    gold:25,
+
+    ice:20,
+
+    fire:20,
+
+    rainbow:30
+
+  };
+
+  if(game.skins.includes(skin)){
+
+    game.currentSkin=skin;
+
+    applySkin();
+
+    return;
+
+  }
+
+
+  const price=prices[skin];
+
+  if(game.diamonds<price){
+
+    showToast(
+      "Niet genoeg diamanten!"
+    );
+
+    return;
+
+  }
+
+  game.diamonds-=price;
+
+  game.skins.push(skin);
+
+  game.currentSkin=skin;
+
+  applySkin();
+
+  showToast(
+    "🎨 Nieuwe skin!"
+  );
+
+  saveGame();
+
+}
+
+
+function applySkin(){
+
+  const button=
+    document.getElementById(
+      "twanButton"
+    );
+
+  button.className="";
+
+  if(game.currentSkin==="gold"){
+
+    button.classList.add(
+      "gold-button"
+    );
+
+  }
+
+  if(game.currentSkin==="ice"){
+
+    button.style.background=
+      "radial-gradient(circle,#dff9ff,#38bdf8,#075985)";
+
+  }
+
+  if(game.currentSkin==="fire"){
+
+    button.style.background=
+      "radial-gradient(circle,#fff,#ef4444,#7f1d1d)";
+
+  }
+
+  if(game.currentSkin==="rainbow"){
+
+    button.style.background=
+      "linear-gradient(135deg,#ef4444,#facc15,#22c55e,#38bdf8,#a855f7)";
+
+  }
+
+}
+
+
+/* =========================================================
+   PRESTIGE
+========================================================= */
+
+function prestige(){
+
+  if(game.score<1000000){
+
+    showToast(
+      "Je hebt 1.000.000 kliks nodig!"
+    );
+
+    return;
+
+  }
+
+  if(
+    !confirm(
+      "Zeker weten? Je score wordt 0, maar je krijgt Prestige!"
+    )
+  )return;
+
+
+  game.score=0;
+
+  game.prestige++;
+
+  game.autoClicks=0;
+
+  game.autoRate=1;
+
+  game.double=false;
+
+  game.triple=false;
+
+  game.critical=false;
+
+  game.mega=false;
+
+  showToast(
+    "🔥 PRESTIGE "+game.prestige+"!"
+  );
+
+  saveGame();
+
+}
+
+
+/* =========================================================
+   AUTOKLIKKER LOOP
+========================================================= */
+
+setInterval(()=>{
+
+  if(game.autoRate<=0)return;
+
+  /*
+    10 keer per seconde.
+  */
+
+  const amount=
+    game.autoRate/10;
+
+  game.score+=amount;
+
+  game.totalClicks+=amount;
+
+  saveGame();
+
+},100);
+
+
+/* =========================================================
+   LEVELS
+========================================================= */
+
+function calculateLevel(){
+
+  let level=1;
+
+  if(game.totalClicks>=100)
+    level=2;
+
+  if(game.totalClicks>=1000)
+    level=3;
+
+  if(game.totalClicks>=10000)
+    level=4;
+
+  if(game.totalClicks>=100000)
+    level=5;
+
+  if(game.totalClicks>=1000000)
+    level=6;
+
+  if(game.totalClicks>=10000000)
+    level=7;
+
+  game.level=level;
+
+}
+
+
+function levelName(){
+
+  const names=[
+
+    "Beginner",
+
+    "Klikker",
+
+    "Pro Klikker",
+
+    "Twan Master",
+
+    "Twan Legend",
+
+    "Twan God",
+
+    "Twan One"
+
+  ];
+
+  return names[
+    Math.min(
+      game.level-1,
+      names.length-1
+    )
+  ];
+
+}
+
+
+/* =========================================================
+   COMBO
+========================================================= */
+
+function updateCombo(){
+
+  const box=
+    document.getElementById(
+      "comboBox"
+    );
+
+  box.textContent=
+    "🔥 Combo x"+game.combo;
+
+  box.classList.add("show");
+
+  clearTimeout(
+    window.comboTimer
+  );
+
+  window.comboTimer=
+    setTimeout(()=>{
+
+      game.combo=0;
+
+      box.classList.remove(
+        "show"
       );
 
+    },1300);
 
-    /*
-      MELDING
-    */
+}
 
-    function showMessage(message) {
 
-      const old =
-        document.querySelector(".toast");
+/* =========================================================
+   VASELINE EVENT
+========================================================= */
 
-      if (old) {
-        old.remove();
+const vaseline=
+  document.getElementById(
+    "vaselineImage"
+  );
+
+
+/*
+  JOUW AFBEELDING.
+*/
+
+const VASELINE_URL=
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThj9fzBLw9iQS26WYscuAg-nHX-Dd36d8vu1tOCuTYXx2WfGtRQhcygKZA3MucvK9r5TgEwnWW6NDyhASahDprB45687UqOWWW54SfLIuk&s=10";
+
+
+vaseline.src=VASELINE_URL;
+
+
+/*
+  Fallback als Google de afbeelding
+  niet meer toestaat.
+*/
+
+vaseline.onerror=()=>{
+
+  vaseline.src=
+  "data:image/svg+xml;charset=UTF-8,"+
+  encodeURIComponent(`
+
+  <svg xmlns="http://www.w3.org/2000/svg"
+       width="600"
+       height="600">
+
+    <rect width="100%"
+          height="100%"
+          fill="white"/>
+
+    <ellipse cx="300"
+             cy="440"
+             rx="180"
+             ry="50"
+             fill="#ddd"/>
+
+    <rect x="150"
+          y="230"
+          width="300"
+          height="210"
+          rx="70"
+          fill="#f5f5ee"
+          stroke="#ddd"
+          stroke-width="5"/>
+
+    <ellipse cx="300"
+             cy="230"
+             rx="150"
+             ry="55"
+             fill="#312e81"/>
+
+    <text x="300"
+          y="245"
+          text-anchor="middle"
+          font-size="38"
+          fill="white"
+          font-family="Arial">
+      VASELINE
+    </text>
+
+    <text x="300"
+          y="390"
+          text-anchor="middle"
+          font-size="25"
+          fill="#555"
+          font-family="Arial">
+      ORIGINAL
+    </text>
+
+  </svg>
+
+  `);
+
+};
+
+
+vaseline.onclick=()=>{
+
+  game.score*=2;
+
+  game.vaselineCount++;
+
+  game.diamonds+=2;
+
+  document
+    .getElementById(
+      "eventOverlay"
+    )
+    .classList
+    .add("hidden");
+
+  showToast(
+    "🧴 SCORE x2! +2 💎"
+  );
+
+  saveGame();
+
+};
+
+
+/*
+  Elke minuut.
+*/
+
+setInterval(()=>{
+
+  if(game.name){
+
+    document
+      .getElementById(
+        "eventOverlay"
+      )
+      .classList
+      .remove("hidden");
+
+  }
+
+},60000);
+
+
+/* =========================================================
+   RANDOM EVENTS
+========================================================= */
+
+setInterval(()=>{
+
+  if(!game.name)return;
+
+  if(
+    Math.random()<0.12
+  ){
+
+    randomEvent();
+
+  }
+
+},30000);
+
+
+function randomEvent(){
+
+  const events=[
+
+    {
+      text:"💰 GELDREGEN! +1000!",
+      action:()=>{
+        game.score+=1000;
       }
+    },
+
+    {
+      text:"💎 DIAMANT!",
+      action:()=>{
+        game.diamonds+=10;
+      }
+    },
+
+    {
+      text:"⚡ LIGHTNING! +5000!",
+      action:()=>{
+        game.score+=5000;
+      }
+    },
+
+    {
+      text:"🔥 FIRE TWAN! +10.000!",
+      action:()=>{
+        game.score+=10000;
+      }
+    },
+
+    {
+      text:"🎁 MYSTERY BOX! +20.000!",
+      action:()=>{
+        game.score+=20000;
+      }
+    },
+
+    {
+      text:"🦆 GOUDEN EEND! +50.000!",
+      action:()=>{
+        game.score+=50000;
+      }
+    }
+
+  ];
+
+  const event=
+    events[
+      Math.floor(
+        Math.random()*events.length
+      )
+    ];
 
 
-      const toast =
-        document.createElement("div");
+  event.action();
 
-      toast.className =
-        "toast";
+  showToast(
+    event.text
+  );
 
-      toast.textContent =
-        message;
+  saveGame();
 
-
-      document.body.appendChild(toast);
+}
 
 
-      setTimeout(
-        () => {
+/* =========================================================
+   GOLDEN TWAN
+========================================================= */
 
-          toast.remove();
+setInterval(()=>{
 
-        },
-        2500
+  if(
+    Math.random()<0.03 &&
+    game.name
+  ){
+
+    const button=
+      document.getElementById(
+        "twanButton"
       );
+
+    button.classList.add(
+      "gold-button"
+    );
+
+    const oldText=
+      button.textContent;
+
+    button.textContent=
+      "👑 GOLDEN";
+
+    let clicks=0;
+
+
+    function goldenClick(){
+
+      clicks++;
+
+      game.score+=1000;
+
+      game.goldenCount++;
+
+      createParticle(
+        "+1000 👑",
+        "#facc15"
+      );
+
+      saveGame();
+
     }
 
 
-    /*
-      VASELINE EVENT
-      --------------------------
-      Iedere 60 seconden.
-    */
-
-    function showVaseline() {
-
-      if (!game.name) {
-        return;
-      }
-
-
-      document
-        .getElementById("vaselineEvent")
-        .classList
-        .remove("hidden");
-    }
-
-
-    setInterval(
-      showVaseline,
-      60000
+    button.addEventListener(
+      "click",
+      goldenClick
     );
 
 
-    /*
-      VASELINE KLIKKEN
-      --------------------------
-      Score x2
-    */
+    setTimeout(()=>{
 
-    document
-      .getElementById("vaselineImage")
-      .addEventListener(
-        "click",
-        () => {
-
-          game.score *= 2;
-
-          saveGame();
-          render();
-
-
-          document
-            .getElementById("vaselineEvent")
-            .classList
-            .add("hidden");
-
-
-          showMessage(
-            "🧴 Je score is verdubbeld!"
-          );
-
-        }
+      button.classList.remove(
+        "gold-button"
       );
 
+      button.textContent=
+        oldText;
 
-    /*
-      START
-    */
+      button.removeEventListener(
+        "click",
+        goldenClick
+      );
 
-    loadGame();
-    render();
-    updateScoreboard();
+      applySkin();
+
+    },10000);
+
+  }
+
+},15000);
 
 
-    /*
-      Als er nog geen naam is,
-      moet de speler er één invullen.
-    */
+/* =========================================================
+   DAILY REWARD
+========================================================= */
 
-    if (!game.name) {
+function dailyReward(){
 
-      nameModal
-        .classList
-        .remove("hidden");
+  const today=
+    new Date()
+      .toISOString()
+      .slice(0,10);
+
+  if(game.dailyClaim===today){
+
+    showToast(
+      "🎁 Je hebt je bonus al opgehaald!"
+    );
+
+    return;
+
+  }
+
+
+  game.dailyClaim=today;
+
+  game.score+=500;
+
+  game.diamonds+=5;
+
+  showToast(
+    "🎁 Dagelijkse bonus: +500 & +5 💎"
+  );
+
+  saveGame();
+
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS
+========================================================= */
+
+const achievements=[
+
+  {
+    id:"first",
+    title:"Eerste klik",
+    description:"Klik voor de eerste keer.",
+    reward:10,
+    check:()=>game.totalClicks>=1
+  },
+
+  {
+    id:"hundred",
+    title:"100 kliks",
+    description:"Bereik 100 totale kliks.",
+    reward:50,
+    check:()=>game.totalClicks>=100
+  },
+
+  {
+    id:"thousand",
+    title:"1.000 kliks",
+    description:"Bereik 1.000 totale kliks.",
+    reward:100,
+    check:()=>game.totalClicks>=1000
+  },
+
+  {
+    id:"tenk",
+    title:"10.000 kliks",
+    description:"Bereik 10.000 totale kliks.",
+    reward:500,
+    check:()=>game.totalClicks>=10000
+  },
+
+  {
+    id:"million",
+    title:"1 MILJOEN!",
+    description:"Bereik 1 miljoen totale kliks.",
+    reward:10000,
+    check:()=>game.totalClicks>=1000000
+  },
+
+  {
+    id:"auto",
+    title:"Eerste robot",
+    description:"Koop een autoklikker.",
+    reward:500,
+    check:()=>game.autoClicks>=1
+  },
+
+  {
+    id:"auto10",
+    title:"Robotleger",
+    description:"Koop 10 autoklikkers.",
+    reward:5000,
+    check:()=>game.autoClicks>=10
+  },
+
+  {
+    id:"combo",
+    title:"Combo Master",
+    description:"Bereik combo x100.",
+    reward:1000,
+    check:()=>game.comboRecord>=100
+  },
+
+  {
+    id:"vaseline",
+    title:"Vaseline fan",
+    description:"Klik 10 Vaseline-events.",
+    reward:2500,
+    check:()=>game.vaselineCount>=10
+  },
+
+  {
+    id:"golden",
+    title:"Gouden Twan",
+    description:"Klik 3 Golden Twans.",
+    reward:5000,
+    check:()=>game.goldenCount>=3
+  },
+
+  {
+    id:"prestige",
+    title:"Prestige Master",
+    description:"Doe je eerste Prestige.",
+    reward:10000,
+    check:()=>game.prestige>=1
+  }
+
+];
+
+
+function checkAchievements(){
+
+  achievements.forEach(a=>{
+
+    if(
+      a.check() &&
+      !game.achievements.includes(a.id)
+    ){
+
+      game.achievements.push(a.id);
+
+      game.score+=a.reward;
+
+      game.diamonds+=5;
+
+      showToast(
+        "🏆 Achievement: "+
+        a.title+
+        " +"+a.reward
+      );
 
     }
 
-  </script>
+  });
+
+}
+
+
+/* =========================================================
+   ACHIEVEMENT PANEL
+========================================================= */
+
+function showAchievements(){
+
+  openPanel(
+    "achievementPanel"
+  );
+
+  const list=
+    document.getElementById(
+      "achievementList"
+    );
+
+  list.innerHTML="";
+
+
+  achievements.forEach(a=>{
+
+    const done=
+      game.achievements
+        .includes(a.id);
+
+    list.innerHTML+=`
+
+      <div class="achievement ${
+        done ? "done" : ""
+      }">
+
+        <span class="badge">
+          ${done ? "🏆" : "🔒"}
+        </span>
+
+        <b>${a.title}</b>
+
+        <br>
+
+        ${a.description}
+
+        <br>
+
+        <span class="price">
+          Beloning: +${a.reward}
+        </span>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+/* =========================================================
+   LEADERBOARD
+========================================================= */
+
+function updateLeaderboard(){
+
+  const key=
+    "TWAN_LOCAL_LEADERBOARD";
+
+  let board={};
+
+  try{
+
+    board=
+      JSON.parse(
+        localStorage.getItem(key)
+      ) || {};
+
+  }catch(e){}
+
+
+  if(game.name){
+
+    board[game.name]=
+      Math.max(
+        board[game.name] || 0,
+        Math.floor(game.score)
+      );
+
+  }
+
+
+  localStorage.setItem(
+    key,
+    JSON.stringify(board)
+  );
+
+
+  const players=
+    Object.entries(board)
+      .sort((a,b)=>b[1]-a[1])
+      .slice(0,10);
+
+
+  document
+    .getElementById(
+      "leaderboardList"
+    )
+    .innerHTML=
+
+    players.map((p,i)=>`
+
+      <div class="leader-row">
+
+        <span>
+
+          ${
+            i===0 ? "🥇" :
+            i===1 ? "🥈" :
+            i===2 ? "🥉" :
+            (i+1)+"."
+          }
+
+          ${escapeHTML(p[0])}
+
+        </span>
+
+        <b>${p[1]}</b>
+
+      </div>
+
+    `).join("");
+
+}
+
+
+/* =========================================================
+   UI
+========================================================= */
+
+function updateUI(){
+
+  calculateLevel();
+
+  document
+    .getElementById("score")
+    .textContent=
+      Math.floor(game.score);
+
+
+  document
+    .getElementById("playerName")
+    .textContent=
+      game.name || "Gast";
+
+
+  document
+    .getElementById("levelText")
+    .textContent=
+      "Level "+
+      game.level+
+      " — "+
+      levelName();
+
+
+  document
+    .getElementById("multiplierText")
+    .textContent=
+      "x"+
+      game.clickPower+
+      " klik";
+
+
+  document
+    .getElementById("statTotal")
+    .textContent=
+      Math.floor(game.totalClicks);
+
+
+  document
+    .getElementById("statHigh")
+    .textContent=
+      Math.floor(game.highestScore);
+
+
+  document
+    .getElementById("statAuto")
+    .textContent=
+      game.autoClicks;
+
+
+  document
+    .getElementById("statVaseline")
+    .textContent=
+      game.vaselineCount;
+
+
+  document
+    .getElementById("statCritical")
+    .textContent=
+      game.criticalCount;
+
+
+  document
+    .getElementById("statGolden")
+    .textContent=
+      game.goldenCount;
+
+
+  document
+    .getElementById("statCombo")
+    .textContent=
+      game.comboRecord;
+
+
+  document
+    .getElementById("statDiamonds")
+    .textContent=
+      game.diamonds;
+
+
+  document
+    .getElementById("statPrestige")
+    .textContent=
+      game.prestige;
+
+
+  document
+    .getElementById("accountLevel")
+    .textContent=
+      game.level;
+
+
+  document
+    .getElementById("accountDiamonds")
+    .textContent=
+      game.diamonds;
+
+
+  document
+    .getElementById("accountPrestige")
+    .textContent=
+      game.prestige;
+
+
+  document
+    .getElementById("nameInput")
+    .value=
+      game.name;
+
+
+  document
+    .getElementById("autoPrice")
+    .textContent=
+      getAutoPrice()+" kliks";
+
+
+  document
+    .getElementById("autoDescription")
+    .textContent=
+      game.autoClicks+
+      " autokliks • "+
+      game.autoRate.toFixed(1)+
+      " kliks/sec";
+
+
+  document
+    .getElementById("doubleButton")
+    .disabled=
+      game.double;
+
+
+  document
+    .getElementById("doubleButton")
+    .querySelector("strong")
+    .textContent=
+      game.double
+        ? "✌️ Dubbel klik — GEKOCHT ✓"
+        : "✌️ Dubbel klik";
+
+
+  applySkin();
+
+}
+
+
+/* =========================================================
+   PANELS
+========================================================= */
+
+function openPanel(id){
+
+  closePanels();
+
+  document
+    .getElementById(id)
+    .classList
+    .remove("hidden");
+
+}
+
+
+function closePanels(){
+
+  document
+    .querySelectorAll(".panel")
+    .forEach(p=>
+      p.classList.add("hidden")
+    );
+
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+function createParticle(
+  text,
+  color
+){
+
+  const p=
+    document.createElement("div");
+
+  p.className="particle";
+
+  p.textContent=text;
+
+  p.style.color=color;
+
+  p.style.left=
+    (45+Math.random()*10)+"%";
+
+  p.style.top=
+    (45+Math.random()*10)+"%";
+
+  document.body.appendChild(p);
+
+  setTimeout(
+    ()=>p.remove(),
+    1000
+  );
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message){
+
+  const old=
+    document.querySelector(".toast");
+
+  if(old)old.remove();
+
+
+  const toast=
+    document.createElement("div");
+
+  toast.className="toast";
+
+  toast.textContent=
+    message;
+
+  document.body.appendChild(toast);
+
+
+  setTimeout(
+    ()=>toast.remove(),
+    2500
+  );
+
+}
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+function escapeHTML(text){
+
+  const div=
+    document.createElement("div");
+
+  div.textContent=text;
+
+  return div.innerHTML;
+
+}
+
+
+/* =========================================================
+   GELUID
+========================================================= */
+
+let audioContext=null;
+
+
+function clickSound(){
+
+  try{
+
+    if(!audioContext){
+
+      audioContext=
+        new (
+          window.AudioContext ||
+          window.webkitAudioContext
+        )();
+
+    }
+
+    const oscillator=
+      audioContext
+        .createOscillator();
+
+    const gain=
+      audioContext
+        .createGain();
+
+    oscillator.frequency.value=
+      250+
+      Math.random()*100;
+
+    gain.gain.value=.04;
+
+    oscillator.connect(gain);
+
+    gain.connect(
+      audioContext.destination
+    );
+
+    oscillator.start();
+
+    oscillator.stop(
+      audioContext.currentTime+.05
+    );
+
+  }catch(e){}
+
+}
+
+
+/*
+  Voeg geluid toe.
+*/
+
+const oldClickTwan=
+  window.clickTwan;
+
+window.clickTwan=function(){
+
+  clickSound();
+
+  oldClickTwan();
+
+};
+
+
+/* =========================================================
+   START
+========================================================= */
+
+loadGame();
+
+updateUI();
+
+updateLeaderboard();
+
+checkAchievements();
+
+
+if(!game.name){
+
+  document
+    .getElementById("nameModal")
+    .classList
+    .remove("hidden");
+
+}
+
+
+/*
+  Achievement-knop automatisch
+  beschikbaar via dubbelklik op
+  stats voor nu.
+*/
+
+document
+  .getElementById("statsPanel")
+  .addEventListener(
+    "dblclick",
+    showAchievements
+  );
+
+
+/*
+  Open achievements met A.
+*/
+
+document.addEventListener(
+  "keydown",
+  e=>{
+
+    if(e.key.toLowerCase()==="a"){
+
+      showAchievements();
+
+    }
+
+  }
+);
+
+</script>
 
 </body>
 </html>
-```
