@@ -1,0 +1,97 @@
+
+/* Algemene opmaak */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #222;
+    margin: 0;
+}
+
+/* Menu */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #34495e;
+    overflow: hidden;
+}
+
+/* Menuonderdelen naast elkaar */
+li {
+    float: left;
+}
+
+/* Links in het menu */
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+/* Kleur van de links als je eroverheen gaat */
+li a:hover {
+    background-color: #56718c;
+}
+
+/* Grote titel */
+h1 {
+    color: #263e56;
+    margin: 30px 40px 15px;
+}
+
+/* Tussenkopjes */
+h2 {
+    color: #34495e;
+    margin: 30px 40px 10px;
+}
+
+/* Kleine kopjes */
+h3 {
+    color: #34495e;
+    margin: 20px 40px 10px;
+}
+
+/* Tekst */
+p {
+    margin: 10px 40px;
+    max-width: 750px;
+    line-height: 1.6;
+}
+
+/* Afbeeldingen op mijn website */
+.foto {
+    width: 450px;
+    max-width: 85%;
+    height: auto;
+    margin: 15px 40px;
+    border-radius: 5px;
+}
+
+/* Kleurenvakjes */
+.kleuren {
+    display: flex;
+    gap: 10px;
+    margin: 20px 40px;
+}
+
+.kleuren div {
+    width: 100px;
+    height: 70px;
+    text-align: center;
+    padding-top: 30px;
+    color: white;
+}
+
+.rood {
+    background-color: #ff0000;
+}
+
+.groen {
+    background-color: #008000;
+}
+
+.blauw {
+    background-color: #0000ff;
+}

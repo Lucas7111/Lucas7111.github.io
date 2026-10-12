@@ -4,111 +4,97 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Deze titel verschijnt bovenaan in het tabblad -->
-    <title>Home - Website van Lucas</title>
-
-    <!-- Dit koppelt het HTML-bestand aan de CSS -->
-    <link rel="stylesheet" href="opmaak.css">
+    <title>Binair stelsel</title>
+    <link rel="stylesheet" type="text/css" href="opmaak.css">
 </head>
 
 <body>
 
-    <!-- Dit is het horizontale menu.
-         Hiermee kun je naar andere pagina's gaan. -->
-    <nav>
-        <ul class="menu">
-            <li><a class="actief" href="index.html">Home</a></li>
-            <li><a href="binairstelsel.html">Binaire stelsel</a></li>
-            <li><a href="kleur.html">Kleurmodellen</a></li>
-        </ul>
-    </nav>
+    <!-- Menu van mijn website -->
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="binairstelsel.html">Binair stelsel</a></li>
+        <li><a href="kleur.html">Kleur</a></li>
+    </ul>
 
-    <!-- Dit is het bovenste gedeelte van mijn homepage -->
-    <header>
-        <h1>Welkom op mijn website!</h1>
-        <p>Mijn naam is Lucas en dit is mijn Informatica-project.</p>
-        <a class="knop" href="#over-mij">Meer over mij</a>
-    </header>
+    <h1>Het binaire stelsel</h1>
 
-    <!-- Dit gedeelte bevat informatie over mezelf -->
-    <main>
+    <h2>Wat is het binaire stelsel?</h2>
 
-        <section id="over-mij">
-            <h2>Over mij</h2>
+    <p>
+        Het binaire stelsel is een getallenstelsel
+        dat alleen de cijfers 0 en 1 gebruikt.
+        Wij gebruiken normaal het decimale stelsel,
+        met de cijfers 0 tot en met 9.
+    </p>
 
-            <p>
-                Hoi! Ik ben Lucas en ik ben 15 jaar oud. Ik zit momenteel op het
-                 Vlietland College en ik zit in havo 4.In mijn vrije tijd ga ik
-                 naar de Sportschool en dat doe ik 4 keer per week. En ik ga
-                 regelmatig ook voetballen met vrienden.
+    <p>
+        Computers gebruiken het binaire stelsel
+        omdat ze werken met elektronische signalen.
+        Die signalen kunnen bijvoorbeeld aan of uit
+        zijn. Aan kun je voorstellen als 1 en
+        uit als 0.
+    </p>
 
-                In de toekomst wil ik graag een leuke opleiding volgen en een
-                 leukek baan later vinden, ik weet niet precies wat ik wil worden.
-                 Maar ik hoop dat ik dat weet door de lessen die ik volg bij
-                 lobaanoriëntatie en begeleidingwelke opleiding en baan ik later
-                 wil doen.
-            </p>
-        </section>
+    <!-- Afbeelding van binaire getallen -->
+    <img src="binair.png"
+         alt="Voorbeeld van binaire getallen met nullen en enen"
+         class="foto">
 
-        <!-- Hier vertel ik over mijn hobby's -->
-        <section>
-            <h2>Mijn hobby's</h2>
+    <h2>Hoe werkt het binaire stelsel?</h2>
 
-            <div class="kaarten">
+    <p>
+        Bij gewone getallen is elke plek tien keer
+        zoveel waard als de plek rechts ervan.
+        Bij binaire getallen is elke plek twee
+        keer zoveel waard.
+    </p>
 
-                <div class="kaart">
-                    <h3>Sportschool</h3>
-                    <p>
-                        Ik vind het leuk om te sporten
-                        en sterker te worden.
-                    </p>
-                </div>
+    <p>
+        Van rechts naar links zijn de waarden:
+        1, 2, 4, 8, 16, 32 enzovoort.
+    </p>
 
-                <div class="kaart">
-                    <h3>Kickboksen</h3>
-                    <p>
-                        Een van mijn hobby's is kickboksen.
-                        Hierbij train ik mijn conditie en techniek.
-                    </p>
-                </div>
+    <h2>Voorbeeld: 1011</h2>
 
-                <div class="kaart">
-                    <h3>Informatica</h3>
-                    <p>
-                        Bij Informatica leer ik hoe websites
-                        en computers werken.
-                    </p>
-                </div>
+    <p>
+        Stel dat je het binaire getal 1011 hebt.
+        Dan reken je:
+    </p>
 
-            </div>
-        </section>
+    <p>
+        1 x 8 = 8
+    </p>
 
-        <!-- Hier leg ik uit wat bezoekers kunnen vinden -->
-        <section>
-            <h2>Ontdek mijn website</h2>
+    <p>
+        0 x 4 = 0
+    </p>
 
-            <p>
-                Op deze website kun je meer leren over
-                het binaire stelsel en kleurmodellen.
-            </p>
+    <p>
+        1 x 2 = 2
+    </p>
 
-            <a class="knop" href="binairstelsel.html">
-                Binaire stelsel
-            </a>
+    <p>
+        1 x 1 = 1
+    </p>
 
-            <a class="knop" href="kleur.html">
-                Kleurmodellen
-            </a>
-        </section>
+    <p>
+        8 + 0 + 2 + 1 = 11
+    </p>
 
-    </main>
+    <p>
+        Het binaire getal 1011 is dus hetzelfde
+        als het decimale getal 11.
+    </p>
 
-    <!-- Dit is de voettekst onderaan de website -->
-    <footer>
-        <p>Gemaakt door Lucas | Informatica HAVO 4 | 2026</p>
-    </footer>
+    <h2>Bits en bytes</h2>
+
+    <p>
+        Een bit is een 0 of een 1.
+        Acht bits samen vormen een byte.
+        Computers gebruiken bits en bytes
+        om informatie op te slaan en te verwerken.
+    </p>
 
 </body>
 </html>
