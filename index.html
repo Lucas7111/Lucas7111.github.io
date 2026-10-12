@@ -1,20 +1,108 @@
-<html>
-    <head>
-<title> Het eerste begin</title>
-<meta charset="utf-8"
-    </head>
-    <body>
-        Dit is mijn eerste website!
-  <br>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="binairstelsel.html">Binair stelsel</a></il>
+
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Deze titel verschijnt bovenaan in het tabblad -->
+    <title>Home - Website van Lucas</title>
+
+    <!-- Dit koppelt het HTML-bestand aan de CSS -->
+    <link rel="stylesheet" href="opmaak.css">
+</head>
+
+<body>
+
+    <!-- Dit is het horizontale menu.
+         Hiermee kun je naar andere pagina's gaan. -->
+    <nav>
+        <ul class="menu">
+            <li><a class="actief" href="index.html">Home</a></li>
+            <li><a href="binairstelsel.html">Binaire stelsel</a></li>
             <li><a href="kleur.html">Kleurmodellen</a></li>
-            </ul>
-<footer>
-<p> Gemaakt door Lucas Informatica Havo 4 2026 </p>
-</footer>
+        </ul>
+    </nav>
 
-    </body>
+    <!-- Dit is het bovenste gedeelte van mijn homepage -->
+    <header>
+        <h1>Welkom op mijn website!</h1>
+        <p>Mijn naam is Lucas en dit is mijn Informatica-project.</p>
+        <a class="knop" href="#over-mij">Meer over mij</a>
+    </header>
 
+    <!-- Dit gedeelte bevat informatie over mezelf -->
+    <main>
+
+        <section id="over-mij">
+            <h2>Over mij</h2>
+
+            <p>
+                Hoi! Ik ben Lucas en ik zit in HAVO 4.
+                Voor het vak Informatica maak ik deze website.
+                Ik leer hierbij hoe je met HTML en CSS
+                een eigen website kunt ontwerpen.
+            </p>
+        </section>
+
+        <!-- Hier vertel ik over mijn hobby's -->
+        <section>
+            <h2>Mijn hobby's</h2>
+
+            <div class="kaarten">
+
+                <div class="kaart">
+                    <h3>Sportschool</h3>
+                    <p>
+                        Ik vind het leuk om te sporten
+                        en sterker te worden.
+                    </p>
+                </div>
+
+                <div class="kaart">
+                    <h3>Kickboksen</h3>
+                    <p>
+                        Een van mijn hobby's is kickboksen.
+                        Hierbij train ik mijn conditie en techniek.
+                    </p>
+                </div>
+
+                <div class="kaart">
+                    <h3>Informatica</h3>
+                    <p>
+                        Bij Informatica leer ik hoe websites
+                        en computers werken.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Hier leg ik uit wat bezoekers kunnen vinden -->
+        <section>
+            <h2>Ontdek mijn website</h2>
+
+            <p>
+                Op deze website kun je meer leren over
+                het binaire stelsel en kleurmodellen.
+            </p>
+
+            <a class="knop" href="binairstelsel.html">
+                Binaire stelsel
+            </a>
+
+            <a class="knop" href="kleur.html">
+                Kleurmodellen
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Dit is de voettekst onderaan de website -->
+    <footer>
+        <p>Gemaakt door Lucas | Informatica HAVO 4 | 2026</p>
+    </footer>
+
+</body>
 </html>
