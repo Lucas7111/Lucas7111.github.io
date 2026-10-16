@@ -1,512 +1,99 @@
 
-/* ==========================================
-   INFORMATICA WEBSITE VAN LUCAS - HAVO 4
-   Dit CSS-bestand regelt de opmaak
-   van alle pagina's van mijn website.
-   ========================================== */
+/* Algemene opmaak */
+* { box-sizing: border-box; }
+body { margin: 0; background: #f5f5f5; color: #333; font: 16px/1.7 Arial, sans-serif; }
 
-
-/* ALGEMENE OPMAAK */
-
-/* De * betekent dat deze regel
-   voor alle HTML-elementen geldt. */
-* {
-    box-sizing: border-box;
+/* Menu */
+nav { background: #34495e; }
+.menu { display: flex; list-style: none; margin: 0; padding: 0 20px; }
+.menu > li, .dropdown details { position: relative; }
+.menu > li > a, .dropknop {
+    display: block; padding: 15px 20px; color: white;
+    text-decoration: none; font: 16px Arial, sans-serif;
 }
+.dropknop { cursor: pointer; list-style: none; }
+.dropknop::-webkit-details-marker { display: none; }
+.menu > li > a:hover, .dropknop:hover { background: #263e56; }
 
-/* De achtergrond, tekstkleur en het lettertype */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    color: #333333;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-
-/* ==========================================
-   NAVIGATIEMENU
-   ========================================== */
-
-/* De donkerblauwe balk bovenaan */
-nav {
-    background-color: #34495e;
-    position: relative;
-    z-index: 100;
-}
-
-/* Menuonderdelen naast elkaar zetten */
-.menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0 20px;
-}
-
-/* Ieder menuonderdeel krijgt een eigen positie */
-.menu > li {
-    position: relative;
-}
-
-/* Home en Onderwerpen krijgen dezelfde opmaak */
-.menu > li > a,
-.dropknop {
-    display: block;
-    padding: 15px 20px;
-    color: white;
-    text-decoration: none;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 1.5;
-}
-
-/* Het Onderwerpen-knopje is een summary-element.
-   Daardoor werkt het zonder JavaScript. */
-.dropknop {
-    cursor: pointer;
-    list-style: none;
-    user-select: none;
-}
-
-/* Het standaardpijltje van details verbergen */
-.dropknop::-webkit-details-marker {
-    display: none;
-}
-
-/* Achtergrond verandert als je
-   met de muis over het menu gaat */
-.menu > li > a:hover,
-.dropknop:hover {
-    background-color: #263e56;
-}
-
-/* Laat met het toetsenbord zien
-   welk menuonderdeel geselecteerd is */
-.menu a:focus-visible,
-.dropknop:focus-visible {
-    outline: 2px solid white;
-    outline-offset: -3px;
-}
-
-/* Het details-element hoort bij het dropdownmenu */
-.dropdown details {
-    position: relative;
-}
-
-/* De lijst met onderwerpen is eerst verborgen */
+/* Dropdown */
 .dropdown-inhoud {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 200;
-    min-width: 280px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    background-color: white;
-    border: 1px solid #dddddd;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    display: none; position: absolute; top: 100%; left: 0;
+    z-index: 20; min-width: 260px; margin: 0; padding: 0;
+    list-style: none; background: white; box-shadow: 0 3px 9px #0002;
 }
+.dropdown details[open] .dropdown-inhoud { display: block; }
+.dropdown-inhoud a { display: block; padding: 11px 15px; color: #333; text-decoration: none; }
+.dropdown-inhoud a:hover { background: #eee; }
 
-/* BELANGRIJK:
-   Als je op Onderwerpen klikt,
-   krijgt details automatisch 'open'.
-   Dan verschijnt het dropdownmenu. */
-.dropdown details[open] .dropdown-inhoud {
-    display: block;
+/* Tekst */
+main { max-width: 1000px; padding: 30px; }
+h1, h2, h3 { color: #263e56; line-height: 1.3; }
+h1 { font-size: 31px; margin: 0 0 15px; }
+h2 { font-size: 23px; margin: 35px 0 12px; }
+h3 { font-size: 19px; margin: 24px 0 10px; }
+p { margin: 10px 0 16px; }
+.intro { font-size: 18px; max-width: 780px; }
+main a { color: #205c9e; }
+
+/* Afbeeldingen en tabellen */
+.foto { display: block; width: 100%; max-width: 580px; height: auto; margin: 22px 0; border-radius: 5px; }
+table { border-collapse: collapse; margin: 18px 0 25px; max-width: 100%; }
+th, td { border: 1px solid #aaa; padding: 10px 14px; text-align: left; }
+th { background: #e6e9ec; }
+
+/* Invulvelden en knoppen */
+main input, main select {
+    padding: 9px; border: 1px solid #aaa; border-radius: 4px;
+    font-size: 16px; margin: 6px 10px 6px 4px; max-width: 100%;
 }
-
-/* Het geopende knopje krijgt een donkerdere kleur */
-.dropdown details[open] > .dropknop {
-    background-color: #263e56;
-}
-
-/* De links naar de vijf onderwerpen */
-.dropdown-inhoud a {
-    display: block;
-    padding: 12px 15px;
-    color: #333333;
-    background-color: white;
-    text-decoration: none;
-    font-size: 15px;
-    line-height: 1.5;
-}
-
-/* Kleur wanneer je over een onderwerp beweegt */
-.dropdown-inhoud a:hover {
-    background-color: #e9eef2;
-    color: #263e56;
-}
-
-/* Ook de dropdownlinks zijn bereikbaar
-   met het toetsenbord */
-.dropdown-inhoud a:focus-visible {
-    outline: 2px solid #34495e;
-    outline-offset: -3px;
-}
-
-
-/* ==========================================
-   INHOUD VAN DE PAGINA'S
-   ========================================== */
-
-/* main bevat de belangrijkste informatie.
-   max-width voorkomt te lange tekstregels.
-   padding geeft ruimte rondom de inhoud. */
-main {
-    max-width: 1000px;
-    padding: 30px;
-}
-
-/* Alle kopjes krijgen dezelfde donkerblauwe kleur */
-h1,
-h2,
-h3 {
-    color: #263e56;
-    line-height: 1.3;
-}
-
-/* Hoofdtitel */
-h1 {
-    font-size: 31px;
-    margin: 0 0 15px;
-}
-
-/* Titels van de verschillende onderdelen */
-h2 {
-    font-size: 23px;
-    margin: 35px 0 12px;
-}
-
-/* Kleinere tussenkopjes */
-h3 {
-    font-size: 19px;
-    margin: 24px 0 10px;
-}
-
-/* Gewone tekst */
-p {
-    margin: 10px 0 16px;
-}
-
-/* De introductie is iets groter */
-.intro {
-    font-size: 18px;
-    max-width: 780px;
-}
-
-/* Links binnen de tekst */
-main a {
-    color: #205c9e;
-}
-
-main a:hover {
-    text-decoration: underline;
-}
-
-
-/* ==========================================
-   AFBEELDINGEN
-   ========================================== */
-
-/* Afbeeldingen passen zich aan het scherm aan.
-   height:auto voorkomt vervorming. */
-.foto {
-    display: block;
-    width: 100%;
-    max-width: 580px;
-    height: auto;
-    margin: 22px 0;
-    border-radius: 5px;
-}
-
-
-/* ==========================================
-   TABELLEN
-   ========================================== */
-
-/* Tabellen hebben geen dubbele randen */
-table {
-    border-collapse: collapse;
-    margin: 18px 0 25px;
-    max-width: 100%;
-}
-
-/* Cellen krijgen een dunne rand */
-th,
-td {
-    border: 1px solid #aaaaaa;
-    padding: 10px 14px;
-    text-align: left;
-}
-
-/* Kopjes van tabellen zijn lichtgrijs */
-th {
-    background-color: #e6e9ec;
-}
-
-
-/* ==========================================
-   KNOPPEN EN INVULVELDEN
-   ========================================== */
-
-/* Opmaak van de invulvelden */
-main input[type="number"],
-main input[type="text"],
-main select {
-    padding: 9px;
-    border: 1px solid #aaaaaa;
-    border-radius: 4px;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    margin: 6px 10px 6px 4px;
-    max-width: 100%;
-}
-
-main input[type="number"] {
-    width: 120px;
-}
-
-main input[type="text"] {
-    width: 190px;
-}
-
-/* Knoppen van de interactieve oefeningen */
+main input[type="number"] { width: 120px; }
+main input[type="text"] { width: 190px; }
 main button {
-    background-color: #34495e;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 16px;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    cursor: pointer;
+    background: #34495e; color: white; border: 0;
+    border-radius: 4px; padding: 10px 16px; font-size: 16px; cursor: pointer;
 }
+main button:hover { background: #263e56; }
+input[type="range"] { width: 260px; max-width: 100%; vertical-align: middle; }
 
-/* Donkerdere kleur als je over de knop gaat */
-main button:hover {
-    background-color: #263e56;
-}
-
-/* Schuifbalken bij de RGB- en compressieoefeningen */
-input[type="range"] {
-    width: 260px;
-    max-width: 100%;
-    vertical-align: middle;
-}
-
-
-/* ==========================================
-   IVU-SCHEMA
-   ========================================== */
-
-/* De drie stappen komen naast elkaar */
-.stappen {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin: 25px 0;
-}
-
-/* De vakjes voor invoer, verwerking en uitvoer */
+/* IVU */
+.stappen { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 25px 0; }
 .stappen div:not(.pijl) {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    padding: 8px 12px;
-    background-color: #e8ecef;
-    border-bottom: 3px solid #34495e;
+    display: flex; flex-direction: column; padding: 8px 12px;
+    border-bottom: 3px solid #34495e; background: #e8ecef;
+}
+.pijl { color: #34495e; font-size: 25px; }
+
+/* Kleurmixer */
+.kleurmixer label { display: block; margin-top: 14px; }
+#kleurVoorbeeld { width: 280px; max-width: 100%; height: 125px; margin: 20px 0; border: 1px solid #aaa; }
+
+/* Bitmap en vector */
+.afbeelding-vergelijking { display: flex; flex-wrap: wrap; gap: 25px; }
+.afbeelding-vergelijking canvas, .afbeelding-vergelijking svg {
+    display: block; max-width: 100%; border: 1px solid #aaa; background: white;
 }
 
-.stappen strong {
-    color: #263e56;
-}
+/* Video en spel */
+.video-omlijsting { width: 100%; max-width: 560px; aspect-ratio: 16/9; margin: 18px 0; }
+.spel-omlijsting { width: 100%; max-width: 850px; height: 530px; margin: 20px 0; }
+.video-omlijsting iframe, .spel-omlijsting iframe { width: 100%; height: 100%; border: 0; }
+.spel-omlijsting iframe { border: 1px solid #aaa; }
 
-/* Pijlen tussen de stappen */
-.pijl {
-    font-size: 25px;
-    color: #34495e;
-}
+/* Footer */
+footer { padding: 20px 30px; color: #666; font-size: 14px; }
 
-
-/* ==========================================
-   RGB-KLEURENMIXER
-   ========================================== */
-
-/* Iedere schuifbalk krijgt een eigen regel */
-.kleurmixer label {
-    display: block;
-    margin-top: 14px;
-}
-
-/* Hier verschijnt de zelfgemaakte RGB-kleur */
-#kleurVoorbeeld {
-    width: 280px;
-    max-width: 100%;
-    height: 125px;
-    margin: 20px 0;
-    border: 1px solid #aaaaaa;
-}
-
-
-/* ==========================================
-   BITMAP EN VECTOR
-   ========================================== */
-
-/* De twee afbeeldingen staan naast elkaar */
-.afbeelding-vergelijking {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin: 15px 0;
-}
-
-/* Canvas en SVG krijgen dezelfde afmetingen */
-.afbeelding-vergelijking canvas,
-.afbeelding-vergelijking svg {
-    display: block;
-    max-width: 100%;
-    border: 1px solid #aaaaaa;
-    background-color: white;
-}
-
-
-/* ==========================================
-   YOUTUBE-VIDEO'S
-   ========================================== */
-
-/* De video behoudt een verhouding van 16:9 */
-.video-omlijsting {
-    width: 100%;
-    max-width: 560px;
-    aspect-ratio: 16 / 9;
-    margin: 18px 0;
-}
-
-/* De video vult de beschikbare ruimte */
-.video-omlijsting iframe {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-
-/* ==========================================
-   BINARY BONANZA SPEL
-   ========================================== */
-
-/* Het spel wordt ingebed in de binaire pagina */
-.spel-omlijsting {
-    width: 100%;
-    max-width: 850px;
-    height: 530px;
-    margin: 20px 0;
-}
-
-/* Het iframe vult de ruimte van het spel */
-.spel-omlijsting iframe {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #aaaaaa;
-}
-
-
-/* ==========================================
-   FOOTER
-   ========================================== */
-
-/* Onderaan staat wie de website heeft gemaakt */
-footer {
-    padding: 20px 30px;
-    color: #666666;
-    font-size: 14px;
-}
-
-
-/* ==========================================
-   OPMAAK VOOR MOBIELE TELEFOONS
-   ========================================== */
-
-/* Deze regels gelden voor schermen
-   die 600 pixels breed of smaller zijn. */
+/* Telefoons */
 @media (max-width: 600px) {
-
-    main {
-        padding: 20px 15px;
-    }
-
-    .menu {
-        padding: 0 5px;
-    }
-
-    .menu > li > a,
-    .dropknop {
-        padding: 13px 10px;
-        font-size: 14px;
-    }
-
-    .dropdown-inhoud {
-        min-width: 240px;
-        max-width: calc(100vw - 20px);
-    }
-
-    h1 {
-        font-size: 26px;
-    }
-
-    h2 {
-        font-size: 21px;
-    }
-
-    .intro {
-        font-size: 16px;
-    }
-
-    th,
-    td {
-        padding: 7px;
-        font-size: 14px;
-    }
-
-    .stappen {
-        gap: 8px;
-    }
-
-    .pijl {
-        font-size: 18px;
-    }
-
-    .spel-omlijsting {
-        height: 450px;
-    }
+    main { padding: 20px 15px; }
+    .menu { padding: 0 5px; }
+    .menu > li > a, .dropknop { padding: 13px 10px; font-size: 14px; }
+    .dropdown-inhoud { min-width: 220px; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 21px; }
+    .intro { font-size: 16px; }
+    th, td { padding: 7px; font-size: 14px; }
+    .spel-omlijsting { height: 450px; }
 }
 
-
-/* ==========================================
-   UITLEG VAN MIJN KLEURKEUZE
-
-   Ik gebruik donkerblauw (#34495e)
-   voor het navigatiemenu.
-
-   Deze hexadecimale kleurcode is
-   hetzelfde als rgb(52, 73, 94).
-
-   Mijn achtergrond is lichtgrijs:
-   #f5f5f5 = rgb(245, 245, 245).
-
-   Mijn tekst is donkergrijs:
-   #333333 = rgb(51, 51, 51).
-
-   Ik heb deze kleuren gekozen omdat
-   mijn website rustig en overzichtelijk
-   moet zijn. Door het contrast is
-   de tekst goed leesbaar.
-   ========================================== */
+/* Kleuren: #34495e = rgb(52,73,94)
+   Achtergrond: #f5f5f5 = rgb(245,245,245) */
