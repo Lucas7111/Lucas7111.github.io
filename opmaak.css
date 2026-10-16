@@ -1,66 +1,130 @@
 
 /* Algemene opmaak */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
-    color: #222;
+    color: #222222;
     margin: 0;
 }
 
-/* Menu */
-ul {
+/* Hoofdmenu */
+
+.menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
     background-color: #34495e;
-    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-/* Menuonderdelen naast elkaar */
-li {
-    float: left;
+.menu > li {
+    position: relative;
 }
 
-/* Links in het menu */
-li a {
+/* Home-knop */
+
+.menu > li > a {
     display: block;
     color: white;
-    text-align: center;
-    padding: 15px 20px;
+    background-color: #34495e;
     text-decoration: none;
+    padding: 15px 20px;
 }
 
-/* Kleur van de links als je eroverheen gaat */
-li a:hover {
+.menu > li > a:hover,
+.menu > li > a.actief {
     background-color: #56718c;
 }
 
-/* Grote titel */
+/* Dropdownknop */
+
+.dropdown details {
+    position: relative;
+}
+
+.dropdown summary {
+    display: block;
+    list-style: none;
+    color: white;
+    background-color: #34495e;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.dropdown summary:hover,
+.dropdown details[open] > summary {
+    background-color: #56718c;
+}
+
+/* Dropdownlijst */
+
+.dropdown-inhoud {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 190px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: #34495e;
+    z-index: 1000;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Open de lijst bij klikken */
+
+.dropdown details[open] .dropdown-inhoud {
+    display: block;
+}
+
+.dropdown-inhoud li a {
+    display: block;
+    padding: 13px 18px;
+    color: white;
+    background-color: #34495e;
+    text-decoration: none;
+}
+
+.dropdown-inhoud li a:hover,
+.dropdown-inhoud li a.actief {
+    background-color: #56718c;
+}
+
+/* Titels */
+
 h1 {
     color: #263e56;
     margin: 30px 40px 15px;
 }
 
-/* Tussenkopjes */
 h2 {
     color: #34495e;
     margin: 30px 40px 10px;
 }
 
-/* Kleine kopjes */
 h3 {
     color: #34495e;
     margin: 20px 40px 10px;
 }
 
-/* Tekst */
+/* Normale tekst */
+
 p {
     margin: 10px 40px;
     max-width: 750px;
     line-height: 1.6;
 }
 
-/* Afbeeldingen op mijn website */
+/* Afbeeldingen */
+
 .foto {
     width: 450px;
     max-width: 85%;
@@ -69,9 +133,78 @@ p {
     border-radius: 5px;
 }
 
-/* Kleurenvakjes */
+/* Tabellen */
+
+table {
+    border-collapse: collapse;
+    margin: 20px 40px;
+    max-width: calc(100% - 80px);
+}
+
+th, td {
+    border: 1px solid #a9b6c3;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #dfe5ea;
+    color: #263e56;
+}
+
+/* Knoppen */
+
+button, .knop {
+    display: inline-block;
+    background-color: #34495e;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+button:hover, .knop:hover {
+    background-color: #56718c;
+}
+
+/* Oefeningen */
+
+.oefening {
+    background-color: #eceff2;
+    border-left: 4px solid #34495e;
+    padding: 20px;
+    margin: 20px 40px;
+    max-width: 750px;
+    border-radius: 5px;
+}
+
+.oefening p {
+    margin: 15px 0;
+}
+
+.oefening label {
+    display: block;
+    margin: 10px 0;
+    color: #263e56;
+}
+
+.oefening input[type="number"] {
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #a9b6c3;
+    border-radius: 4px;
+    max-width: 150px;
+}
+
+/* RGB-kleurvakjes */
+
 .kleuren {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin: 20px 40px;
 }
@@ -79,9 +212,9 @@ p {
 .kleuren div {
     width: 100px;
     height: 70px;
-    text-align: center;
     padding-top: 30px;
     color: white;
+    text-align: center;
 }
 
 .rood {
@@ -94,4 +227,81 @@ p {
 
 .blauw {
     background-color: #0000ff;
+}
+
+/* RGB-schuifjes */
+
+.oefening input[type="range"] {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    margin: 10px 0 20px;
+    accent-color: #34495e;
+}
+
+.voorbeeldkleur {
+    background-color: rgb(255, 255, 0);
+    width: 100%;
+    max-width: 450px;
+    height: 130px;
+    border: 2px solid #34495e;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+/* IVU-stappen */
+
+.stappen {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 25px 40px;
+}
+
+.stappen div {
+    background-color: #34495e;
+    color: white;
+    padding: 18px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.stappen span {
+    color: #263e56;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Binair spel */
+
+.spel {
+    display: block;
+    width: calc(100% - 80px);
+    max-width: 850px;
+    height: 480px;
+    border: 2px solid #34495e;
+    border-radius: 5px;
+    margin: 20px 40px;
+}
+
+/* Opmaak voor mobiele telefoons */
+
+@media (max-width: 650px) {
+    .menu > li > a,
+    .dropdown summary {
+        padding: 12px 14px;
+    }
+
+    .dropdown-inhoud {
+        min-width: 180px;
+    }
+
+    .spel {
+        height: 350px;
+    }
+
+    .stappen {
+        gap: 8px;
+    }
 }

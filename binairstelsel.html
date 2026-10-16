@@ -1,23 +1,30 @@
 
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
     <meta charset="UTF-8">
-    <title>Binair stelsel</title>
-    <link rel="stylesheet" type="text/css" href="opmaak.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binair stelsel - Website van Lucas</title>
+    <link rel="stylesheet" href="opmaak.css">
 </head>
-
 <body>
 
-    <!-- Menu van mijn website -->
-    <ul>
-      <li><a href="index.html">Home</a></li>
-        <li><a href="ivu.html">IVU</a></li>
-        <li><a href="binairstelsel.html">Binair stelsel</a></li>
-        <li><a href="kleur.html">Kleurmodellen</a></li>
-        <li><a href="compressie.html" class="actief">Compressie</a></li>
-        <li><a href="ai.html">AI</a></li>
+    <!-- Dropdownmenu -->
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+
+        <li class="dropdown">
+            <details>
+                <summary>Onderwerpen &#9662;</summary>
+                <ul class="dropdown-inhoud">
+                    <li><a href="ivu.html">IVU</a></li>
+                    <li><a href="binairstelsel.html" class="actief">Binair stelsel</a></li>
+                    <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+                    <li><a href="compressie.html">Compressie</a></li>
+                    <li><a href="ai.html">AI</a></li>
+                </ul>
+            </details>
+        </li>
     </ul>
 
     <h1>Het binaire stelsel</h1>
@@ -27,78 +34,115 @@
     <p>
         Het binaire stelsel is een getallenstelsel
         dat alleen de cijfers 0 en 1 gebruikt.
-        Wij gebruiken normaal het decimale stelsel,
-        met de cijfers 0 tot en met 9.
+        Computers gebruiken dit stelsel om informatie
+        op te slaan en te verwerken.
     </p>
 
     <p>
-        Computers gebruiken het binaire stelsel
-        omdat ze werken met elektronische signalen.
-        Die signalen kunnen bijvoorbeeld aan of uit
-        zijn. Aan kun je voorstellen als 1 en
-        uit als 0.
+        Wij gebruiken normaal gesproken het decimale stelsel.
+        Dat bestaat uit de cijfers 0 tot en met 9.
+        Computers werken met bits.
+        Een bit kan 0 of 1 zijn.
     </p>
-
-    <!-- Afbeelding van binaire getallen -->
-    <img src=""
-         alt="Voorbeeld van binaire getallen met nullen en enen"
-         class="foto">
 
     <h2>Hoe werkt het binaire stelsel?</h2>
 
     <p>
-        Bij gewone getallen is elke plek tien keer
-        zoveel waard als de plek rechts ervan.
-        Bij binaire getallen is elke plek twee
-        keer zoveel waard.
+        Bij het binaire stelsel heeft iedere positie
+        een bepaalde waarde.
+        Van rechts naar links zijn dat
+        1, 2, 4, 8, 16, 32, 64 en 128.
+    </p>
+
+    <table>
+        <tr>
+            <th>Decimaal</th>
+            <th>Binair</th>
+        </tr>
+        <tr><td>1</td><td>1</td></tr>
+        <tr><td>2</td><td>10</td></tr>
+        <tr><td>3</td><td>11</td></tr>
+        <tr><td>4</td><td>100</td></tr>
+        <tr><td>5</td><td>101</td></tr>
+        <tr><td>8</td><td>1000</td></tr>
+        <tr><td>10</td><td>1010</td></tr>
+        <tr><td>13</td><td>1101</td></tr>
+    </table>
+
+    <h2>Voorbeeld</h2>
+
+    <p>
+        Het getal 13 schrijf je binair als 1101.
+        Dit komt doordat 8 + 4 + 0 + 1 = 13.
+    </p>
+
+    <h2>Zelf omrekenen</h2>
+
+    <p>
+        Vul een heel getal tussen 0 en 255 in
+        om te zien hoe je dit binair schrijft.
+    </p>
+
+    <div class="oefening">
+        <label for="decimaal">Decimaal getal:</label>
+
+        <input type="number"
+               id="decimaal"
+               min="0"
+               max="255"
+               value="13">
+
+        <button onclick="omrekenen()">Omrekenen</button>
+
+        <p id="binairantwoord">Binair: 1101</p>
+    </div>
+
+    <h2>Spel: Binary Bonanza</h2>
+
+    <p>
+        Met dit spel kun je oefenen met het binaire stelsel.
+        Probeer zoveel mogelijk goede antwoorden te geven!
+    </p>
+
+    <iframe
+        class="spel"
+        src="https://games.penjee.com/binary-bonanza/"
+        title="Binary Bonanza">
+    </iframe>
+
+    <p>
+        Als het spel hierboven niet werkt,
+        kun je het via deze link openen:
     </p>
 
     <p>
-        Van rechts naar links zijn de waarden:
-        1, 2, 4, 8, 16, 32 enzovoort.
+        <a class="knop"
+           href="https://games.penjee.com/binary-bonanza/"
+           target="_blank"
+           rel="noopener noreferrer">
+            Speel Binary Bonanza
+        </a>
     </p>
 
-    <h2>Voorbeeld: 1011</h2>
+    <script>
+        function omrekenen() {
+            let getal = Number(
+                document.getElementById("decimaal").value
+            );
 
-    <p>
-        Stel dat je het binaire getal 1011 hebt.
-        Dan reken je:
-    </p>
-
-    <p>1 x 8 = 8</p>
-    <p>0 x 4 = 0</p>
-    <p>1 x 2 = 2</p>
-    <p>1 x 1 = 1</p>
-
-    <p>8 + 0 + 2 + 1 = 11</p>
-
-    <p>
-        Het binaire getal 1011 is dus hetzelfde
-        als het decimale getal 11.
-    </p>
-
-    <h2>Bits en bytes</h2>
-
-    <p>
-        Een bit is een 0 of een 1.
-        Acht bits samen vormen een byte.
-        Computers gebruiken bits en bytes
-        om informatie op te slaan en te verwerken.
-    </p>
-
-    <!-- Link naar het spel -->
-    <h2>Oefen het binaire stelsel met een spel</h2>
-
-    <p>
-        Wil je oefenen met het binaire stelsel?
-        Speel dan het spel Binary Bonanza.
-        In dit spel leer je op een leuke manier
-        hoe binaire getallen werken.
-    </p>
-
-    <p>
-       <iframe src="https://games.penjee.com/binary-bonanza/game.php" width="700" height="500" frameborder="no" scrolling="no" ></iframe>
-    </p>
+            if (
+                Number.isInteger(getal) &&
+                getal >= 0 &&
+                getal <= 255
+            ) {
+                document.getElementById("binairantwoord").textContent =
+                    "Binair: " + getal.toString(2);
+            } else {
+                document.getElementById("binairantwoord").textContent =
+                    "Vul een heel getal tussen 0 en 255 in.";
+            }
+        }
+    </script>
 
 </body>
 </html>

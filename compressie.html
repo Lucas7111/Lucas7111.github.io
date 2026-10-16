@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -8,14 +9,22 @@
 </head>
 <body>
 
-    <!-- Menu van mijn website -->
+    <!-- Dropdownmenu -->
     <ul class="menu">
         <li><a href="index.html">Home</a></li>
-        <li><a href="ivu.html">IVU</a></li>
-        <li><a href="binairstelsel.html">Binair stelsel</a></li>
-        <li><a href="kleur.html">Kleurmodellen</a></li>
-        <li><a href="compressie.html" class="actief">Compressie</a></li>
-        <li><a href="ai.html">AI</a></li>
+
+        <li class="dropdown">
+            <details>
+                <summary>Onderwerpen &#9662;</summary>
+                <ul class="dropdown-inhoud">
+                    <li><a href="ivu.html">IVU</a></li>
+                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
+                    <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+                    <li><a href="compressie.html" class="actief">Compressie</a></li>
+                    <li><a href="ai.html">AI</a></li>
+                </ul>
+            </details>
+        </li>
     </ul>
 
     <h1>Compressie</h1>
@@ -23,14 +32,15 @@
     <h2>Wat is compressie?</h2>
 
     <p>
-        Compressie betekent dat een digitaal bestand kleiner
-        wordt gemaakt. Hierdoor neemt het minder opslagruimte
-        in beslag en kun je het sneller versturen.
+        Compressie betekent dat een digitaal bestand
+        kleiner wordt gemaakt.
+        Hierdoor neemt het minder opslagruimte in
+        en kun je het sneller versturen.
     </p>
 
     <p>
-        Compressie wordt bijvoorbeeld gebruikt bij foto's,
-        video's, muziek en documenten.
+        Compressie wordt bijvoorbeeld gebruikt
+        bij foto's, video's, muziek en documenten.
     </p>
 
     <h2>Twee soorten compressie</h2>
@@ -39,12 +49,12 @@
 
     <p>
         Bij lossless compressie gaat er geen informatie verloren.
-        Wanneer je het bestand weer uitpakt, krijg je precies
-        dezelfde gegevens terug.
+        Wanneer je het bestand weer uitpakt,
+        krijg je precies dezelfde gegevens terug.
     </p>
 
     <p>
-        Voorbeelden hiervan zijn ZIP-bestanden en PNG-afbeeldingen.
+        Voorbeelden zijn ZIP-bestanden en PNG-afbeeldingen.
     </p>
 
     <h3>2. Lossy compressie</h3>
@@ -56,7 +66,7 @@
     </p>
 
     <p>
-        Voorbeelden hiervan zijn JPEG-foto's en MP3-muziek.
+        Voorbeelden zijn JPEG-foto's en MP3-muziek.
     </p>
 
     <h2>Verschil tussen lossless en lossy</h2>
@@ -71,8 +81,8 @@
             <td>Wel informatieverlies</td>
         </tr>
         <tr>
-            <td>Oorspronkelijke gegevens blijven behouden</td>
-            <td>Niet alle gegevens kunnen worden teruggehaald</td>
+            <td>Gegevens volledig terug te halen</td>
+            <td>Niet alle gegevens terug te halen</td>
         </tr>
         <tr>
             <td>Bijvoorbeeld ZIP en PNG</td>
@@ -97,10 +107,9 @@
 
     <p>
         Door compressie kun je meer bestanden opslaan.
-        Ook worden bestanden sneller verstuurd en
-        kunnen websites en video's sneller laden.
+        Ook worden bestanden sneller verstuurd
+        en kunnen websites en video's sneller laden.
     </p>
 
 </body>
 </html>
-

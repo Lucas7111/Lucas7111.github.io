@@ -1,69 +1,62 @@
 
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
     <meta charset="UTF-8">
-    <title>Kleur</title>
-    <link rel="stylesheet" type="text/css" href="opmaak.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kleurmodellen - Website van Lucas</title>
+    <link rel="stylesheet" href="opmaak.css">
 </head>
-
 <body>
 
-    <!-- Menu van mijn website -->
-    <ul>
-       <li><a href="index.html">Home</a></li>
-        <li><a href="ivu.html">IVU</a></li>
-        <li><a href="binairstelsel.html">Binair stelsel</a></li>
-        <li><a href="kleur.html">Kleurmodellen</a></li>
-        <li><a href="compressie.html" class="actief">Compressie</a></li>
-        <li><a href="ai.html">AI</a></li>
+    <!-- Dropdownmenu -->
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+
+        <li class="dropdown">
+            <details>
+                <summary>Onderwerpen &#9662;</summary>
+                <ul class="dropdown-inhoud">
+                    <li><a href="ivu.html">IVU</a></li>
+                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
+                    <li><a href="kleurmodellen.html" class="actief">Kleurmodellen</a></li>
+                    <li><a href="compressie.html">Compressie</a></li>
+                    <li><a href="ai.html">AI</a></li>
+                </ul>
+            </details>
+        </li>
     </ul>
 
-    <h1>Kleuren op een computer</h1>
+    <h1>Kleurmodellen</h1>
 
-    <h2>Wat is RGB?</h2>
-
-    <p>
-        RGB staat voor rood, groen en blauw.
-        Een beeldscherm gebruikt deze drie kleuren
-        om andere kleuren te maken.
-    </p>
-
-    <!-- Afbeelding over RGB-kleuren -->
-    <img src="rgb.png"
-         alt="Rood, groen en blauw in het RGB-kleurmodel"
-         class="foto">
+    <h2>Wat zijn pixels?</h2>
 
     <p>
-        Elke RGB-kleur heeft een waarde tussen
-        0 en 255. Bij 0 wordt die kleur niet
-        gebruikt en bij 255 is die kleur
-        maximaal aanwezig.
-    </p>
-
-    <h2>Voorbeelden van RGB</h2>
-
-    <p>Rood = RGB(255, 0, 0)</p>
-    <p>Groen = RGB(0, 255, 0)</p>
-    <p>Blauw = RGB(0, 0, 255)</p>
-    <p>Wit = RGB(255, 255, 255)</p>
-    <p>Zwart = RGB(0, 0, 0)</p>
-
-    <h2>Hexadecimale kleuren</h2>
-
-    <p>
-        Je kunt kleuren ook schrijven met een
-        hexadecimale code. Die begint met een #,
-        gevolgd door zes tekens.
+        Een digitale afbeelding bestaat uit kleine vierkantjes.
+        Deze vierkantjes worden pixels genoemd.
+        Iedere pixel heeft een bepaalde kleur.
     </p>
 
     <p>
-        Bijvoorbeeld: #FF0000 is rood.
-        Dit is hetzelfde als RGB(255, 0, 0).
+        Om kleuren digitaal op te slaan en weer te geven,
+        gebruiken computers kleurmodellen.
+        Twee belangrijke kleurmodellen zijn RGB en CMY.
     </p>
 
-    <h2>Voorbeeld van kleuren</h2>
+    <h2>Het RGB-model</h2>
+
+    <p>
+        RGB staat voor Rood, Groen en Blauw.
+        Dit kleurmodel wordt gebruikt bij beeldschermen,
+        zoals televisies, computers en telefoons.
+    </p>
+
+    <p>
+        Een beeldscherm maakt kleuren door rood, groen
+        en blauw licht te mengen.
+        Als alle drie de kleuren maximaal branden,
+        ontstaat wit. Als er geen licht is, zie je zwart.
+    </p>
 
     <div class="kleuren">
         <div class="rood">Rood</div>
@@ -71,15 +64,150 @@
         <div class="blauw">Blauw</div>
     </div>
 
-    <h2>Meer informatie</h2>
+    <h2>RGB-waarden</h2>
 
     <p>
-        Op
-        <a href="https://www.w3schools.com/colors/default.asp">
-            W3Schools
-        </a>
-        kun je zelf verschillende kleuren uitproberen.
+        Elke RGB-kleur wordt weergegeven met drie getallen
+        tussen 0 en 255.
+        Het eerste getal is rood, het tweede groen
+        en het derde blauw.
     </p>
+
+    <table>
+        <tr>
+            <th>Kleur</th>
+            <th>RGB-waarde</th>
+        </tr>
+        <tr><td>Rood</td><td>(255, 0, 0)</td></tr>
+        <tr><td>Groen</td><td>(0, 255, 0)</td></tr>
+        <tr><td>Blauw</td><td>(0, 0, 255)</td></tr>
+        <tr><td>Geel</td><td>(255, 255, 0)</td></tr>
+        <tr><td>Wit</td><td>(255, 255, 255)</td></tr>
+        <tr><td>Zwart</td><td>(0, 0, 0)</td></tr>
+    </table>
+
+    <h2>Probeer RGB zelf uit!</h2>
+
+    <p>
+        Beweeg de schuifjes om te ontdekken
+        hoe je verschillende kleuren kunt maken.
+    </p>
+
+    <div class="oefening">
+
+        <label for="rood">
+            Rood: <span id="waardeR">255</span>
+        </label>
+        <input type="range"
+               id="rood"
+               min="0"
+               max="255"
+               value="255">
+
+        <label for="groen">
+            Groen: <span id="waardeG">255</span>
+        </label>
+        <input type="range"
+               id="groen"
+               min="0"
+               max="255"
+               value="255">
+
+        <label for="blauw">
+            Blauw: <span id="waardeB">0</span>
+        </label>
+        <input type="range"
+               id="blauw"
+               min="0"
+               max="255"
+               value="0">
+
+        <div id="voorbeeldkleur" class="voorbeeldkleur"></div>
+
+        <p id="rgbwaarde">RGB(255, 255, 0)</p>
+    </div>
+
+    <h2>Het CMY-model</h2>
+
+    <p>
+        CMY staat voor Cyaan, Magenta en Yellow (geel).
+        Dit kleurmodel wordt gebruikt bij printers.
+    </p>
+
+    <p>
+        Bij CMY worden kleuren gemaakt door inkt
+        op wit papier te mengen.
+        Hoe meer inkt je mengt, hoe donkerder de kleur wordt.
+    </p>
+
+    <p>
+        Printers gebruiken meestal ook zwarte inkt.
+        Daarom heet het in de praktijk vaak CMYK.
+        De K staat voor Key, oftewel zwart.
+    </p>
+
+    <h2>Verschil tussen RGB en CMY</h2>
+
+    <table>
+        <tr>
+            <th>RGB</th>
+            <th>CMY</th>
+        </tr>
+        <tr>
+            <td>Gebruikt bij beeldschermen</td>
+            <td>Gebruikt bij printers</td>
+        </tr>
+        <tr>
+            <td>Werkt met licht</td>
+            <td>Werkt met inkt</td>
+        </tr>
+        <tr>
+            <td>Begint met zwart</td>
+            <td>Begint met wit papier</td>
+        </tr>
+        <tr>
+            <td>Alle kleuren maximaal geeft wit</td>
+            <td>Alle inkten samen geven ongeveer zwart</td>
+        </tr>
+    </table>
+
+    <h2>Meer oefenen met kleuren</h2>
+
+    <p>
+        <a href="https://www.w3schools.com/colors/default.asp"
+           target="_blank"
+           rel="noopener noreferrer">
+            Kleuren leren bij W3Schools
+        </a>
+    </p>
+
+    <script>
+        const rood = document.getElementById("rood");
+        const groen = document.getElementById("groen");
+        const blauw = document.getElementById("blauw");
+
+        function veranderKleur() {
+            let r = rood.value;
+            let g = groen.value;
+            let b = blauw.value;
+
+            document.getElementById("waardeR").textContent = r;
+            document.getElementById("waardeG").textContent = g;
+            document.getElementById("waardeB").textContent = b;
+
+            document.getElementById("voorbeeldkleur").style.backgroundColor =
+                "rgb(" + r + "," + g + "," + b + ")";
+
+            document.getElementById("rgbwaarde").textContent =
+                "RGB(" + r + ", " + g + ", " + b + ")";
+        }
+
+        rood.addEventListener("input", veranderKleur);
+        groen.addEventListener("input", veranderKleur);
+        blauw.addEventListener("input", veranderKleur);
+
+        veranderKleur();
+    </script>
 
 </body>
 </html>
