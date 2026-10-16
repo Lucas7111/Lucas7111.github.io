@@ -1,164 +1,213 @@
 
-/* Algemene opmaak van de website */
+/* ==========================================
+   INFORMATICAWEBSITE VAN LUCAS - HAVO 4
+   Dit bestand bepaalt de opmaak van alle pagina's.
+   ========================================== */
+
+/* De * selecteert alle elementen.
+   box-sizing zorgt dat padding en randen
+   meetellen bij de ingestelde breedte. */
+* {
+    box-sizing: border-box;
+}
+
+/* body is de volledige website.
+   background-color = achtergrondkleur
+   color = tekstkleur
+   font-family = lettertype
+   font-size = grootte van de tekst
+   line-height = afstand tussen tekstregels */
 body {
     margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     color: #333333;
+    font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.7;
 }
 
-/* Het donkerblauwe navigatiemenu */
+/* Donkerblauwe balk bovenaan de website */
 nav {
     background-color: #34495e;
 }
 
+/* display:flex zet de menuonderdelen naast elkaar.
+   list-style:none haalt de opsommingstekens weg. */
 .menu {
-    list-style: none;
     display: flex;
     align-items: center;
-    margin: 0;
+    list-style: none;
     padding: 0 20px;
+    margin: 0;
 }
 
+/* position:relative zorgt dat het dropdownmenu
+   op de juiste plek kan verschijnen. */
 .menu > li {
     position: relative;
 }
 
+/* Opmaak van de links en de menuknop */
 .menu a,
 .dropknop {
     display: block;
     padding: 15px 20px;
     color: white;
     text-decoration: none;
-    font-size: 16px;
     font-family: Arial, sans-serif;
+    font-size: 16px;
 }
 
+/* De dropdownknop krijgt dezelfde stijl als de links. */
 .dropknop {
-    background: none;
     border: none;
+    background: none;
     cursor: pointer;
 }
 
+/* Hover verandert de kleur als je met je muis
+   over een onderdeel van het menu beweegt. */
 .menu > li > a:hover,
 .dropknop:hover {
     background-color: #263e56;
 }
 
-/* Wit dropdownmenu */
+/* Het dropdownmenu is standaard verborgen.
+   position:absolute plaatst het onder de knop.
+   z-index zorgt dat het boven de tekst verschijnt. */
 .dropdown-inhoud {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 10;
-    min-width: 230px;
+    z-index: 20;
+    min-width: 260px;
     padding: 0;
     margin: 0;
     list-style: none;
     background-color: white;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15);
 }
 
+/* Links in het witte dropdownmenu */
 .dropdown-inhoud a {
     color: #333333;
-    padding: 12px 16px;
+    padding: 11px 15px;
 }
 
 .dropdown-inhoud a:hover {
     background-color: #eeeeee;
 }
 
-/* Openen met muis of JavaScript */
-.dropdown:hover .dropdown-inhoud,
+/* JavaScript voegt de class 'open' toe.
+   Daardoor wordt het dropdownmenu zichtbaar. */
 .dropdown.open .dropdown-inhoud {
     display: block;
 }
 
-/* Inhoud van de pagina */
+/* main bevat de inhoud van iedere pagina.
+   max-width voorkomt te lange tekstregels.
+   padding geeft ruimte langs de randen. */
 main {
-    padding: 25px 30px;
     max-width: 1000px;
-    text-align: left;
+    padding: 30px;
 }
 
-/* Kopjes */
-h1 {
+/* Kopjes krijgen dezelfde donkerblauwe kleur. */
+h1, h2, h3 {
     color: #263e56;
-    font-size: 30px;
-    margin-top: 5px;
-    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 31px;
+    margin: 0 0 15px;
 }
 
 h2 {
-    color: #263e56;
     font-size: 23px;
-    margin-top: 30px;
-    margin-bottom: 10px;
+    margin: 35px 0 12px;
 }
 
 h3 {
-    color: #263e56;
     font-size: 19px;
-    margin-top: 20px;
+    margin: 24px 0 10px;
 }
 
-/* Gewone tekst */
+/* Gewone alinea's */
 p {
-    margin-top: 8px;
-    margin-bottom: 15px;
+    margin: 10px 0 16px;
 }
 
+/* Introductietekst iets groter maken */
+.intro {
+    font-size: 18px;
+    max-width: 780px;
+}
+
+/* Links in de inhoud zijn blauw. */
 main a {
     color: #205c9e;
 }
 
-/* Afbeeldingen links uitlijnen */
+/* Afbeeldingen:
+   width:100% maakt ze flexibel.
+   max-width voorkomt dat ze te groot worden.
+   height:auto behoudt de verhoudingen. */
 .foto {
     display: block;
     width: 100%;
-    max-width: 550px;
+    max-width: 580px;
     height: auto;
-    margin: 20px 0;
+    margin: 22px 0;
     border-radius: 5px;
 }
 
-/* Tabellen */
+/* Tabellen met dunne randen */
 table {
     border-collapse: collapse;
-    margin: 15px 0 25px;
+    margin: 18px 0 25px;
     max-width: 100%;
 }
 
-th,
-td {
+th, td {
     border: 1px solid #aaaaaa;
-    padding: 9px 15px;
+    padding: 10px 14px;
     text-align: left;
 }
 
 th {
-    background-color: #e8e8e8;
+    background-color: #e6e9ec;
 }
 
-/* Invoervelden */
-input[type="number"] {
-    padding: 8px;
-    margin: 8px 10px 8px 5px;
-    width: 110px;
-    font-size: 16px;
-}
-
-/* Knoppen bij de oefeningen */
-main button {
-    padding: 9px 15px;
-    border: none;
+/* Formulieren en invulvelden */
+main input[type="number"],
+main input[type="text"],
+main select {
+    padding: 9px;
+    border: 1px solid #aaaaaa;
     border-radius: 4px;
+    font-size: 16px;
+    margin: 6px 10px 6px 4px;
+    max-width: 100%;
+}
+
+main input[type="number"] {
+    width: 120px;
+}
+
+main input[type="text"] {
+    width: 190px;
+}
+
+/* Alle oefenknoppen hebben dezelfde kleur.
+   cursor:pointer laat een handje zien. */
+main button {
     background-color: #34495e;
     color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
     font-size: 16px;
     cursor: pointer;
 }
@@ -167,33 +216,71 @@ main button:hover {
     background-color: #263e56;
 }
 
-/* RGB-kleurenmixer */
-.kleurmixer label {
-    display: block;
-    margin-top: 12px;
+/* Schuifbalken bij de interactieve oefeningen */
+input[type="range"] {
+    width: 260px;
+    max-width: 100%;
+    vertical-align: middle;
 }
 
-.kleurmixer input[type="range"] {
-    width: 260px;
-    max-width: 75%;
-    vertical-align: middle;
+/* IVU-schema met drie stappen */
+.stappen {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.stappen div:not(.pijl) {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 12px;
+    border-bottom: 3px solid #34495e;
+    background-color: #e8ecef;
+}
+
+.pijl {
+    color: #34495e;
+    font-size: 25px;
+}
+
+/* Voorbeeldvak van de RGB-kleurenmixer */
+.kleurmixer label {
+    display: block;
+    margin-top: 14px;
 }
 
 #kleurVoorbeeld {
     width: 280px;
     max-width: 100%;
-    height: 110px;
-    margin-top: 20px;
-    border: 1px solid #888888;
-    border-radius: 4px;
+    height: 125px;
+    margin: 20px 0;
+    border: 1px solid #aaaaaa;
 }
 
-/* YouTube-video's */
+/* Bitmap en vector naast elkaar tonen */
+.afbeelding-vergelijking {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.afbeelding-vergelijking canvas,
+.afbeelding-vergelijking svg {
+    display: block;
+    max-width: 100%;
+    border: 1px solid #aaaaaa;
+    background-color: white;
+}
+
+/* Video's passen zich aan de breedte aan.
+   aspect-ratio 16/9 geeft een breed videoformaat. */
 .video-omlijsting {
     width: 100%;
     max-width: 560px;
     aspect-ratio: 16 / 9;
-    margin: 15px 0;
+    margin: 18px 0;
 }
 
 .video-omlijsting iframe {
@@ -202,15 +289,30 @@ main button:hover {
     border: none;
 }
 
-/* Onderkant van de pagina */
+/* Het binaire spel heeft meer hoogte nodig. */
+.spel-omlijsting {
+    width: 100%;
+    max-width: 850px;
+    height: 530px;
+    margin: 20px 0;
+}
+
+.spel-omlijsting iframe {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #aaaaaa;
+}
+
+/* Klein tekstje onderaan iedere pagina */
 footer {
-    margin-top: 25px;
     padding: 20px 30px;
     color: #666666;
     font-size: 14px;
 }
 
-/* Opmaak voor telefoons */
+/* Responsive design:
+   Bij schermen smaller dan 600 pixels
+   worden afstanden en tekstgroottes aangepast. */
 @media (max-width: 600px) {
     main {
         padding: 20px 15px;
@@ -226,6 +328,10 @@ footer {
         font-size: 14px;
     }
 
+    .dropdown-inhoud {
+        min-width: 220px;
+    }
+
     h1 {
         font-size: 26px;
     }
@@ -234,24 +340,38 @@ footer {
         font-size: 21px;
     }
 
-    table {
+    .intro {
+        font-size: 16px;
+    }
+
+    th, td {
+        padding: 7px;
         font-size: 14px;
     }
 
-    th,
-    td {
-        padding: 6px;
+    .spel-omlijsting {
+        height: 450px;
     }
 }
 
-/*
-Kleurcodes in CSS:
-#34495e is een hexadecimale kleurcode.
+/* ==========================================
+   UITLEG VAN KLEURCODES VOOR DE DOCENT
 
-Hexadecimaal gebruikt 0 t/m 9 en A t/m F.
-Bij RGB worden decimale getallen van 0 t/m 255
-gebruikt voor rood, groen en blauw.
+   #34495e is een hexadecimale kleurcode.
+   Hexadecimaal gebruikt 0-9 en A-F.
 
-De kleur #34495e is hetzelfde als:
-rgb(52, 73, 94)
-*/
+   Dezelfde kleur is:
+   rgb(52, 73, 94)
+
+   RGB betekent rood, groen en blauw.
+   Iedere waarde loopt van 0 tot 255.
+
+   Rood = 52
+   Groen = 73
+   Blauw = 94
+
+   Ik heb donkerblauw gekozen omdat het
+   rustig en duidelijk is op mijn website.
+   De lichtgrijze achtergrond zorgt voor
+   voldoende contrast met de donkere tekst.
+   ========================================== */

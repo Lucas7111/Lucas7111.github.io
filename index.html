@@ -2,89 +2,189 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    <!-- UTF-8 zorgt dat Nederlandse tekens goed werken. -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Informatica Lucas</title>
+
+    <!-- Zorgt dat de website ook op een telefoon past. -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Home | Informatica Lucas</title>
+
+    <!-- Koppeling met het CSS-bestand. -->
     <link rel="stylesheet" href="opmaak.css">
 </head>
 <body>
 
-    <!-- Navigatiemenu -->
-    <nav>
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <button class="dropknop" type="button"
-                        aria-expanded="false">Onderwerpen ▼</button>
-                <ul class="dropdown-inhoud">
-                    <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
-                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
-                    <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-                    <li><a href="compressie.html">Compressie</a></li>
-                    <li><a href="ai.html">Kunstmatige intelligentie</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+<!-- Het horizontale menu staat bovenaan alle pagina's. -->
+<nav>
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
 
-    <main>
-        <h1>Welkom op mijn informaticawebsite!</h1>
+        <!-- Dropdown met links naar de vijf onderwerpen. -->
+        <li class="dropdown">
+            <button class="dropknop" type="button"
+                    aria-expanded="false">
+                Onderwerpen ▼
+            </button>
 
-        <h2>Over mij</h2>
-        <p>
-            Hoi! Ik ben Lucas en ik ben 15 jaar oud.
-            Ik zit op het Vlietland College in HAVO 4.
-            Voor het vak informatica heb ik deze website gemaakt.
-        </p>
+            <ul class="dropdown-inhoud">
+                <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
+                <li><a href="binairstelsel.html">Binair stelsel</a></li>
+                <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+                <li><a href="compressie.html">Compressie</a></li>
+                <li><a href="ai.html">Kunstmatige intelligentie</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
 
-        <p>
-            In mijn vrije tijd ga ik graag naar de sportschool.
-            Dat doe ik ongeveer vier keer per week.
-            Daarnaast vind ik het leuk om met vrienden te voetballen.
-        </p>
+<!-- main bevat de belangrijkste informatie van de pagina. -->
+<main>
+    <!-- h1 is de belangrijkste titel. -->
+    <h1>Welkom op mijn informaticawebsite</h1>
 
-        <img class="foto"
-             src="David-Lloyd-Amsterdam.webp"
-             alt="Sportschool met fitnessapparatuur">
+    <p class="intro">
+        Op deze website vertel ik wie ik ben
+        en leg ik vijf onderwerpen uit
+        die met computers en informatica te maken hebben.
+    </p>
 
-        <h2>Mijn toekomst</h2>
-        <p>
-            Later wil ik graag een leuke opleiding volgen en
-            een baan vinden die goed bij mij past.
-            Ik weet nog niet precies wat ik wil worden.
-            Ik hoop dat ik daar door loopbaanoriëntatie
-            en begeleiding op school achter kom.
-        </p>
+    <!-- De afbeelding past bij het onderwerp computers. -->
+    <img class="foto"
+         src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80"
+         alt="Laptop en digitale apparaten op een bureau">
 
-        <h2>Waar gaat mijn website over?</h2>
-        <p>
-            Op mijn website leg ik vijf onderwerpen uit die
-            te maken hebben met informatica. Je leert hoe
-            computers informatie verwerken, hoe binaire
-            getallen werken en hoe kleuren worden gemaakt.
-            Ook leg ik uit wat compressie is en wat je
-            met kunstmatige intelligentie kunt doen.
-        </p>
+    <!-- h2 verdeelt de homepage in duidelijke onderdelen. -->
+    <h2>Wie ben ik?</h2>
 
-        <ul>
-            <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
-            <li><a href="binairstelsel.html">Het binaire stelsel</a></li>
-            <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-            <li><a href="compressie.html">Compressie en afbeeldingen</a></li>
-            <li><a href="ai.html">Kunstmatige intelligentie</a></li>
-        </ul>
+    <p>
+        Hoi! Ik ben Lucas en ik ben 15 jaar oud.
+        Ik zit op het Vlietland College in HAVO 4.
+        Voor het vak informatica heb ik deze
+        website ontworpen en gemaakt.
+    </p>
 
-        <h2>Waarom heb ik deze website gemaakt?</h2>
-        <p>
-            Ik heb deze website gemaakt voor een opdracht
-            van informatica. Ik leer hiermee hoe HTML,
-            CSS en JavaScript werken. HTML gebruik ik
-            voor de inhoud, CSS voor de opmaak en
-            JavaScript voor interactieve onderdelen.
-        </p>
-    </main>
+    <h2>Wat doe ik graag?</h2>
 
-    <footer>Gemaakt door Lucas - Informatica HAVO 4</footer>
-    <script src="menu.js"></script>
+    <p>
+        In mijn vrije tijd ga ik graag naar
+        de sportschool. Ik train ongeveer
+        vier keer per week.
+        Ik vind het leuk om sterker te worden
+        en mijn prestaties te verbeteren.
+    </p>
+
+    <p>
+        Daarnaast voetbal ik regelmatig
+        met mijn vrienden. Ik vind sporten
+        een fijne afwisseling naast school.
+    </p>
+
+    <h2>Mijn plannen voor later</h2>
+
+    <p>
+        Ik weet nog niet precies welke opleiding
+        ik na de HAVO wil doen.
+        Ik wil later graag een opleiding volgen
+        die ik interessant vind en een baan krijgen
+        die goed bij mij past.
+    </p>
+
+    <p>
+        Door loopbaanoriëntatie en begeleiding
+        op school hoop ik te ontdekken
+        welke opleidingen en beroepen
+        goed aansluiten bij mijn interesses.
+    </p>
+
+    <h2>Waarom heb ik deze website gemaakt?</h2>
+
+    <p>
+        Deze website hoort bij een opdracht
+        voor informatica. Het doel is dat ik
+        leer hoe je een website opbouwt
+        en hoe je informatie duidelijk presenteert.
+    </p>
+
+    <p>
+        Ik gebruik HTML voor de inhoud,
+        CSS voor de vormgeving en JavaScript
+        voor interactieve onderdelen,
+        zoals het dropdownmenu en de oefeningen.
+    </p>
+
+    <h2>De vijf onderwerpen op mijn website</h2>
+
+    <!-- Deze links zijn extra navigatieknoppen.
+         De bezoeker kan zo ook zonder het menu
+         naar de andere pagina's gaan. -->
+
+    <h3>1. Invoer, verwerking en uitvoer</h3>
+    <p>
+        Hoe voert een computer opdrachten uit?
+        Ik leg het uit met voorbeelden
+        uit het dagelijks leven.
+        <a href="ivu.html">Lees meer over IVU</a>.
+    </p>
+
+    <h3>2. Het binaire stelsel</h3>
+    <p>
+        Waarom gebruiken computers alleen
+        nullen en enen? Op deze pagina
+        kun je ook zelf oefenen.
+        <a href="binairstelsel.html">Bekijk het binaire stelsel</a>.
+    </p>
+
+    <h3>3. Kleurmodellen</h3>
+    <p>
+        Hoe maakt een beeldscherm kleuren?
+        Je leert over RGB, CMYK,
+        pixels en kleurcodes.
+        <a href="kleurmodellen.html">Bekijk kleurmodellen</a>.
+    </p>
+
+    <h3>4. Compressie</h3>
+    <p>
+        Waarom kun je bestanden kleiner maken?
+        Ik leg uit hoe compressie werkt
+        en wat het verschil is tussen
+        bitmap- en vectorafbeeldingen.
+        <a href="compressie.html">Bekijk compressie</a>.
+    </p>
+
+    <h3>5. Kunstmatige intelligentie</h3>
+    <p>
+        Wat kan AI allemaal en hoe werkt het?
+        Ook vertel ik over AI op mijn iPhone X.
+        <a href="ai.html">Bekijk kunstmatige intelligentie</a>.
+    </p>
+
+    <h2>Mijn ontwerpkeuzes</h2>
+
+    <p>
+        Ik heb gekozen voor een lichtgrijze
+        achtergrond en een donkerblauw menu.
+        Ik vind deze kleuren rustig
+        en de teksten zijn goed leesbaar.
+    </p>
+
+    <p>
+        Het menu staat bovenaan,
+        zodat bezoekers gemakkelijk
+        naar de andere pagina's kunnen.
+        Alle pagina's gebruiken dezelfde
+        kleuren en hetzelfde lettertype.
+    </p>
+</main>
+
+<!-- footer is het onderste gedeelte van de pagina. -->
+<footer>
+    Gemaakt door Lucas | Informatica HAVO 4
+</footer>
+
+<!-- Het JavaScript-bestand zorgt dat het menu werkt. -->
+<script src="menu.js"></script>
+
 </body>
 </html>

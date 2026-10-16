@@ -1,454 +1,389 @@
 
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compressie en afbeeldingen</title>
+    <title>Compressie | Informatica Lucas</title>
     <link rel="stylesheet" href="opmaak.css">
 </head>
-
 <body>
 
-    <!-- Het menu van mijn website -->
-    <nav>
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
+<!-- Navigatiemenu -->
+<nav>
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+            <button class="dropknop" type="button"
+                    aria-expanded="false">Onderwerpen ▼</button>
+            <ul class="dropdown-inhoud">
+                <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
+                <li><a href="binairstelsel.html">Binair stelsel</a></li>
+                <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+                <li><a href="compressie.html">Compressie</a></li>
+                <li><a href="ai.html">Kunstmatige intelligentie</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
 
-            <li class="dropdown">
-                <button class="dropknop" type="button"
-                        aria-expanded="false">
-                    Onderwerpen ▼
-                </button>
+<main>
+    <h1>Hoe maak je digitale bestanden kleiner?</h1>
 
-                <ul class="dropdown-inhoud">
-                    <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
-                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
-                    <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-                    <li><a href="compressie.html">Compressie</a></li>
-                    <li><a href="ai.html">Kunstmatige intelligentie</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+    <p class="intro">
+        Foto's, video's en apps nemen ruimte in
+        op je telefoon. Met compressie kun je
+        bestanden kleiner maken en ruimte besparen.
+    </p>
 
-    <main>
+    <img class="foto"
+         src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80"
+         alt="Laptop waarop digitale bestanden worden opgeslagen">
 
-        <h1>Compressie en afbeeldingen</h1>
+    <h2>Waarom gebruiken we compressie?</h2>
+    <p>
+        Digitale bestanden bestaan uit gegevens.
+        Hoe meer gegevens een bestand bevat,
+        hoe groter het bestand kan zijn.
+    </p>
+    <p>
+        Compressie zorgt ervoor dat er minder
+        opslagruimte nodig is.
+        Dat is handig wanneer je veel foto's
+        bewaart of video's wilt versturen.
+    </p>
 
-        <h2>Waarom maken we bestanden kleiner?</h2>
+    <h2>Hoe werkt compressie?</h2>
+    <p>
+        Bij compressie probeert een computer
+        gegevens op een efficiëntere manier
+        op te slaan. Soms wordt informatie
+        slimmer gecodeerd.
+    </p>
+    <p>
+        Een simpel voorbeeld is een reeks
+        met twaalf keer de letter A:
+    </p>
 
-        <p>
-            Op je telefoon staan waarschijnlijk veel foto's,
-            video's en apps. Al deze bestanden nemen ruimte in.
-            Vooral video's en foto's van hoge kwaliteit
-            kunnen behoorlijk groot zijn.
-        </p>
+    <p><code>AAAAAAAAAAAA</code></p>
 
-        <p>
-            Om opslagruimte te besparen, gebruiken computers
-            en telefoons compressie. Hierbij wordt een bestand
-            op een slimme manier kleiner gemaakt.
-            Daardoor kun je meer bestanden bewaren
-            en ze vaak sneller versturen.
-        </p>
+    <p>
+        In plaats van iedere letter apart
+        te beschrijven, kun je aangeven:
+        twaalf keer A.
+        Dit is een eenvoudig voorbeeld
+        van hoe herhaling compacter
+        kan worden opgeslagen.
+    </p>
 
-        <p>
-            Een voorbeeld is wanneer ik met mijn iPhone X
-            een foto maak en deze via WhatsApp naar
-            een vriend stuur. WhatsApp kan de foto
-            verkleinen, zodat het versturen minder
-            gegevens kost en sneller gaat.
-        </p>
+    <h2>Lossless compressie</h2>
+    <p>
+        Lossless betekent compressie zonder verlies.
+        Hierbij blijft alle oorspronkelijke
+        informatie behouden.
+    </p>
+    <p>
+        Wanneer je het bestand weer uitpakt,
+        krijg je precies dezelfde gegevens terug.
+        Dit is belangrijk bij bijvoorbeeld
+        documenten en computerprogramma's.
+    </p>
+    <p>
+        Bekende voorbeelden zijn ZIP
+        en PNG-afbeeldingen.
+    </p>
 
-        <!-- Eigen afbeelding, anders dan het voorbeeld -->
-        <img class="foto"
-             src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80"
-             alt="Camera waarmee digitale foto's worden gemaakt">
+    <h2>Lossy compressie</h2>
+    <p>
+        Lossy betekent compressie met verlies.
+        Hierbij wordt een deel van de
+        oorspronkelijke informatie verwijderd.
+    </p>
+    <p>
+        Daardoor kan het bestand kleiner worden,
+        maar de kwaliteit kan achteruitgaan.
+        Bij foto's kunnen bijvoorbeeld
+        kleine details verdwijnen.
+    </p>
+    <p>
+        JPEG is een bekend voorbeeld
+        van een formaat dat lossy compressie gebruikt.
+    </p>
 
-        <h2>Wat gebeurt er tijdens compressie?</h2>
+    <h2>Wanneer gebruik je welke soort?</h2>
 
-        <p>
-            Bij compressie probeert een computer
-            de hoeveelheid gegevens van een bestand
-            te verminderen. Dat kan op verschillende
-            manieren gebeuren.
-        </p>
+    <table>
+        <tr>
+            <th>Bestand</th>
+            <th>Vaak geschikt</th>
+            <th>Waarom?</th>
+        </tr>
+        <tr>
+            <td>Schooldocument</td>
+            <td>Lossless</td>
+            <td>Geen informatie verliezen</td>
+        </tr>
+        <tr>
+            <td>Foto voor WhatsApp</td>
+            <td>Lossy</td>
+            <td>Kleiner bestand</td>
+        </tr>
+        <tr>
+            <td>Computerprogramma</td>
+            <td>Lossless</td>
+            <td>Alle gegevens moeten kloppen</td>
+        </tr>
+        <tr>
+            <td>Online video</td>
+            <td>Vaak lossy</td>
+            <td>Minder gegevens versturen</td>
+        </tr>
+    </table>
 
-        <p>
-            Soms worden gegevens slimmer opgeslagen,
-            zodat er niets verloren gaat.
-            Maar het kan ook gebeuren dat minder
-            belangrijke details worden verwijderd.
-        </p>
+    <h2>Zelf opslagruimte berekenen</h2>
+    <p>
+        Stel dat je een video van 120 MB
+        verkleint naar 45 MB.
+        Hoeveel opslagruimte bespaar je?
+        Probeer het hieronder zelf.
+    </p>
 
-        <p>
-            Daarom maken we onderscheid tussen
-            twee soorten compressie:
-            lossless en lossy.
-        </p>
+    <!-- Deze invoervelden horen bij de calculator. -->
+    <label for="voor">Oude grootte (MB):</label>
+    <input type="number" id="voor"
+           min="0.01" step="0.01" value="120">
 
-        <h2>Lossless: zonder kwaliteitsverlies</h2>
+    <label for="na">Nieuwe grootte (MB):</label>
+    <input type="number" id="na"
+           min="0" step="0.01" value="45">
 
-        <p>
-            Bij lossless compressie blijft alle
-            oorspronkelijke informatie behouden.
-            Het bestand wordt kleiner opgeslagen,
-            maar kan later precies worden hersteld.
-        </p>
+    <button type="button" onclick="berekenBesparing()">
+        Bereken besparing
+    </button>
 
-        <p>
-            Een voorbeeld is een ZIP-bestand.
-            Als je meerdere schoolbestanden in
-            een ZIP-map stopt, kunnen ze samen
-            minder ruimte innemen.
-            Wanneer je de bestanden weer uitpakt,
-            zijn ze precies hetzelfde als eerst.
-        </p>
+    <p id="besparing" aria-live="polite"></p>
 
-        <p>
-            Ook PNG-afbeeldingen gebruiken lossless
-            compressie. Dat is handig voor afbeeldingen
-            waarbij je scherpe details wilt behouden.
-        </p>
+    <h2>Wat zijn bitmapafbeeldingen?</h2>
+    <p>
+        Een bitmapafbeelding bestaat uit
+        kleine gekleurde puntjes: pixels.
+        Samen vormen die pixels een afbeelding.
+    </p>
+    <p>
+        Foto's zijn meestal bitmapafbeeldingen.
+        Als je een kleine bitmap heel groot maakt,
+        worden de pixels zichtbaar
+        en kan de afbeelding blokkerig worden.
+    </p>
 
-        <h2>Lossy: met kwaliteitsverlies</h2>
+    <h2>Wat zijn vectorafbeeldingen?</h2>
+    <p>
+        Vectorafbeeldingen worden gemaakt
+        met lijnen, punten en vormen
+        die wiskundig zijn beschreven.
+    </p>
+    <p>
+        Daardoor kun je een vectorafbeelding
+        vergroten zonder dat de randen
+        blokkerig worden.
+        Dit is handig voor logo's
+        en pictogrammen.
+    </p>
 
-        <p>
-            Bij lossy compressie wordt een deel
-            van de oorspronkelijke informatie
-            definitief weggelaten.
-            Daardoor kan een bestand vaak
-            een stuk kleiner worden.
-        </p>
+    <h2>Vergelijk bitmap en vector</h2>
+    <p>
+        Gebruik de schuifbalk om de afbeeldingen
+        te vergroten. De bitmap heeft maar
+        een beperkt aantal pixels.
+        De vectorvorm wordt opnieuw getekend
+        en blijft daardoor scherp.
+    </p>
 
-        <p>
-            Het nadeel is dat de kwaliteit
-            achteruit kan gaan.
-            Bij een foto kunnen bijvoorbeeld
-            kleine details verdwijnen.
-            Vooral als je de foto sterk vergroot,
-            kun je dit soms goed zien.
-        </p>
+    <label for="zoom">Vergroting:</label>
+    <input type="range" id="zoom"
+           min="1" max="5" value="2"
+           oninput="veranderZoom()">
 
-        <p>
-            JPEG is een bekend voorbeeld
-            van een bestandsformaat dat
-            lossy compressie gebruikt.
-        </p>
+    <p id="zoomTekst">Vergroting: 2x</p>
 
-        <h2>Een voorbeeld met een foto</h2>
-
-        <p>
-            Stel dat ik een foto maak met mijn iPhone X
-            en die foto is 8 MB groot.
-            Na het comprimeren is de foto nog maar
-            2 MB groot.
-        </p>
-
-        <p>
-            Dat betekent dat de foto 6 MB kleiner is
-            geworden. De bestandsgrootte is dan
-            met 75% afgenomen.
-        </p>
-
-        <p>
-            Als de foto met lossy compressie
-            is verkleind, kunnen er details
-            verloren zijn gegaan.
-            Bij lossless compressie blijft
-            de oorspronkelijke informatie behouden.
-        </p>
-
-        <h2>Zelf berekenen hoeveel ruimte je bespaart</h2>
-
-        <p>
-            Hieronder kun je zelf invullen hoe groot
-            een bestand eerst was en hoe groot
-            het na compressie is geworden.
-        </p>
-
-        <label for="oud">Oude grootte (MB):</label>
-        <input type="number" id="oud"
-               min="0.01" step="0.01" value="8">
-
-        <label for="nieuw">Nieuwe grootte (MB):</label>
-        <input type="number" id="nieuw"
-               min="0" step="0.01" value="2">
-
-        <button type="button" onclick="berekenCompressie()">
-            Bereken
-        </button>
-
-        <p id="resultaat" aria-live="polite"></p>
-
-        <h2>Wat hebben pixels met afbeeldingen te maken?</h2>
-
-        <p>
-            Een digitale foto bestaat uit heel veel
-            kleine gekleurde puntjes. Deze puntjes
-            noemen we pixels.
-        </p>
-
-        <p>
-            Samen vormen al die pixels een afbeelding.
-            Hoe meer pixels een foto heeft,
-            hoe meer details er mogelijk zijn.
-        </p>
-
-        <p>
-            Als je een foto heel ver inzoomt,
-            kun je soms de losse pixels zien.
-            De foto ziet er dan blokkerig uit.
-        </p>
-
-        <h2>Wat is een bitmapafbeelding?</h2>
-
-        <p>
-            Een bitmapafbeelding is een afbeelding
-            die bestaat uit een raster van pixels.
-            Bijna alle gewone digitale foto's
-            zijn bitmapafbeeldingen.
-        </p>
-
-        <p>
-            Een voordeel is dat bitmapafbeeldingen
-            heel geschikt zijn voor foto's
-            met veel kleuren en details.
-        </p>
-
-        <p>
-            Een nadeel is dat de afbeelding
-            onscherp kan worden als je hem
-            veel groter maakt dan de
-            oorspronkelijke afmetingen.
-        </p>
-
-        <h2>Wat is een vectorafbeelding?</h2>
-
-        <p>
-            Een vectorafbeelding werkt anders.
-            Deze afbeelding wordt opgebouwd
-            met lijnen, vormen en berekeningen
-            in plaats van een vast raster van pixels.
-        </p>
-
-        <p>
-            Hierdoor kun je een vectorafbeelding
-            heel groot maken zonder dat de
-            randen blokkerig worden.
-        </p>
-
-        <p>
-            Daarom worden vectorafbeeldingen
-            vaak gebruikt voor logo's,
-            pictogrammen en tekeningen.
-        </p>
-
-        <h2>Het verschil zelf bekijken</h2>
-
-        <p>
-            Hieronder zie je twee eenvoudige tekeningen.
-            De eerste bestaat uit pixels en de tweede
-            uit een vectorvorm.
-        </p>
-
-        <p>
-            Verander de grootte met de schuifbalk.
-            Bij de bitmap worden de blokjes groter,
-            terwijl de vectorvorm scherp blijft.
-        </p>
-
-        <label for="vergroting">Vergroting:</label>
-        <input type="range" id="vergroting"
-               min="1" max="5" value="2"
-               oninput="veranderVergroting()">
-
-        <p id="vergrotingTekst">Vergroting: 2x</p>
-
-        <h3>Bitmap</h3>
-
-        <canvas id="bitmapCanvas"
-                width="300" height="300"
-                style="max-width:100%; border:1px solid #aaa;">
-        </canvas>
-
-        <h3>Vector</h3>
-
-        <svg id="vectorTekening"
-             width="300" height="300"
-             viewBox="0 0 300 300"
-             style="display:block; max-width:100%; border:1px solid #aaa;">
-
-            <circle cx="150" cy="150" r="105"
-                    fill="#34495e"/>
-
-            <circle cx="150" cy="150" r="65"
-                    fill="#f5f5f5"/>
-
-            <circle cx="150" cy="150" r="30"
-                    fill="#34495e"/>
-        </svg>
-
-        <h2>Wanneer gebruik je bitmap en wanneer vector?</h2>
-
-        <p>
-            Voor een foto van mijn telefoon zou ik
-            een bitmapafbeelding gebruiken.
-            Daarmee kun je namelijk veel verschillende
-            kleuren en kleine details laten zien.
-        </p>
-
-        <p>
-            Voor een logo op mijn website
-            zou ik eerder een vectorafbeelding kiezen.
-            Het logo blijft dan scherp,
-            ook wanneer ik het groter maak.
-        </p>
-
-        <h2>Video over compressie</h2>
-
-        <p>
-            In de video hieronder wordt het onderwerp
-            compressie verder uitgelegd.
-        </p>
-
-        <div class="video-omlijsting">
-            <iframe
-                src="https://www.youtube.com/embed/6I7TFuhgl_g"
-                title="Video over compressie"
-                allowfullscreen>
-            </iframe>
+    <!-- Canvas tekent een bitmap met JavaScript.
+         SVG tekent een vector met vormen. -->
+    <div class="afbeelding-vergelijking">
+        <div>
+            <h3>Bitmap</h3>
+            <canvas id="bitmap"
+                    width="240" height="240"
+                    aria-label="Bitmapvoorbeeld">
+            </canvas>
         </div>
 
-        <h3>Waarom heb ik deze video gekozen?</h3>
+        <div>
+            <h3>Vector</h3>
+            <svg id="vector"
+                 width="240" height="240"
+                 viewBox="0 0 240 240"
+                 role="img"
+                 aria-label="Vectorvoorbeeld">
+                <circle cx="120" cy="120" r="80"
+                        fill="#34495e"/>
+                <circle cx="120" cy="120" r="40"
+                        fill="#ffffff"/>
+            </svg>
+        </div>
+    </div>
 
-        <p>
-            Ik heb deze video gekozen omdat ik
-            compressie een belangrijk onderwerp vind
-            binnen informatica. Je gebruikt compressie
-            namelijk vaker dan je denkt, bijvoorbeeld
-            bij het versturen van foto's en video's.
-        </p>
+    <h2>Compressie op mijn iPhone X</h2>
+    <p>
+        Wanneer ik een foto of video maak,
+        worden de gegevens digitaal opgeslagen.
+        Bij het opslaan en versturen
+        kan compressie worden gebruikt.
+    </p>
+    <p>
+        Dat is handig omdat foto's en video's
+        anders veel opslagruimte kunnen innemen.
+        Ook kan het versturen van kleinere
+        bestanden minder tijd kosten.
+    </p>
 
-        <p>
-            Wat ik handig vind aan een uitlegvideo,
-            is dat je niet alleen de theorie leest,
-            maar ook kunt zien hoe het werkt.
-            Daardoor wordt het makkelijker om
-            te begrijpen waarom bestanden kleiner
-            kunnen worden en wat dit voor
-            de kwaliteit betekent.
-        </p>
+    <h2>Video over compressie van bestanden</h2>
+    <p>
+        Hieronder staat een video over compressie.
+        Je kunt de video rechtstreeks
+        op mijn website bekijken.
+    </p>
 
-    </main>
+    <!-- De iframe embedt de video in de pagina.
+         Dit is dus niet alleen een YouTube-link. -->
+    <div class="video-omlijsting">
+        <iframe
+            src="https://www.youtube.com/embed/6I7TFuhgl_g"
+            title="Uitlegvideo over compressie"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
+    </div>
 
-    <footer>
-        Gemaakt door Lucas - Informatica HAVO 4
-    </footer>
+    <h3>Waarom heb ik deze video gekozen?</h3>
+    <p>
+        Ik heb deze video toegevoegd omdat
+        compressie iets is dat je niet direct
+        kunt zien wanneer je een bestand gebruikt.
+        Met een video kun je extra uitleg
+        krijgen over het verkleinen van bestanden.
+    </p>
+    <p>
+        Op mijn website leg ik zelf uit
+        wat lossy en lossless betekenen.
+        Daarnaast kun je met de calculator
+        berekenen hoeveel ruimte je bespaart.
+    </p>
+</main>
 
-    <!-- JavaScript voor het dropdownmenu -->
-    <script src="menu.js"></script>
+<footer>Lucas | Informatica HAVO 4</footer>
+<script src="menu.js"></script>
 
-    <script>
-        // Berekenen hoeveel ruimte je bespaart
-        function berekenCompressie() {
-            const oud = Number(document.getElementById("oud").value);
-            const nieuw = Number(document.getElementById("nieuw").value);
-            const resultaat = document.getElementById("resultaat");
+<script>
+// Calculator voor het berekenen van opslagruimte.
+function berekenBesparing() {
+    const voorVeld = document.getElementById("voor");
+    const naVeld = document.getElementById("na");
 
-            if (oud <= 0 || nieuw < 0 ||
-                document.getElementById("oud").value === "" ||
-                document.getElementById("nieuw").value === "") {
-                resultaat.textContent = "Vul geldige bestandsgroottes in.";
-                return;
-            }
+    const voor = Number(voorVeld.value);
+    const na = Number(naVeld.value);
 
-            if (nieuw > oud) {
-                resultaat.textContent =
-                    "Het nieuwe bestand is groter dan het oude bestand.";
-                return;
-            }
+    const antwoord = document.getElementById("besparing");
 
-            const bespaard = oud - nieuw;
-            const percentage = (bespaard / oud) * 100;
+    // Controleer of de ingevoerde getallen geldig zijn.
+    if (voorVeld.value === "" || naVeld.value === "" ||
+        !Number.isFinite(voor) || !Number.isFinite(na) ||
+        voor <= 0 || na < 0) {
+        antwoord.textContent =
+            "Vul twee geldige bestandsgroottes in.";
+        return;
+    }
 
-            resultaat.textContent =
-                "Je bespaart " + bespaard.toFixed(2) +
-                " MB. Dat is " + percentage.toFixed(1) + "%.";
+    if (na > voor) {
+        antwoord.textContent =
+            "Het nieuwe bestand is groter dan het oude.";
+        return;
+    }
+
+    // Bereken het verschil en het percentage.
+    const verschil = voor - na;
+    const percentage = verschil / voor * 100;
+
+    antwoord.textContent =
+        "Je bespaart " + verschil.toFixed(2) +
+        " MB. Dat is " + percentage.toFixed(1) + "%.";
+}
+
+// Maak een kleine bitmap van 16 bij 16 pixels.
+const bron = document.createElement("canvas");
+bron.width = 16;
+bron.height = 16;
+
+const bronCtx = bron.getContext("2d");
+bronCtx.fillStyle = "#ffffff";
+bronCtx.fillRect(0, 0, 16, 16);
+
+// Teken een eenvoudige cirkel met losse pixels.
+for (let y = 0; y < 16; y++) {
+    for (let x = 0; x < 16; x++) {
+        const afstand = Math.sqrt(
+            (x - 7.5) ** 2 + (y - 7.5) ** 2
+        );
+
+        if (afstand < 6 && afstand > 3) {
+            bronCtx.fillStyle = "#34495e";
+            bronCtx.fillRect(x, y, 1, 1);
         }
+    }
+}
 
-        // Voorbeeld van een bitmap maken met canvas
-        const canvas = document.getElementById("bitmapCanvas");
-        const ctx = canvas.getContext("2d");
+// Deze functie vergroot de bitmap en vector.
+function veranderZoom() {
+    const zoom = Number(
+        document.getElementById("zoom").value
+    );
 
-        const kleinCanvas = document.createElement("canvas");
-        kleinCanvas.width = 12;
-        kleinCanvas.height = 12;
+    document.getElementById("zoomTekst").textContent =
+        "Vergroting: " + zoom + "x";
 
-        const kleinCtx = kleinCanvas.getContext("2d");
+    // Bitmap tekenen op het grote canvas.
+    const canvas = document.getElementById("bitmap");
+    const ctx = canvas.getContext("2d");
 
-        // Een eenvoudig rond patroon tekenen met pixels
-        for (let y = 0; y < 12; y++) {
-            for (let x = 0; x < 12; x++) {
-                const afstand = Math.sqrt(
-                    Math.pow(x - 5.5, 2) +
-                    Math.pow(y - 5.5, 2)
-                );
+    ctx.clearRect(0, 0, 240, 240);
 
-                if (afstand < 2) {
-                    kleinCtx.fillStyle = "#34495e";
-                } else if (afstand < 4) {
-                    kleinCtx.fillStyle = "#f5f5f5";
-                } else if (afstand < 5) {
-                    kleinCtx.fillStyle = "#34495e";
-                } else {
-                    kleinCtx.fillStyle = "#ffffff";
-                }
+    // Geen vervaging tussen de pixels gebruiken.
+    ctx.imageSmoothingEnabled = false;
 
-                kleinCtx.fillRect(x, y, 1, 1);
-            }
-        }
+    const grootte = 48 * zoom;
 
-        function veranderVergroting() {
-            const vergroting = Number(
-                document.getElementById("vergroting").value
-            );
+    ctx.drawImage(
+        bron,
+        (240 - grootte) / 2,
+        (240 - grootte) / 2,
+        grootte,
+        grootte
+    );
 
-            document.getElementById("vergrotingTekst").textContent =
-                "Vergroting: " + vergroting + "x";
+    // De SVG-vector blijft scherp bij vergroten.
+    const svg = document.getElementById("vector");
+    const zichtbaar = 240 / zoom;
+    const begin = (240 - zichtbaar) / 2;
 
-            // De bitmap blijft 12 bij 12 pixels.
-            // Door groter te tekenen zie je de pixels duidelijker.
-            const grootte = 60 * vergroting;
+    svg.setAttribute(
+        "viewBox",
+        begin + " " + begin + " " +
+        zichtbaar + " " + zichtbaar
+    );
+}
 
-            ctx.clearRect(0, 0, 300, 300);
-            ctx.imageSmoothingEnabled = false;
-
-            ctx.drawImage(
-                kleinCanvas,
-                (300 - grootte) / 2,
-                (300 - grootte) / 2,
-                grootte,
-                grootte
-            );
-
-            // De vectorvorm wordt opnieuw geschaald.
-            // SVG blijft daarbij scherp.
-            const svg = document.getElementById("vectorTekening");
-            const zichtbareGrootte = 300 / vergroting;
-            const begin = (300 - zichtbareGrootte) / 2;
-
-            svg.setAttribute(
-                "viewBox",
-                begin + " " + begin + " " +
-                zichtbareGrootte + " " + zichtbareGrootte
-            );
-        }
-
-        veranderVergroting();
-    </script>
+// Toon direct de beginstand van de oefening.
+veranderZoom();
+</script>
 
 </body>
 </html>
