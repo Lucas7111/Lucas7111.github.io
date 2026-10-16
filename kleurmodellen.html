@@ -11,19 +11,24 @@
 
 <!-- Het navigatiemenu is op alle pagina's hetzelfde. -->
 <nav>
-    <ul class="menu">
+      <ul class="menu">
         <li><a href="index.html">Home</a></li>
+
+        <!-- Klikbaar dropdownmenu zonder JavaScript -->
         <li class="dropdown">
-            <button class="dropknop" type="button"
-                    aria-expanded="false">Onderwerpen ▼</button>
-            <ul class="dropdown-inhoud">
-                <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
-                <li><a href="binairstelsel.html">Binair stelsel</a></li>
-                <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-                <li><a href="compressie.html">Compressie</a></li>
-                <li><a href="ai.html">Kunstmatige intelligentie</a></li>
-            </ul>
+            <details>
+                <summary class="dropknop">Onderwerpen ▼</summary>
+
+                <ul class="dropdown-inhoud">
+                    <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
+                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
+                    <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+                    <li><a href="compressie.html">Compressie</a></li>
+                    <li><a href="ai.html">Kunstmatige intelligentie</a></li>
+                </ul>
+            </details>
         </li>
+    </ul>
     </ul>
 </nav>
 
