@@ -1,20 +1,27 @@
 
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Het binaire stelsel</title>
     <link rel="stylesheet" href="opmaak.css">
 </head>
+
 <body>
 
+    <!-- Navigatiemenu -->
     <nav>
         <ul class="menu">
             <li><a href="index.html">Home</a></li>
+
             <li class="dropdown">
                 <button class="dropknop" type="button"
-                        aria-expanded="false">Onderwerpen ▼</button>
+                        aria-expanded="false">
+                    Onderwerpen ▼
+                </button>
+
                 <ul class="dropdown-inhoud">
                     <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
                     <li><a href="binairstelsel.html">Binair stelsel</a></li>
@@ -27,59 +34,77 @@
     </nav>
 
     <main>
+
         <h1>Het binaire stelsel</h1>
 
         <h2>Wat is het binaire stelsel?</h2>
+
         <p>
-            Computers gebruiken het binaire stelsel om
-            informatie op te slaan en te verwerken.
-            Dit stelsel bestaat uit slechts twee cijfers:
-            0 en 1. Elk cijfer noemen we een bit.
-        </p>
-        <p>
-            Computers werken met elektronische schakelingen.
-            Daarom is het handig om twee toestanden
-            te gebruiken, bijvoorbeeld uit en aan.
-            Met heel veel nullen en enen kunnen computers
-            getallen, teksten, foto's en video's opslaan.
+            Het binaire stelsel is een talstelsel dat
+            computers gebruiken om informatie op te slaan
+            en te verwerken. In tegenstelling tot ons
+            gewone talstelsel gebruikt het binaire
+            stelsel maar twee cijfers: 0 en 1.
         </p>
 
+        <p>
+            Een 0 of 1 noemen we een bit.
+            Computers werken met elektronische schakelingen
+            die twee toestanden kunnen hebben.
+            Daarom is het handig om met 0 en 1 te werken.
+        </p>
+
+        <p>
+            Met heel veel nullen en enen kan een computer
+            allerlei informatie opslaan, zoals foto's,
+            video's, teksten en muziek.
+        </p>
+
+        <!-- Andere afbeelding dan de voorbeeldwebsite -->
         <img class="foto"
-             src="https://jimmy-67.github.io/11001.png"
-             alt="Uitleg over binaire getallen">
+             src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+             alt="Elektronische onderdelen van een computer">
 
-        <h2>Hoe werkt het?</h2>
+        <h2>Hoe werkt het binaire stelsel?</h2>
+
         <p>
-            Wij gebruiken normaal het tientallig stelsel
-            met de cijfers 0 tot en met 9.
+            Wij gebruiken normaal het decimale stelsel.
+            Dat bestaat uit tien cijfers: 0 tot en met 9.
             Het binaire stelsel gebruikt alleen 0 en 1.
         </p>
+
         <p>
-            Elke positie in een binair getal heeft
-            een eigen waarde. Van rechts naar links
-            worden de waarden steeds verdubbeld:
-            1, 2, 4, 8, 16, 32 enzovoort.
-        </p>
-        <p>
-            Als er op een positie een 1 staat,
-            tel je de waarde mee. Staat er een 0,
-            dan tel je die waarde niet mee.
+            Bij binaire getallen heeft iedere positie
+            een bepaalde waarde. Van rechts naar links
+            verdubbelen deze waarden steeds.
+            De eerste waarde is 1, daarna 2, 4, 8,
+            16, 32 en 64.
         </p>
 
-        <h2>Een voorbeeld</h2>
         <p>
-            Het binaire getal <strong>1101</strong>
-            is gelijk aan 13 in het tientallig stelsel.
+            Staat er op een positie een 1?
+            Dan tel je de waarde mee.
+            Staat er een 0? Dan tel je
+            de waarde niet mee.
+        </p>
+
+        <h2>Een voorbeeld van een binair getal</h2>
+
+        <p>
+            Stel dat je het binaire getal
+            <strong>1011</strong> hebt.
+            Dit getal is in het decimale stelsel 11.
         </p>
 
         <table>
             <tr>
                 <th>Binair cijfer</th>
                 <td>1</td>
-                <td>1</td>
                 <td>0</td>
                 <td>1</td>
+                <td>1</td>
             </tr>
+
             <tr>
                 <th>Waarde</th>
                 <td>8</td>
@@ -90,80 +115,103 @@
         </table>
 
         <p>
-            Je telt de waarden op waar een 1 staat:
-            8 + 4 + 1 = 13.
+            Je telt alleen de waarden op
+            waar een 1 staat.
+            Dat is 8 + 2 + 1 = 11.
         </p>
 
-        <h2>Voorbeelden van binaire getallen</h2>
-        <table>
-            <tr>
-                <th>Binair</th>
-                <th>Decimaal</th>
-            </tr>
-            <tr><td>0001</td><td>1</td></tr>
-            <tr><td>0010</td><td>2</td></tr>
-            <tr><td>0011</td><td>3</td></tr>
-            <tr><td>0100</td><td>4</td></tr>
-            <tr><td>0101</td><td>5</td></tr>
-            <tr><td>1000</td><td>8</td></tr>
-            <tr><td>1101</td><td>13</td></tr>
-            <tr><td>1111</td><td>15</td></tr>
-        </table>
+        <h2>Waarom gebruiken computers het binaire stelsel?</h2>
 
-        <h2>Waar wordt het binaire stelsel voor gebruikt?</h2>
         <p>
-            Computers gebruiken binaire getallen
-            bijvoorbeeld voor het opslaan van bestanden,
-            het uitvoeren van berekeningen en het
-            verwerken van informatie.
-        </p>
-        <p>
-            Zelfs als je een bericht verstuurt
-            of een foto maakt met je telefoon,
-            worden de gegevens digitaal opgeslagen
-            met behulp van bits.
+            Computers gebruiken het binaire stelsel
+            omdat elektronische schakelingen
+            makkelijk onderscheid kunnen maken
+            tussen twee toestanden.
         </p>
 
-        <h2>Zelf binaire getallen omrekenen</h2>
         <p>
-            Vul hieronder een gewoon getal in.
-            De computer zet het om naar een binair getal.
+            Hierdoor kunnen computers op een
+            betrouwbare manier informatie verwerken.
+            Bijvoorbeeld wanneer je een bericht
+            verstuurt, een foto maakt of een
+            spel speelt op je telefoon.
         </p>
 
-        <label for="decimaal">Decimaal getal:</label>
-        <input type="number" id="decimaal"
-               min="0" max="1000000" step="1" value="13">
+        <h2>Wat is het verschil tussen bits en bytes?</h2>
+
+        <p>
+            Een bit is één binair cijfer, dus een
+            0 of een 1. Acht bits samen noemen
+            we één byte.
+        </p>
+
+        <p>
+            Bytes worden gebruikt om de grootte
+            van bestanden aan te geven.
+            Bijvoorbeeld bij foto's, video's
+            en documenten.
+        </p>
+
+        <h2>Zelf een getal omrekenen</h2>
+
+        <p>
+            Hieronder kun je een decimaal getal
+            invoeren. Als je op de knop klikt,
+            wordt het getal omgezet naar
+            een binair getal.
+        </p>
+
+        <label for="decimaal">Vul een getal in:</label>
+
+        <input type="number"
+               id="decimaal"
+               min="0"
+               max="1000000"
+               step="1"
+               value="11">
+
         <button type="button" onclick="naarBinair()">
             Omrekenen
         </button>
+
         <p id="binairAntwoord" aria-live="polite"></p>
 
-        <h2>Zelf proberen met Binary Bonanza</h2>
+        <h2>Oefenen met Binary Bonanza</h2>
+
         <p>
-            Wil je oefenen met binaire getallen?
-            Dan kun je het spel Binary Bonanza spelen.
-            Je moet hierbij getallen omzetten
-            tussen binair en decimaal.
+            Als je wilt oefenen met het binaire
+            stelsel, kun je het spel Binary Bonanza
+            spelen. Bij dit spel moet je binaire
+            getallen herkennen en omrekenen.
+        </p>
+
+        <p>
+            Ik heb dit spel toegevoegd omdat
+            je hiermee op een leuke manier
+            kunt oefenen met wat je hebt geleerd.
         </p>
 
         <a href="https://games.penjee.com/binary-bonanza/"
-           target="_blank" rel="noopener noreferrer">
+           target="_blank"
+           rel="noopener noreferrer">
             <img class="foto"
                  src="https://dummyimage.com/600x250/34495e/ffffff.png&text=Speel+Binary+Bonanza"
-                 alt="Klik hier om Binary Bonanza te spelen">
+                 alt="Klik om Binary Bonanza te spelen">
         </a>
 
         <p>
             <a href="https://games.penjee.com/binary-bonanza/"
-               target="_blank" rel="noopener noreferrer">
+               target="_blank"
+               rel="noopener noreferrer">
                 Klik hier om Binary Bonanza te spelen
             </a>
         </p>
 
         <h2>Video over het binaire stelsel</h2>
+
         <p>
-            In deze video wordt uitgelegd hoe
-            binaire getallen werken.
+            Hieronder staat een video waarin
+            het binaire stelsel wordt uitgelegd.
         </p>
 
         <div class="video-omlijsting">
@@ -174,26 +222,51 @@
             </iframe>
         </div>
 
+        <h3>Waarom heb ik deze video gekozen?</h3>
+
         <p>
-            Ik heb deze video gekozen omdat de uitleg
-            kort en duidelijk is. De voorbeelden helpen
-            om beter te begrijpen hoe je binaire
-            getallen kunt omrekenen.
+            Ik heb deze video gekozen omdat
+            het binaire stelsel best ingewikkeld
+            kan zijn als je er voor het eerst
+            over leert. Door de uitleg en
+            voorbeelden wordt duidelijker
+            hoe binaire getallen werken.
         </p>
+
+        <p>
+            Wat ik vooral handig vind,
+            is dat de video helpt om te begrijpen
+            hoe je getallen van het binaire
+            stelsel naar het decimale stelsel
+            kunt omrekenen. Hierdoor kun je
+            de uitleg op mijn website
+            beter begrijpen en daarna
+            zelf met de opdrachten oefenen.
+        </p>
+
     </main>
 
-    <footer>Gemaakt door Lucas - Informatica HAVO 4</footer>
+    <footer>
+        Gemaakt door Lucas - Informatica HAVO 4
+    </footer>
+
+    <!-- JavaScript voor het dropdownmenu -->
     <script src="menu.js"></script>
 
+    <!-- JavaScript voor het omrekenen -->
     <script>
         function naarBinair() {
+
+            // Lees het ingevoerde getal
             const invoer =
                 document.getElementById("decimaal").value;
+
             const antwoord =
                 document.getElementById("binairAntwoord");
 
             if (invoer === "") {
-                antwoord.textContent = "Vul eerst een getal in.";
+                antwoord.textContent =
+                    "Vul eerst een getal in.";
                 return;
             }
 
@@ -201,14 +274,20 @@
 
             if (!Number.isInteger(getal) ||
                 getal < 0 || getal > 1000000) {
+
                 antwoord.textContent =
                     "Vul een heel getal van 0 tot 1000000 in.";
                 return;
             }
 
+            // Zet het decimale getal om naar binair
+            const binair = getal.toString(2);
+
+            // Laat de uitkomst zien
             antwoord.textContent =
-                getal + " is binair: " + getal.toString(2);
+                getal + " is in het binaire stelsel: " + binair;
         }
     </script>
+
 </body>
 </html>
