@@ -2,114 +2,176 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compressie - Website van Lucas</title>
-    <link rel="stylesheet" href="opmaak.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compressie - Website van Lucas</title>
+  <link rel="stylesheet" href="opmaak.css">
 </head>
 <body>
 
-    <!-- Dropdownmenu -->
-    <ul class="menu">
-        <li><a href="index.html">Home</a></li>
+<header>
+  <h1>Compressie</h1>
+  <p>Hoe maak je bestanden kleiner?</p>
+</header>
 
-        <li class="dropdown">
-            <details>
-                <summary>Onderwerpen &#9662;</summary>
-                <ul class="dropdown-inhoud">
-                    <li><a href="ivu.html">IVU</a></li>
-                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
-                    <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-                    <li><a href="compressie.html" class="actief">Compressie</a></li>
-                    <li><a href="ai.html">AI</a></li>
-                </ul>
-            </details>
-        </li>
-    </ul>
+<nav>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li class="dropdown">
+      <button class="dropknop" type="button">Onderwerpen ▾</button>
+      <ul class="dropdown-inhoud">
+        <li><a href="ivu.html">IVU</a></li>
+        <li><a href="binairstelsel.html">Binair stelsel</a></li>
+        <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+        <li><a href="compressie.html">Compressie</a></li>
+        <li><a href="ai.html">AI</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
-    <h1>Compressie</h1>
-
+<main>
+  <section>
     <h2>Wat is compressie?</h2>
-
     <p>
-        Compressie betekent dat een digitaal bestand
-        kleiner wordt gemaakt.
-        Hierdoor neemt het minder opslagruimte in
-        en kun je het sneller versturen.
+      Compressie betekent dat je een digitaal bestand
+      kleiner maakt, zodat het minder opslagruimte
+      inneemt. Dat is handig bij foto's, muziek,
+      video's en documenten.
     </p>
 
-    <p>
-        Compressie wordt bijvoorbeeld gebruikt
-        bij foto's, video's, muziek en documenten.
-    </p>
+    <img class="foto"
+         src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80"
+         alt="Computerservers">
+  </section>
 
+  <section>
+    <h2>Waarom gebruiken we compressie?</h2>
+    <p>
+      Door compressie kun je bestanden sneller
+      versturen en heb je minder opslagruimte nodig.
+      Bijvoorbeeld als je foto's via WhatsApp verstuurt
+      of een video op YouTube bekijkt.
+    </p>
+  </section>
+
+  <section>
     <h2>Twee soorten compressie</h2>
 
-    <h3>1. Lossless compressie</h3>
+    <div class="kaarten">
+      <div class="kaart">
+        <h3>Lossless compressie</h3>
+        <p>
+          Bij lossless compressie gaat geen informatie
+          verloren. Je kunt het oorspronkelijke bestand
+          precies terugkrijgen.
+        </p>
+        <p>Voorbeelden: ZIP en PNG.</p>
+      </div>
 
-    <p>
-        Bij lossless compressie gaat er geen informatie verloren.
-        Wanneer je het bestand weer uitpakt,
-        krijg je precies dezelfde gegevens terug.
-    </p>
+      <div class="kaart">
+        <h3>Lossy compressie</h3>
+        <p>
+          Bij lossy compressie worden bepaalde details
+          verwijderd. Hierdoor wordt het bestand
+          kleiner, maar gaat informatie verloren.
+        </p>
+        <p>Voorbeelden: JPEG en MP3.</p>
+      </div>
+    </div>
+  </section>
 
-    <p>
-        Voorbeelden zijn ZIP-bestanden en PNG-afbeeldingen.
-    </p>
-
-    <h3>2. Lossy compressie</h3>
-
-    <p>
-        Bij lossy compressie wordt bepaalde informatie verwijderd.
-        Daardoor wordt het bestand vaak veel kleiner,
-        maar kan de kwaliteit achteruitgaan.
-    </p>
-
-    <p>
-        Voorbeelden zijn JPEG-foto's en MP3-muziek.
-    </p>
-
-    <h2>Verschil tussen lossless en lossy</h2>
-
-    <table>
-        <tr>
-            <th>Lossless</th>
-            <th>Lossy</th>
-        </tr>
-        <tr>
-            <td>Geen informatieverlies</td>
-            <td>Wel informatieverlies</td>
-        </tr>
-        <tr>
-            <td>Gegevens volledig terug te halen</td>
-            <td>Niet alle gegevens terug te halen</td>
-        </tr>
-        <tr>
-            <td>Bijvoorbeeld ZIP en PNG</td>
-            <td>Bijvoorbeeld JPEG en MP3</td>
-        </tr>
-    </table>
-
+  <section>
     <h2>Voorbeeld van compressie</h2>
-
     <p>
-        Stel dat je een bestand hebt waarin 100 keer
-        achter elkaar de letter A staat.
+      Stel dat een afbeelding eerst 20 MB groot is.
+      Na compressie is het bestand nog maar 5 MB.
+      Dan bespaar je 15 MB opslagruimte.
+    </p>
+    <p>
+      De procentuele besparing is:
+      15 : 20 × 100% = 75%.
+    </p>
+    <p>
+      Dit is een rekenvoorbeeld.
+      De werkelijke besparing verschilt per bestand.
+    </p>
+  </section>
+
+  <section>
+    <h2>Verschil tussen lossless en lossy</h2>
+    <table>
+      <tr><th>Lossless</th><th>Lossy</th></tr>
+      <tr>
+        <td>Geen informatieverlies</td>
+        <td>Wel informatieverlies</td>
+      </tr>
+      <tr>
+        <td>Origineel exact terughalen</td>
+        <td>Origineel niet exact terughalen</td>
+      </tr>
+      <tr>
+        <td>ZIP en PNG</td>
+        <td>JPEG en MP3</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Video met klikbare afbeelding -->
+  <section class="uitlegvideo">
+    <h2>Uitlegvideo: Compression</h2>
+    <p>
+      Ik heb deze video toegevoegd omdat hij
+      uitlegt hoe compressie werkt en wat
+      het verschil is tussen lossless en lossy.
+    </p>
+
+    <p>Klik op de afbeelding om de video af te spelen.</p>
+
+    <a href="https://www.youtube.com/watch?v=OtDxDvCpPL4"
+       target="_blank">
+      <img class="video-afbeelding"
+           src="https://img.youtube.com/vi/OtDxDvCpPL4/hqdefault.jpg"
+           alt="Klikbare afbeelding van CrashCourse-video over compressie">
+    </a>
+
+    <div class="video-omlijsting">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/OtDxDvCpPL4"
+        title="CrashCourse Compression"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <h3>Samenvatting van de video</h3>
+    <p>
+      In de video wordt uitgelegd dat compressie
+      helpt om bestanden kleiner te maken.
+      Bij lossless compressie blijft alle informatie
+      bewaard. Bij lossy compressie worden
+      minder belangrijke details weggelaten.
+      Hierdoor kan een bestand nog kleiner worden.
     </p>
 
     <p>
-        In plaats van iedere A apart op te slaan,
-        kun je bijvoorbeeld opslaan: 100 keer A.
-        Hierdoor heb je minder opslagruimte nodig.
+      Ik heb geleerd dat de beste manier van
+      comprimeren afhangt van het soort bestand.
+      Bij documenten is lossless belangrijk,
+      terwijl bij foto's en muziek vaak lossy
+      wordt gebruikt.
     </p>
+  </section>
+</main>
 
-    <h2>Waarom is compressie handig?</h2>
+<footer>Website van Lucas | Informatica HAVO 4</footer>
 
-    <p>
-        Door compressie kun je meer bestanden opslaan.
-        Ook worden bestanden sneller verstuurd
-        en kunnen websites en video's sneller laden.
-    </p>
+<script>
+  // Dropdownmenu
+  const dropdown = document.querySelector(".dropdown");
+  document.querySelector(".dropknop").onclick = function () {
+    dropdown.classList.toggle("open");
+  };
+</script>
 
 </body>
 </html>

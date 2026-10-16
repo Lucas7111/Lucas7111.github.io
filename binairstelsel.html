@@ -2,137 +2,153 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binair stelsel - Website van Lucas</title>
-    <link rel="stylesheet" href="opmaak.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binair stelsel - Website van Lucas</title>
+  <link rel="stylesheet" href="opmaak.css">
 </head>
 <body>
 
-    <!-- Dropdownmenu -->
-    <ul class="menu">
-        <li><a href="index.html">Home</a></li>
+<header>
+  <h1>Het binaire stelsel</h1>
+  <p>Computers werken met 0 en 1</p>
+</header>
 
-        <li class="dropdown">
-            <details>
-                <summary>Onderwerpen &#9662;</summary>
-                <ul class="dropdown-inhoud">
-                    <li><a href="ivu.html">IVU</a></li>
-                    <li><a href="binairstelsel.html" class="actief">Binair stelsel</a></li>
-                    <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-                    <li><a href="compressie.html">Compressie</a></li>
-                    <li><a href="ai.html">AI</a></li>
-                </ul>
-            </details>
-        </li>
-    </ul>
+<nav>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li class="dropdown">
+      <button class="dropknop" type="button">Onderwerpen ▾</button>
+      <ul class="dropdown-inhoud">
+        <li><a href="ivu.html">IVU</a></li>
+        <li><a href="binairstelsel.html">Binair stelsel</a></li>
+        <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+        <li><a href="compressie.html">Compressie</a></li>
+        <li><a href="ai.html">AI</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
-    <h1>Het binaire stelsel</h1>
-
+<main>
+  <section>
     <h2>Wat is het binaire stelsel?</h2>
-
     <p>
-        Het binaire stelsel is een getallenstelsel
-        dat alleen de cijfers 0 en 1 gebruikt.
-        Computers gebruiken dit stelsel om informatie
-        op te slaan en te verwerken.
+      Het binaire stelsel is een getallenstelsel
+      dat alleen de cijfers 0 en 1 gebruikt.
+      Computers slaan informatie op met bits.
+      Een bit heeft de waarde 0 of 1.
     </p>
 
-    <p>
-        Wij gebruiken normaal gesproken het decimale stelsel.
-        Dat bestaat uit de cijfers 0 tot en met 9.
-        Computers werken met bits.
-        Een bit kan 0 of 1 zijn.
-    </p>
+    <img class="foto"
+         src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80"
+         alt="Computerchip">
+  </section>
 
-    <h2>Hoe werkt het binaire stelsel?</h2>
-
+  <section>
+    <h2>Hoe werkt binair?</h2>
     <p>
-        Bij het binaire stelsel heeft iedere positie
-        een bepaalde waarde.
-        Van rechts naar links zijn dat
-        1, 2, 4, 8, 16, 32, 64 en 128.
+      Wij gebruiken normaal het decimale stelsel,
+      met de cijfers 0 tot en met 9.
+      Bij binair worden de plaatswaarden
+      steeds twee keer zo groot: 1, 2, 4, 8, 16.
     </p>
 
     <table>
-        <tr>
-            <th>Decimaal</th>
-            <th>Binair</th>
-        </tr>
-        <tr><td>1</td><td>1</td></tr>
-        <tr><td>2</td><td>10</td></tr>
-        <tr><td>3</td><td>11</td></tr>
-        <tr><td>4</td><td>100</td></tr>
-        <tr><td>5</td><td>101</td></tr>
-        <tr><td>8</td><td>1000</td></tr>
-        <tr><td>10</td><td>1010</td></tr>
-        <tr><td>13</td><td>1101</td></tr>
+      <tr><th>Decimaal</th><th>Binair</th></tr>
+      <tr><td>1</td><td>1</td></tr>
+      <tr><td>2</td><td>10</td></tr>
+      <tr><td>3</td><td>11</td></tr>
+      <tr><td>4</td><td>100</td></tr>
+      <tr><td>5</td><td>101</td></tr>
+      <tr><td>10</td><td>1010</td></tr>
+      <tr><td>13</td><td>1101</td></tr>
     </table>
 
-    <h2>Voorbeeld</h2>
-
     <p>
-        Het getal 13 schrijf je binair als 1101.
-        Dit komt doordat 8 + 4 + 0 + 1 = 13.
+      Voorbeeld: 1101 is gelijk aan 13,
+      want 8 + 4 + 0 + 1 = 13.
     </p>
+  </section>
 
+  <!-- Binaire omrekentool -->
+  <section class="kaart">
     <h2>Zelf omrekenen</h2>
+    <p>Vul een heel getal tussen 0 en 255 in.</p>
 
-    <p>
-        Vul een heel getal tussen 0 en 255 in
-        om te zien hoe je dit binair schrijft.
-    </p>
+    <input type="number" id="decimaal"
+           min="0" max="255" value="13">
 
-    <div class="oefening">
-        <label for="decimaal">Decimaal getal:</label>
+    <button onclick="omrekenen()">Omrekenen</button>
+    <p id="binairantwoord">Binair: 1101</p>
+  </section>
 
-        <input type="number"
-               id="decimaal"
-               min="0"
-               max="255"
-               value="13">
-
-        <button onclick="omrekenen()">Omrekenen</button>
-
-        <p id="binairantwoord">Binair: 1101</p>
-    </div>
-
+  <section>
     <h2>Spel: Binary Bonanza</h2>
-
     <p>
-        Met dit spel kun je oefenen met het binaire stelsel.
-        Probeer zoveel mogelijk goede antwoorden te geven!
+      Met dit spel kun je oefenen met
+      het omrekenen van binaire getallen.
     </p>
 
-    <iframe
-        class="spel"
-        src="https://games.penjee.com/binary-bonanza/"
-        title="Binary Bonanza">
+    <iframe class="spel"
+            src="https://games.penjee.com/binary-bonanza/"
+            title="Binary Bonanza">
     </iframe>
 
     <p>
-  <iframe src="https://games.penjee.com/binary-bonanza/game.php" width="700" height="500" frameborder="no" scrolling="no" ></iframe>
+      <a class="knop"
+         href="https://games.penjee.com/binary-bonanza/"
+         target="_blank">
+         Speel Binary Bonanza
+      </a>
+    </p>
+  </section>
+
+  <!-- Video onderaan -->
+  <section class="uitlegvideo">
+    <h2>Uitlegvideo over binaire getallen</h2>
+    <p>
+      Ik heb deze video gekozen omdat hij uitlegt
+      hoe je met nullen en enen kunt rekenen.
+      Zo wordt het binaire stelsel duidelijker.
     </p>
 
-    <script>
-        function omrekenen() {
-            let getal = Number(
-                document.getElementById("decimaal").value
-            );
+    <div class="video-omlijsting">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/-G2TqFRPDeQ"
+        title="Binary Numbers"
+        allowfullscreen>
+      </iframe>
+    </div>
 
-            if (
-                Number.isInteger(getal) &&
-                getal >= 0 &&
-                getal <= 255
-            ) {
-                document.getElementById("binairantwoord").textContent =
-                    "Binair: " + getal.toString(2);
-            } else {
-                document.getElementById("binairantwoord").textContent =
-                    "Vul een heel getal tussen 0 en 255 in.";
-            }
-        }
-    </script>
+    <p>
+      <a href="https://www.youtube.com/watch?v=-G2TqFRPDeQ"
+         target="_blank">Open de video op YouTube</a>
+    </p>
+  </section>
+</main>
+
+<footer>Website van Lucas | Informatica HAVO 4</footer>
+
+<script>
+  // Een decimaal getal omzetten naar binair
+  function omrekenen() {
+    const getal = Number(document.getElementById("decimaal").value);
+    const antwoord = document.getElementById("binairantwoord");
+
+    if (Number.isInteger(getal) && getal >= 0 && getal <= 255) {
+      antwoord.textContent = "Binair: " + getal.toString(2);
+    } else {
+      antwoord.textContent = "Vul een heel getal tussen 0 en 255 in.";
+    }
+  }
+
+  // Dropdownmenu
+  const dropdown = document.querySelector(".dropdown");
+  document.querySelector(".dropknop").onclick = function () {
+    dropdown.classList.toggle("open");
+  };
+</script>
 
 </body>
 </html>
