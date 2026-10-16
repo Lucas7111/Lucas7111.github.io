@@ -9,130 +9,153 @@
 </head>
 <body>
 
-    <header>
-        <h1>Invoer, verwerking en uitvoer</h1>
-        <p>Hoe werkt een computer?</p>
-    </header>
-
-    <!-- Navigatiemenu -->
     <nav>
         <ul class="menu">
             <li><a href="index.html">Home</a></li>
             <li class="dropdown">
                 <button class="dropknop" type="button"
-                        aria-expanded="false">Onderwerpen ▾</button>
+                        aria-expanded="false">Onderwerpen ▼</button>
                 <ul class="dropdown-inhoud">
-                    <li><a href="ivu.html">IVU</a></li>
+                    <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
                     <li><a href="binairstelsel.html">Binair stelsel</a></li>
                     <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
                     <li><a href="compressie.html">Compressie</a></li>
-                    <li><a href="ai.html">AI</a></li>
+                    <li><a href="ai.html">Kunstmatige intelligentie</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 
     <main>
-        <section>
-            <h2>Wat is IVU?</h2>
-            <p>
-                IVU betekent invoer, verwerking en uitvoer.
-                Een computer werkt met deze drie stappen.
-                Eerst ontvangt de computer informatie,
-                daarna verwerkt hij die informatie en
-                vervolgens geeft hij een resultaat.
-            </p>
+        <h1>Invoer, verwerking en uitvoer</h1>
 
-            <img class="foto"
-                 src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
-                 alt="Computerchip">
-        </section>
+        <h2>Wat betekent het?</h2>
+        <p>
+            IVU staat voor invoer, verwerking en uitvoer.
+            Een computer gebruikt deze drie stappen om
+            opdrachten uit te voeren. Eerst krijgt de
+            computer informatie binnen. Daarna verwerkt
+            de computer die informatie en als laatste
+            laat hij het resultaat zien of horen.
+        </p>
+        <p>
+            Dit wordt het gegevensverwerkende proces genoemd.
+            Bijna alles wat je op een computer of telefoon
+            doet, werkt volgens dit proces.
+        </p>
 
-        <section>
-            <h2>1. Invoer</h2>
-            <p>
-                Bij invoer geef je informatie aan de computer.
-                Dit kan bijvoorbeeld met een toetsenbord,
-                een muis of een microfoon.
-            </p>
+        <img class="foto"
+             src="https://jimmy-67.github.io/invoer.jpg"
+             alt="Schema van invoer, verwerking en uitvoer">
 
-            <h2>2. Verwerking</h2>
-            <p>
-                Bij verwerking gaat de processor aan de slag
-                met de informatie. De computer voert bijvoorbeeld
-                een berekening uit.
-            </p>
+        <h2>1. Invoer</h2>
+        <p>
+            Invoer is alle informatie die je aan een
+            computer geeft. Dat kan met een toetsenbord,
+            muis, touchscreen, microfoon of camera.
+            Je geeft de computer hiermee een opdracht
+            of informatie waarmee hij iets moet doen.
+        </p>
+        <p>
+            <strong>Voorbeeld:</strong> je opent de
+            rekenmachine op je telefoon en typt 25 + 15.
+            De getallen en het plusteken zijn de invoer.
+        </p>
 
-            <h2>3. Uitvoer</h2>
-            <p>
-                Bij uitvoer laat de computer het resultaat zien
-                of horen. Bijvoorbeeld via een beeldscherm
-                of luidspreker.
-            </p>
-        </section>
+        <h2>2. Verwerking</h2>
+        <p>
+            Bij verwerking gaat de computer aan de slag
+            met de ingevoerde gegevens. De processor,
+            ook wel CPU genoemd, voert opdrachten en
+            berekeningen uit. Dit gebeurt meestal
+            binnen een heel korte tijd.
+        </p>
+        <p>
+            <strong>Voorbeeld:</strong> de processor
+            rekent de som 25 + 15 uit en komt op 40.
+        </p>
 
-        <section>
-            <h2>Voorbeeld van IVU</h2>
-            <p>
-                Als je op een rekenmachine 5 + 3 invoert,
-                verwerkt de computer de berekening.
-                Daarna verschijnt het antwoord 8 op het scherm.
-            </p>
+        <h2>3. Uitvoer</h2>
+        <p>
+            Uitvoer is het resultaat dat de computer
+            teruggeeft. Dit kan een getal op een scherm
+            zijn, muziek uit een luidspreker of een
+            afbeelding die uit een printer komt.
+        </p>
+        <p>
+            <strong>Voorbeeld:</strong> op je telefoon
+            verschijnt het antwoord 40.
+        </p>
 
-            <h3>Probeer het zelf</h3>
+        <h2>Een voorbeeld uit het dagelijks leven</h2>
+        <p>
+            Stel dat je op je iPhone X de rekenmachine
+            gebruikt. Je voert een som in, je telefoon
+            rekent de som uit en daarna zie je het
+            antwoord op het scherm.
+        </p>
+        <p><strong>Invoer:</strong> je typt 25 + 15.</p>
+        <p><strong>Verwerking:</strong> de telefoon rekent 25 + 15 uit.</p>
+        <p><strong>Uitvoer:</strong> het antwoord 40 verschijnt.</p>
 
-            <label for="getal1">Eerste getal:</label>
-            <input type="number" id="getal1" value="5">
+        <h2>Probeer het zelf</h2>
+        <p>
+            Vul twee getallen in en klik op Bereken.
+            Je ziet dan zelf hoe invoer, verwerking
+            en uitvoer samenwerken.
+        </p>
 
-            <label for="getal2">Tweede getal:</label>
-            <input type="number" id="getal2" value="3">
+        <label for="getal1">Eerste getal:</label>
+        <input type="number" id="getal1" value="25">
 
-            <button type="button" onclick="bereken()">Bereken</button>
-            <p id="antwoord" aria-live="polite"></p>
-        </section>
+        <label for="getal2">Tweede getal:</label>
+        <input type="number" id="getal2" value="15">
 
-        <!-- Video staat onderaan -->
-        <section class="uitlegvideo">
-            <h2>Uitlegvideo over computers</h2>
-            <p>
-                Deze video legt uit hoe een computer werkt.
-                Hij past bij dit onderwerp omdat je ziet
-                hoe een computer gegevens ontvangt en verwerkt.
-            </p>
+        <button type="button" onclick="bereken()">Bereken</button>
+        <p id="antwoord" aria-live="polite"></p>
 
-            <div class="video-omlijsting">
-                <iframe
-                    src="https://www.youtube-nocookie.com/embed/mCq8-xTH7jA"
-                    title="How Computers Work"
-                    allowfullscreen>
-                </iframe>
-            </div>
+        <h2>Video over dit onderwerp</h2>
+        <p>
+            Hieronder staat een video die het
+            gegevensverwerkende proces uitlegt.
+        </p>
 
-            <p>
-                <a href="https://www.youtube.com/watch?v=mCq8-xTH7jA"
-                   target="_blank" rel="noopener noreferrer">
-                    Bekijk de video op YouTube
-                </a>
-            </p>
-        </section>
+        <div class="video-omlijsting">
+            <iframe
+                src="https://www.youtube.com/embed/O_rLBLBLzsY"
+                title="Uitleg over invoer, verwerking en uitvoer"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p>
+            Ik heb deze video gekozen omdat hij
+            duidelijk laat zien hoe de drie stappen
+            van een computer samenwerken.
+        </p>
     </main>
 
     <footer>Gemaakt door Lucas - Informatica HAVO 4</footer>
 
     <script src="menu.js"></script>
-
     <script>
-        // Een voorbeeld van invoer, verwerking en uitvoer
         function bereken() {
-            const a = Number(document.getElementById("getal1").value);
-            const b = Number(document.getElementById("getal2").value);
+            // Invoer
+            const a = document.getElementById("getal1").value;
+            const b = document.getElementById("getal2").value;
 
-            // De computer verwerkt de twee getallen
-            const resultaat = a + b;
+            if (a === "" || b === "") {
+                document.getElementById("antwoord").textContent =
+                    "Vul eerst twee getallen in.";
+                return;
+            }
 
-            // Het antwoord wordt op het scherm getoond
+            // Verwerking
+            const uitkomst = Number(a) + Number(b);
+
+            // Uitvoer
             document.getElementById("antwoord").textContent =
-                "De uitkomst is: " + resultaat;
+                "De uitkomst is: " + uitkomst;
         }
     </script>
 </body>

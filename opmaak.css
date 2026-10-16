@@ -1,32 +1,13 @@
 
-/* Algemene opmaak van mijn website */
+/* Algemene opmaak van de website */
 body {
-    background-color: #f5f5f5;
-    font-family: Arial, sans-serif;
-    color: #263e56;
     margin: 0;
-    line-height: 1.6;
-}
-
-/* De titel bovenaan */
-header {
+    padding: 0;
+    font-family: Arial, sans-serif;
     background-color: #f5f5f5;
-    text-align: left;
-    padding: 20px;
-}
-
-h1 {
-    color: #263e56;
-    margin-bottom: 5px;
-}
-
-h2, h3 {
-    color: #263e56;
-    text-align: left;
-}
-
-p {
-    text-align: left;
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.7;
 }
 
 /* Het donkerblauwe navigatiemenu */
@@ -35,27 +16,30 @@ nav {
 }
 
 .menu {
+    list-style: none;
     display: flex;
-    list-style-type: none;
+    align-items: center;
     margin: 0;
-    padding: 0;
+    padding: 0 20px;
 }
 
-.menu li {
+.menu > li {
     position: relative;
 }
 
 .menu a,
 .dropknop {
     display: block;
-    background-color: #34495e;
+    padding: 15px 20px;
     color: white;
     text-decoration: none;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 0;
-    font-family: Arial, sans-serif;
     font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.dropknop {
+    background: none;
+    border: none;
     cursor: pointer;
 }
 
@@ -64,163 +48,150 @@ nav {
     background-color: #263e56;
 }
 
-/* Het witte dropdownmenu */
+/* Wit dropdownmenu */
 .dropdown-inhoud {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: white;
-    list-style-type: none;
+    z-index: 10;
+    min-width: 230px;
     padding: 0;
     margin: 0;
-    min-width: 180px;
-    z-index: 10;
-    box-shadow: 0 3px 7px #cccccc;
+    list-style: none;
+    background-color: white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 .dropdown-inhoud a {
-    background-color: white;
-    color: #263e56;
+    color: #333333;
+    padding: 12px 16px;
 }
 
 .dropdown-inhoud a:hover {
-    background-color: #e5e5e5;
+    background-color: #eeeeee;
 }
 
-/* Dropdown openen met muis of klikken */
+/* Openen met muis of JavaScript */
 .dropdown:hover .dropdown-inhoud,
-.dropdown:focus-within .dropdown-inhoud,
 .dropdown.open .dropdown-inhoud {
     display: block;
 }
 
-/* Alle inhoud links */
+/* Inhoud van de pagina */
 main {
-    margin: 20px;
-    padding: 0;
+    padding: 25px 30px;
+    max-width: 1000px;
     text-align: left;
 }
 
-/* Geen aparte hokjes om de tekst */
-section {
-    background: none;
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
-    margin-bottom: 30px;
-    padding: 0;
+/* Kopjes */
+h1 {
+    color: #263e56;
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
-/* Gewone links */
-a {
-    color: #2867a2;
+h2 {
+    color: #263e56;
+    font-size: 23px;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
-a:hover {
-    text-decoration: underline;
+h3 {
+    color: #263e56;
+    font-size: 19px;
+    margin-top: 20px;
 }
 
-/* Lijst met onderwerpen op de homepage */
-.onderwerpen {
-    padding-left: 25px;
+/* Gewone tekst */
+p {
+    margin-top: 8px;
+    margin-bottom: 15px;
 }
 
-.onderwerpen li {
-    margin-bottom: 8px;
+main a {
+    color: #205c9e;
 }
 
-/* Foto's staan links */
+/* Afbeeldingen links uitlijnen */
 .foto {
     display: block;
-    width: 450px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 550px;
     height: auto;
-    margin: 15px 0;
-}
-
-/* Gewone knoppen */
-button {
-    background-color: #34495e;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #263e56;
-}
-
-/* Invulvelden */
-input[type="number"] {
-    padding: 8px;
-    margin: 5px;
-    max-width: 140px;
+    margin: 20px 0;
+    border-radius: 5px;
 }
 
 /* Tabellen */
 table {
     border-collapse: collapse;
-    margin: 15px 0;
+    margin: 15px 0 25px;
     max-width: 100%;
 }
 
-th, td {
-    border: 1px solid #999999;
-    padding: 10px;
+th,
+td {
+    border: 1px solid #aaaaaa;
+    padding: 9px 15px;
     text-align: left;
 }
 
 th {
+    background-color: #e8e8e8;
+}
+
+/* Invoervelden */
+input[type="number"] {
+    padding: 8px;
+    margin: 8px 10px 8px 5px;
+    width: 110px;
+    font-size: 16px;
+}
+
+/* Knoppen bij de oefeningen */
+main button {
+    padding: 9px 15px;
+    border: none;
+    border-radius: 4px;
     background-color: #34495e;
     color: white;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-/* De RGB-schuifjes */
-.rgb-demo {
-    max-width: 450px;
+main button:hover {
+    background-color: #263e56;
 }
 
-.rgb-demo label {
+/* RGB-kleurenmixer */
+.kleurmixer label {
     display: block;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
-.rgb-demo input[type="range"] {
-    display: block;
-    width: 100%;
-    margin-bottom: 15px;
+.kleurmixer input[type="range"] {
+    width: 260px;
+    max-width: 75%;
+    vertical-align: middle;
 }
 
-/* Het kleurvak bij RGB */
-.voorbeeldkleur {
-    width: 300px;
+#kleurVoorbeeld {
+    width: 280px;
     max-width: 100%;
-    height: 130px;
-    background-color: rgb(255, 255, 0);
-    margin: 15px 0;
-    border: 1px solid #999999;
+    height: 110px;
+    margin-top: 20px;
+    border: 1px solid #888888;
+    border-radius: 4px;
 }
 
-/* Klikbare afbeelding van Binary Bonanza */
-.spel-afbeelding {
-    display: block;
-    width: 450px;
-    max-width: 100%;
-    height: auto;
-    margin: 15px 0;
-}
-
-/* Video's staan onderaan en links */
-.uitlegvideo {
-    margin-top: 35px;
-}
-
+/* YouTube-video's */
 .video-omlijsting {
-    width: 560px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 560px;
     aspect-ratio: 16 / 9;
     margin: 15px 0;
 }
@@ -231,43 +202,56 @@ th {
     border: none;
 }
 
-.video-afbeelding {
-    display: block;
-    width: 450px;
-    max-width: 100%;
-    height: auto;
-    margin: 15px 0;
-}
-
-/* Onderkant van mijn website */
+/* Onderkant van de pagina */
 footer {
-    background-color: #34495e;
-    color: white;
-    text-align: left;
-    padding: 15px 20px;
-    margin-top: 30px;
+    margin-top: 25px;
+    padding: 20px 30px;
+    color: #666666;
+    font-size: 14px;
 }
 
-/* Opmaak voor kleine schermen */
+/* Opmaak voor telefoons */
 @media (max-width: 600px) {
-    header {
-        padding: 15px;
-    }
-
     main {
-        margin: 15px;
+        padding: 20px 15px;
     }
 
-    h1 {
-        font-size: 27px;
+    .menu {
+        padding: 0 5px;
     }
 
     .menu a,
     .dropknop {
-        padding: 12px;
+        padding: 13px 10px;
+        font-size: 14px;
     }
 
-    .dropdown-inhoud {
-        min-width: 160px;
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 6px;
     }
 }
+
+/*
+Kleurcodes in CSS:
+#34495e is een hexadecimale kleurcode.
+
+Hexadecimaal gebruikt 0 t/m 9 en A t/m F.
+Bij RGB worden decimale getallen van 0 t/m 255
+gebruikt voor rood, groen en blauw.
+
+De kleur #34495e is hetzelfde als:
+rgb(52, 73, 94)
+*/

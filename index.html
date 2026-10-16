@@ -1,74 +1,90 @@
-=
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website van Lucas - Home</title>
-  <link rel="stylesheet" href="opmaak.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Informatica Lucas</title>
+    <link rel="stylesheet" href="opmaak.css">
 </head>
 <body>
 
-  <!-- Bovenkant van de website -->
-  <header>
-    <h1>Welkom op mijn website!</h1>
-    <p>Informatica - HAVO 4</p>
-  </header>
-
-  <!-- Navigatiemenu met dropdown -->
-  <nav>
-    <ul class="menu">
-      <li><a href="index.html">Home</a></li>
-      <li class="dropdown">
-        <button class="dropknop" type="button">Onderwerpen ▾</button>
-        <ul class="dropdown-inhoud">
-          <li><a href="ivu.html">IVU</a></li>
-          <li><a href="binairstelsel.html">Binair stelsel</a></li>
-          <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-          <li><a href="compressie.html">Compressie</a></li>
-          <li><a href="ai.html">AI</a></li>
+    <!-- Navigatiemenu -->
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <button class="dropknop" type="button"
+                        aria-expanded="false">Onderwerpen ▼</button>
+                <ul class="dropdown-inhoud">
+                    <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
+                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
+                    <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+                    <li><a href="compressie.html">Compressie</a></li>
+                    <li><a href="ai.html">Kunstmatige intelligentie</a></li>
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-  </nav>
+    </nav>
 
-  <main>
-    <!-- Persoonlijke informatie -->
-    <section>
-      <h2>Over mij</h2>
-      <p>
-        Hoi! Ik ben Lucas en ik ben 15 jaar oud.
-        Ik zit op het Vlietland College in HAVO 4.
-        In mijn vrije tijd ga ik vier keer per week
-        naar de sportschool en voetbal ik regelmatig
-        met vrienden.
-      </p>
-      <p>
-        Later wil ik graag een leuke opleiding volgen
-        en een baan vinden die bij mij past.
-        Ik weet nog niet precies wat ik wil worden.
-        Door de lessen Loopbaanoriëntatie en
-        -begeleiding (LOB) hoop ik dat te ontdekken.
-      </p>
-      <img class="foto"
-           src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80"
-           alt="Sportschool met fitnessapparaten">
-    </section>
+    <main>
+        <h1>Welkom op mijn informaticawebsite!</h1>
 
-    <!-- Knoppen naar de verschillende onderwerpen -->
-    <section>
-      <h2>Over deze website</h2>
-      <p>
-        Ik heb deze website gemaakt voor Informatica.
-        Hieronder kun je kiezen welk onderwerp je wilt bekijken.
-      </p>
+        <h2>Over mij</h2>
+        <p>
+            Hoi! Ik ben Lucas en ik ben 15 jaar oud.
+            Ik zit op het Vlietland College in HAVO 4.
+            Voor het vak informatica heb ik deze website gemaakt.
+        </p>
 
-  </main>
+        <p>
+            In mijn vrije tijd ga ik graag naar de sportschool.
+            Dat doe ik ongeveer vier keer per week.
+            Daarnaast vind ik het leuk om met vrienden te voetballen.
+        </p>
 
-  <footer>
- 
-  </footer>
+        <img class="foto"
+             src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80"
+             alt="Sportschool met fitnessapparatuur">
 
+        <h2>Mijn toekomst</h2>
+        <p>
+            Later wil ik graag een leuke opleiding volgen en
+            een baan vinden die goed bij mij past.
+            Ik weet nog niet precies wat ik wil worden.
+            Ik hoop dat ik daar door loopbaanoriëntatie
+            en begeleiding op school achter kom.
+        </p>
 
+        <h2>Waar gaat mijn website over?</h2>
+        <p>
+            Op mijn website leg ik vijf onderwerpen uit die
+            te maken hebben met informatica. Je leert hoe
+            computers informatie verwerken, hoe binaire
+            getallen werken en hoe kleuren worden gemaakt.
+            Ook leg ik uit wat compressie is en wat je
+            met kunstmatige intelligentie kunt doen.
+        </p>
+
+        <ul>
+            <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
+            <li><a href="binairstelsel.html">Het binaire stelsel</a></li>
+            <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+            <li><a href="compressie.html">Compressie en afbeeldingen</a></li>
+            <li><a href="ai.html">Kunstmatige intelligentie</a></li>
+        </ul>
+
+        <h2>Waarom heb ik deze website gemaakt?</h2>
+        <p>
+            Ik heb deze website gemaakt voor een opdracht
+            van informatica. Ik leer hiermee hoe HTML,
+            CSS en JavaScript werken. HTML gebruik ik
+            voor de inhoud, CSS voor de opmaak en
+            JavaScript voor interactieve onderdelen.
+        </p>
+    </main>
+
+    <footer>Gemaakt door Lucas - Informatica HAVO 4</footer>
+    <script src="menu.js"></script>
 </body>
 </html>

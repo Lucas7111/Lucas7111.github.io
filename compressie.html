@@ -4,166 +4,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compressie</title>
+    <title>Compressie en afbeeldingen</title>
     <link rel="stylesheet" href="opmaak.css">
 </head>
 <body>
-
-    <header>
-        <h1>Compressie</h1>
-        <p>Bestanden kleiner maken</p>
-    </header>
 
     <nav>
         <ul class="menu">
             <li><a href="index.html">Home</a></li>
             <li class="dropdown">
                 <button class="dropknop" type="button"
-                        aria-expanded="false">Onderwerpen ▾</button>
+                        aria-expanded="false">Onderwerpen ▼</button>
                 <ul class="dropdown-inhoud">
-                    <li><a href="ivu.html">IVU</a></li>
+                    <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
                     <li><a href="binairstelsel.html">Binair stelsel</a></li>
                     <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
                     <li><a href="compressie.html">Compressie</a></li>
-                    <li><a href="ai.html">AI</a></li>
+                    <li><a href="ai.html">Kunstmatige intelligentie</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 
     <main>
-        <section>
-            <h2>Wat is compressie?</h2>
-            <p>
-                Compressie betekent dat je een digitaal bestand
-                kleiner maakt. Hierdoor neemt het bestand
-                minder opslagruimte in.
-            </p>
+        <h1>Compressie en afbeeldingen</h1>
 
-            <p>
-                Compressie wordt bijvoorbeeld gebruikt
-                bij foto's, video's, muziek en documenten.
-            </p>
+        <h2>Wat is compressie?</h2>
+        <p>
+            Compressie betekent dat je een bestand kleiner
+            maakt, zodat het minder opslagruimte inneemt.
+            Dit is handig voor foto's, video's,
+            muziek en andere bestanden.
+        </p>
+        <p>
+            Als een bestand kleiner is, kun je het
+            vaak sneller versturen via internet.
+            Ook kun je meer bestanden opslaan
+            op je telefoon of computer.
+        </p>
+        <p>
+            Er zijn twee soorten compressie:
+            compressie met verlies en compressie
+            zonder verlies.
+        </p>
 
-            <img class="foto"
-                 src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80"
-                 alt="Servers voor het opslaan van gegevens">
-        </section>
+        <h2>Compressie met verlies (lossy)</h2>
+        <p>
+            Bij compressie met verlies wordt een deel
+            van de informatie verwijderd om het bestand
+            kleiner te maken. Hierdoor kan de kwaliteit
+            achteruitgaan.
+        </p>
+        <p>
+            Een voorbeeld is een JPEG-foto.
+            Als je een foto heel sterk comprimeert,
+            kan de afbeelding minder scherp worden.
+            De verwijderde informatie kun je meestal
+            niet meer precies terugkrijgen.
+        </p>
 
-        <section>
-            <h2>Waarom gebruiken we compressie?</h2>
-            <p>
-                Door compressie nemen bestanden minder ruimte in
-                en kun je ze vaak sneller versturen of downloaden.
-                Bijvoorbeeld als je een foto via WhatsApp verstuurt.
-            </p>
-        </section>
+        <h2>Compressie zonder verlies (lossless)</h2>
+        <p>
+            Bij compressie zonder verlies wordt
+            een bestand kleiner gemaakt zonder
+            dat er informatie verloren gaat.
+            Je kunt het oorspronkelijke bestand
+            later precies terugkrijgen.
+        </p>
+        <p>
+            Een voorbeeld is een ZIP-bestand.
+            Ook PNG-afbeeldingen gebruiken
+            compressie zonder verlies.
+        </p>
 
-        <section>
-            <h2>Lossless compressie</h2>
-            <p>
-                Bij lossless compressie gaat er geen informatie
-                verloren. Je kunt het oorspronkelijke bestand
-                precies terugkrijgen.
-            </p>
+        <h2>Wat is het verschil?</h2>
+        <table>
+            <tr>
+                <th>Met verlies</th>
+                <th>Zonder verlies</th>
+            </tr>
+            <tr>
+                <td>Er verdwijnt informatie</td>
+                <td>Alle informatie blijft behouden</td>
+            </tr>
+            <tr>
+                <td>Kwaliteit kan achteruitgaan</td>
+                <td>Oorspronkelijke kwaliteit blijft behouden</td>
+            </tr>
+            <tr>
+                <td>Bijvoorbeeld JPEG</td>
+                <td>Bijvoorbeeld PNG en ZIP</td>
+            </tr>
+        </table>
 
-            <p>
-                Voorbeelden zijn ZIP-bestanden en PNG-afbeeldingen.
-            </p>
+        <h2>Bitmapafbeeldingen</h2>
+        <p>
+            Een bitmapafbeelding bestaat uit heel veel
+            kleine puntjes die pixels worden genoemd.
+            Elke pixel heeft een eigen kleur.
+        </p>
+        <p>
+            Foto's die je met je telefoon maakt,
+            zijn bitmapafbeeldingen. Als je een
+            bitmapafbeelding heel sterk vergroot,
+            kun je de afzonderlijke pixels zien.
+            De afbeelding wordt dan blokkerig.
+        </p>
+        <p>
+            Hoe meer pixels een afbeelding heeft,
+            hoe meer details er mogelijk zijn.
+            Het bestand kan daardoor ook groter worden.
+        </p>
 
-            <h2>Lossy compressie</h2>
-            <p>
-                Bij lossy compressie worden bepaalde details
-                uit een bestand verwijderd.
-                Het bestand wordt hierdoor kleiner,
-                maar je kunt het origineel niet precies terugkrijgen.
-            </p>
+        <h2>Vectorafbeeldingen</h2>
+        <p>
+            Een vectorafbeelding bestaat niet uit
+            een vast raster van pixels, maar uit
+            lijnen, vormen en wiskundige berekeningen.
+        </p>
+        <p>
+            Hierdoor kun je een vectorafbeelding
+            vergroten zonder dat de randen
+            onscherp worden.
+            Vectorafbeeldingen worden daarom
+            vaak gebruikt voor logo's en pictogrammen.
+        </p>
 
-            <p>
-                Voorbeelden zijn JPEG-afbeeldingen en MP3-muziek.
-            </p>
-        </section>
+        <h2>Wat is het verschil tussen bitmap en vector?</h2>
+        <p>
+            Een bitmapafbeelding bestaat uit pixels
+            en is heel geschikt voor foto's.
+            Een vectorafbeelding bestaat uit
+            lijnen en vormen en is vooral handig
+            voor logo's en eenvoudige tekeningen.
+        </p>
 
-        <section>
-            <h2>Voorbeeld van compressie</h2>
-            <p>
-                Stel dat een afbeelding eerst 20 MB groot is.
-                Na compressie is het bestand nog maar 5 MB.
-            </p>
+        <img class="foto"
+             src="https://jimmy-67.github.io/vector.jpg"
+             alt="Verschil tussen bitmap en vector">
 
-            <p>
-                Je bespaart dan 15 MB opslagruimte.
-                Dat is 15 : 20 × 100% = 75%.
-            </p>
-        </section>
+        <h2>Voorbeeld uit het dagelijks leven</h2>
+        <p>
+            Stel dat ik met mijn iPhone X een foto maak
+            en deze naar een vriend stuur.
+            De foto kan gecomprimeerd worden
+            zodat het bestand kleiner is
+            en sneller verstuurd kan worden.
+        </p>
+        <p>
+            Als ik een logo voor mijn website maak,
+            kan een vectorafbeelding handig zijn.
+            Het logo blijft dan scherp,
+            ook als ik het groter maak.
+        </p>
 
-        <section>
-            <h2>Verschil tussen lossless en lossy</h2>
+        <h2>Video over compressie en afbeeldingen</h2>
+        <p>
+            Hieronder staat een Engelstalige uitlegvideo
+            die bij dit onderwerp hoort.
+        </p>
 
-            <table>
-                <tr>
-                    <th>Lossless</th>
-                    <th>Lossy</th>
-                </tr>
-                <tr>
-                    <td>Geen informatieverlies</td>
-                    <td>Wel informatieverlies</td>
-                </tr>
-                <tr>
-                    <td>Origineel precies terughalen</td>
-                    <td>Origineel niet precies terughalen</td>
-                </tr>
-                <tr>
-                    <td>ZIP en PNG</td>
-                    <td>JPEG en MP3</td>
-                </tr>
-            </table>
-        </section>
+        <div class="video-omlijsting">
+            <iframe
+                src="https://www.youtube.com/embed/6I7TFuhgl_g"
+                title="Video over compressie en afbeeldingen"
+                allowfullscreen>
+            </iframe>
+        </div>
 
-        <!-- Video en samenvatting onderaan -->
-        <section class="uitlegvideo">
-            <h2>Uitlegvideo over compressie</h2>
-            <p>
-                Deze video gaat over het kleiner maken van bestanden.
-                Hij past bij het onderwerp omdat hij uitlegt
-                waarom compressie handig is.
-            </p>
-
-            <p>Klik op de afbeelding om de video te openen.</p>
-
-            <a href="https://www.youtube.com/watch?v=OtDxDvCpPL4"
-               target="_blank" rel="noopener noreferrer">
-                <img class="video-afbeelding"
-                     src="https://img.youtube.com/vi/OtDxDvCpPL4/hqdefault.jpg"
-                     alt="Afbeelding van de video over compressie">
-            </a>
-
-            <div class="video-omlijsting">
-                <iframe
-                    src="https://www.youtube-nocookie.com/embed/OtDxDvCpPL4"
-                    title="Video over compressie"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <h3>Samenvatting</h3>
-            <p>
-                Bij compressie maak je bestanden kleiner.
-                Er bestaan twee soorten: lossless en lossy.
-                Bij lossless blijft alle informatie bewaard.
-                Bij lossy gaat een deel van de informatie verloren.
-            </p>
-
-            <p>
-                Compressie is handig omdat bestanden
-                minder opslagruimte gebruiken en vaak
-                sneller kunnen worden verstuurd.
-            </p>
-        </section>
+        <p>
+            Ik heb deze video gekozen omdat hij
+            helpt om het onderwerp beter te begrijpen.
+            De video is in het Engels, maar met
+            de voorbeelden is de uitleg goed te volgen.
+        </p>
     </main>
 
     <footer>Gemaakt door Lucas - Informatica HAVO 4</footer>
-
     <script src="menu.js"></script>
 </body>
 </html>

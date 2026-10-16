@@ -1,269 +1,252 @@
 
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kleurmodellen</title>
     <link rel="stylesheet" href="opmaak.css">
 </head>
-
 <body>
 
-    <!-- Titel van de pagina -->
-    <header>
-        <h1>Kleurmodellen</h1>
-        <p>Hoe werken kleuren op een scherm en op papier?</p>
-    </header>
-
-    <!-- Navigatiemenu -->
     <nav>
         <ul class="menu">
             <li><a href="index.html">Home</a></li>
-
             <li class="dropdown">
                 <button class="dropknop" type="button"
-                        aria-expanded="false">
-                    Onderwerpen ▾
-                </button>
-
+                        aria-expanded="false">Onderwerpen ▼</button>
                 <ul class="dropdown-inhoud">
-                    <li><a href="ivu.html">IVU</a></li>
+                    <li><a href="ivu.html">Invoer, verwerking en uitvoer</a></li>
                     <li><a href="binairstelsel.html">Binair stelsel</a></li>
                     <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
                     <li><a href="compressie.html">Compressie</a></li>
-                    <li><a href="ai.html">AI</a></li>
+                    <li><a href="ai.html">Kunstmatige intelligentie</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 
     <main>
+        <h1>Kleurmodellen</h1>
 
-        <section>
-            <h2>Wat zijn kleurmodellen?</h2>
+        <h2>Wat zijn kleurmodellen?</h2>
+        <p>
+            Een kleurmodel is een manier om kleuren
+            met getallen te beschrijven.
+            Computers, telefoons, camera's en printers
+            gebruiken kleurmodellen om kleuren
+            weer te geven.
+        </p>
+        <p>
+            De bekendste kleurmodellen zijn RGB en CMYK.
+            Ze worden voor verschillende dingen gebruikt.
+        </p>
 
-            <p>
-                Een kleurmodel is een manier om kleuren
-                te beschrijven met getallen. Computers,
-                telefoons, camera's en printers gebruiken
-                kleurmodellen om kleuren weer te geven.
-            </p>
+        <h2>Het RGB-kleurmodel</h2>
+        <p>
+            RGB staat voor rood, groen en blauw.
+            Beeldschermen gebruiken deze drie kleuren
+            licht om andere kleuren te maken.
+            Door de sterkte van iedere kleur te veranderen,
+            kun je miljoenen kleuren maken.
+        </p>
+        <p>
+            Iedere kleur heeft een waarde van 0 tot 255.
+            Bij 0 staat de kleur uit en bij 255
+            staat hij op de hoogste sterkte.
+        </p>
+        <p>
+            RGB(255, 0, 0) is rood.
+            RGB(0, 255, 0) is groen.
+            RGB(0, 0, 255) is blauw.
+            RGB(255, 255, 255) is wit
+            en RGB(0, 0, 0) is zwart.
+        </p>
 
-            <p>
-                Er bestaan verschillende kleurmodellen,
-                maar RGB en CMYK zijn de bekendste.
-                Deze twee kleurmodellen werken op
-                een andere manier.
-            </p>
-        </section>
+        <h2>Het CMYK-kleurmodel</h2>
+        <p>
+            CMYK staat voor cyaan, magenta, geel
+            en zwart. Dit kleurmodel wordt vooral
+            gebruikt bij printers.
+        </p>
+        <p>
+            Een printer gebruikt verschillende kleuren
+            inkt om afbeeldingen op papier te maken.
+            Door de inkten te combineren ontstaan
+            andere kleuren.
+        </p>
 
-        <section>
-            <h2>Het RGB-kleurmodel</h2>
+        <h2>Wat is het verschil?</h2>
+        <p>
+            Het belangrijkste verschil is dat RGB
+            werkt met licht en CMYK met inkt.
+            RGB wordt gebruikt voor schermen,
+            terwijl CMYK vooral bedoeld is
+            voor het afdrukken van afbeeldingen.
+        </p>
+        <p>
+            Daarom kan een kleur er op je telefoon
+            anders uitzien dan wanneer je dezelfde
+            afbeelding uitprint.
+        </p>
 
-            <p>
-                RGB staat voor rood, groen en blauw.
-                Een beeldscherm gebruikt deze drie kleuren
-                licht om heel veel andere kleuren te maken.
-            </p>
+        <img class="foto"
+             src="https://jimmy-67.github.io/kleurtjes.jpeg"
+             alt="Vergelijking van RGB en CMYK">
 
-            <p>
-                Door rood, groen en blauw met verschillende
-                sterktes te combineren, ontstaan bijvoorbeeld
-                geel, paars en wit.
-            </p>
+        <h2>Wat zijn pixels?</h2>
+        <p>
+            Een pixel is een heel klein beeldpuntje.
+            Een beeldscherm bestaat uit heel veel pixels.
+            Iedere pixel kan een eigen kleur laten zien.
+        </p>
+        <p>
+            Als je van dichtbij naar een scherm kijkt,
+            zie je misschien de afzonderlijke pixels.
+            Samen vormen ze bijvoorbeeld een foto,
+            een video of een afbeelding op een website.
+        </p>
 
-            <p>
-                Elke RGB-kleur heeft een waarde tussen
-                0 en 255. Bij 0 staat een kleur helemaal
-                uit en bij 255 staat hij op de hoogste sterkte.
-            </p>
+        <h2>Waar gebruiken we kleurmodellen voor?</h2>
+        <p>
+            Kleurmodellen worden gebruikt bij websites,
+            foto's, video's, digitale tekeningen
+            en posters. Voor mijn eigen website
+            gebruik ik bijvoorbeeld RGB-kleuren
+            om het menu en de achtergrond in te stellen.
+        </p>
 
-            <p>
-                Als rood, groen en blauw allemaal op 255
-                staan, krijg je wit. Als alle drie op 0
-                staan, krijg je zwart.
-            </p>
+        <h2>Decimale en hexadecimale kleurcodes</h2>
+        <p>
+            Bij CSS kun je kleuren op verschillende
+            manieren opschrijven. Met RGB gebruik
+            je decimale getallen van 0 tot 255.
+            Je kunt ook hexadecimale codes gebruiken.
+        </p>
+        <p>
+            Hexadecimaal is een talstelsel met
+            zestien tekens: 0 tot en met 9 en A tot en met F.
+            Een hex-kleurcode begint met een hekje (#).
+        </p>
 
-            <p>
-                RGB wordt bijvoorbeeld gebruikt op
-                telefoons, televisies en computerschermen.
-            </p>
-        </section>
+        <table>
+            <tr>
+                <th>Kleur</th>
+                <th>RGB-code</th>
+                <th>Hex-code</th>
+            </tr>
+            <tr>
+                <td>Rood</td>
+                <td>rgb(255, 0, 0)</td>
+                <td>#FF0000</td>
+            </tr>
+            <tr>
+                <td>Groen</td>
+                <td>rgb(0, 255, 0)</td>
+                <td>#00FF00</td>
+            </tr>
+            <tr>
+                <td>Blauw</td>
+                <td>rgb(0, 0, 255)</td>
+                <td>#0000FF</td>
+            </tr>
+            <tr>
+                <td>Wit</td>
+                <td>rgb(255, 255, 255)</td>
+                <td>#FFFFFF</td>
+            </tr>
+            <tr>
+                <td>Zwart</td>
+                <td>rgb(0, 0, 0)</td>
+                <td>#000000</td>
+            </tr>
+        </table>
 
-        <section>
-            <h2>Het CMYK-kleurmodel</h2>
+        <h2>Probeer zelf RGB-kleuren te maken</h2>
+        <p>
+            Met de schuifjes hieronder kun je
+            rood, groen en blauw mengen.
+            Je ziet meteen welke kleur ontstaat
+            en wat de RGB- en hex-code is.
+        </p>
 
-            <p>
-                CMYK staat voor cyaan, magenta, geel
-                en zwart. Dit kleurmodel wordt vooral
-                gebruikt bij printers.
-            </p>
+        <div class="kleurmixer">
+            <label for="rood">Rood:</label>
+            <input type="range" id="rood"
+                   min="0" max="255" value="52"
+                   oninput="veranderKleur()">
+            <span id="roodWaarde">52</span>
 
-            <p>
-                Een printer gebruikt verschillende
-                kleuren inkt om afbeeldingen en teksten
-                op papier af te drukken.
-            </p>
+            <label for="groen">Groen:</label>
+            <input type="range" id="groen"
+                   min="0" max="255" value="73"
+                   oninput="veranderKleur()">
+            <span id="groenWaarde">73</span>
 
-            <p>
-                RGB is dus vooral bedoeld voor schermen
-                en CMYK vooral voor afdrukken.
-                Daarom kan een kleur op je beeldscherm
-                soms iets anders lijken dan op papier.
-            </p>
-        </section>
+            <label for="blauw">Blauw:</label>
+            <input type="range" id="blauw"
+                   min="0" max="255" value="94"
+                   oninput="veranderKleur()">
+            <span id="blauwWaarde">94</span>
 
-        <section>
-            <h2>Wat is het verschil?</h2>
+            <div id="kleurVoorbeeld"></div>
 
-            <p>
-                Het belangrijkste verschil is dat RGB
-                licht gebruikt om kleuren te maken,
-                terwijl CMYK inkt gebruikt.
-            </p>
+            <p id="rgbCode"></p>
+            <p id="hexCode"></p>
+        </div>
 
-            <p>
-                Bij RGB krijg je wit als rood, groen
-                en blauw allemaal op de hoogste
-                sterkte staan.
-            </p>
+        <h2>Video over kleurmodellen</h2>
+        <p>
+            Hieronder staat een video over kleurmodellen.
+        </p>
 
-            <p>
-                Bij CMYK worden kleuren gemaakt door
-                verschillende soorten inkt te combineren.
-                Hoe meer inkt je toevoegt, hoe minder
-                licht er wordt teruggekaatst.
-            </p>
+        <div class="video-omlijsting">
+            <iframe
+                src="https://www.youtube.com/embed/sbLIh3vq_cM"
+                title="Video over kleurmodellen"
+                allowfullscreen>
+            </iframe>
+        </div>
 
-            <!-- Afbeelding over RGB en CMYK -->
-            <img
-                class="foto"
-                src="https://jimmy-67.github.io/kleurtjes.jpeg"
-                alt="Verschil tussen RGB en CMYK">
-
-        </section>
-
-        <section>
-            <h2>Waar gebruiken we kleurmodellen voor?</h2>
-
-            <p>
-                Kleurmodellen zijn belangrijk bij het
-                maken van foto's, websites, video's,
-                digitale tekeningen en posters.
-            </p>
-
-            <p>
-                Als je bijvoorbeeld een website maakt,
-                gebruik je meestal RGB-kleuren.
-                Als je een poster wilt laten afdrukken,
-                wordt vaak CMYK gebruikt.
-            </p>
-
-            <p>
-                Door het juiste kleurmodel te kiezen,
-                kunnen kleuren zo goed mogelijk
-                worden weergegeven op een scherm
-                of op papier.
-            </p>
-        </section>
-
-        <section>
-            <h2>RGB-kleuren in HTML en CSS</h2>
-
-            <p>
-                Bij het maken van een website kun je
-                kleuren instellen met CSS.
-                Dat kan met decimale RGB-getallen
-                of met hexadecimale kleurcodes.
-            </p>
-
-            <p>
-                Een voorbeeld van een decimale kleurcode
-                is RGB(255, 0, 0). Dit betekent rood.
-                De hexadecimale code voor dezelfde kleur
-                is #FF0000.
-            </p>
-
-            <table>
-                <tr>
-                    <th>Kleur</th>
-                    <th>RGB-code</th>
-                    <th>Hex-code</th>
-                </tr>
-                <tr>
-                    <td>Rood</td>
-                    <td>rgb(255, 0, 0)</td>
-                    <td>#FF0000</td>
-                </tr>
-                <tr>
-                    <td>Groen</td>
-                    <td>rgb(0, 255, 0)</td>
-                    <td>#00FF00</td>
-                </tr>
-                <tr>
-                    <td>Blauw</td>
-                    <td>rgb(0, 0, 255)</td>
-                    <td>#0000FF</td>
-                </tr>
-                <tr>
-                    <td>Wit</td>
-                    <td>rgb(255, 255, 255)</td>
-                    <td>#FFFFFF</td>
-                </tr>
-                <tr>
-                    <td>Zwart</td>
-                    <td>rgb(0, 0, 0)</td>
-                    <td>#000000</td>
-                </tr>
-            </table>
-        </section>
-
-        <!-- Video onderaan de pagina -->
-        <section class="uitlegvideo">
-
-            <h2>Video over kleurmodellen</h2>
-
-            <p>
-                Hieronder staat een YouTube-video
-                over kleurmodellen.
-            </p>
-
-            <div class="video-omlijsting">
-                <iframe
-                    src="https://www.youtube.com/embed/sbLIh3vq_cM"
-                    title="Uitleg over kleurmodellen"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <p>
-                <a href="https://www.youtube.com/watch?v=sbLIh3vq_cM"
-                   target="_blank" rel="noopener noreferrer">
-                    Bekijk de video op YouTube
-                </a>
-            </p>
-
-            <h3>Waarom heb ik deze video gekozen?</h3>
-
-            <p>
-                Ik heb deze video gekozen omdat hij
-                uitleg geeft over kleurmodellen.
-                De video helpt om het verschil
-                tussen RGB en CMYK beter te begrijpen.
-            </p>
-
-        </section>
-
+        <p>
+            Ik heb deze video gekozen omdat hij helpt
+            om te begrijpen hoe kleurmodellen werken
+            en waarom verschillende apparaten
+            andere kleurmodellen gebruiken.
+        </p>
     </main>
 
-    <footer>
-        Gemaakt door Lucas - Informatica HAVO 4
-    </footer>
-
-    <!-- JavaScript voor het dropdownmenu -->
+    <footer>Gemaakt door Lucas - Informatica HAVO 4</footer>
     <script src="menu.js"></script>
 
+    <script>
+        function veranderKleur() {
+            const r = Number(document.getElementById("rood").value);
+            const g = Number(document.getElementById("groen").value);
+            const b = Number(document.getElementById("blauw").value);
+
+            document.getElementById("roodWaarde").textContent = r;
+            document.getElementById("groenWaarde").textContent = g;
+            document.getElementById("blauwWaarde").textContent = b;
+
+            const rgb = "rgb(" + r + ", " + g + ", " + b + ")";
+
+            // Decimale waarden worden omgezet naar hexadecimaal.
+            const hex = "#" + [r, g, b].map(function(getal) {
+                return getal.toString(16).padStart(2, "0");
+            }).join("").toUpperCase();
+
+            document.getElementById("kleurVoorbeeld")
+                .style.backgroundColor = rgb;
+
+            document.getElementById("rgbCode").textContent =
+                "RGB-code: " + rgb;
+
+            document.getElementById("hexCode").textContent =
+                "Hex-code: " + hex;
+        }
+
+        veranderKleur();
+    </script>
 </body>
 </html>
