@@ -1,381 +1,307 @@
 
-/* ===================================
-   WEBSITE VAN LUCAS - INFORMATICA
-   Algemene opmaak van alle pagina's
-   =================================== */
-
-/* De hele website */
-* {
-  box-sizing: border-box;
-}
+/* Algemene opmaak */
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #263e56;
-  margin: 0;
-  line-height: 1.7;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #222222;
+    margin: 0;
 }
 
-/* Bovenkant met titel */
-header {
-  background-color: #ffffff;
-  text-align: center;
-  padding: 35px 20px;
-}
-
-header h1 {
-  color: #263e56;
-  font-size: 34px;
-  margin: 0 0 8px;
-}
-
-header p {
-  margin: 0;
-  color: #64748b;
-}
-
-/* ===================================
-   NAVIGATIEMENU
-   =================================== */
-
-nav {
-  background-color: #34495e;
-  position: relative;
-  z-index: 10;
-}
+/* Hoofdmenu */
 
 .menu {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #34495e;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .menu > li {
-  position: relative;
+    position: relative;
 }
 
-.menu a,
-.dropknop {
-  display: block;
-  padding: 16px 24px;
-  color: white;
-  text-decoration: none;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
+/* Home-knop */
+
+.menu > li > a {
+    display: block;
+    color: white;
+    background-color: #34495e;
+    text-decoration: none;
+    padding: 15px 20px;
 }
 
 .menu > li > a:hover,
-.dropknop:hover {
-  background-color: #263e56;
+.menu > li > a.actief {
+    background-color: #56718c;
 }
 
-/* Het dropdownmenu heeft een witte achtergrond */
+/* Dropdownknop */
+
+.dropdown details {
+    position: relative;
+}
+
+.dropdown summary {
+    display: block;
+    list-style: none;
+    color: white;
+    background-color: #34495e;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.dropdown summary:hover,
+.dropdown details[open] > summary {
+    background-color: #56718c;
+}
+
+/* Dropdownlijst */
+
 .dropdown-inhoud {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 190px;
-  background-color: white;
-  list-style: none;
-  padding: 8px 0;
-  margin: 0;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 190px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: #34495e;
+    z-index: 1000;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Donkere tekst in het witte dropdownmenu */
-.dropdown-inhoud a {
-  color: #263e56;
-  padding: 12px 18px;
+/* Open de lijst bij klikken */
+
+.dropdown details[open] .dropdown-inhoud {
+    display: block;
 }
 
-.dropdown-inhoud a:hover {
-  background-color: #eef2f6;
+.dropdown-inhoud li a {
+    display: block;
+    padding: 13px 18px;
+    color: white;
+    background-color: #34495e;
+    text-decoration: none;
 }
 
-/* Openen door eroverheen te gaan */
-.dropdown:hover .dropdown-inhoud,
-.dropdown:focus-within .dropdown-inhoud,
-.dropdown.open .dropdown-inhoud {
-  display: block;
+.dropdown-inhoud li a:hover,
+.dropdown-inhoud li a.actief {
+    background-color: #56718c;
 }
 
-/* ===================================
-   INHOUD VAN DE PAGINA
-   =================================== */
+/* Titels */
 
-main {
-  max-width: 1050px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-section {
-  background-color: white;
-  padding: 28px;
-  margin-bottom: 25px;
-  border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+h1 {
+    color: #263e56;
+    margin: 30px 40px 15px;
 }
 
 h2 {
-  color: #263e56;
-  font-size: 25px;
-  margin-top: 0;
+    color: #34495e;
+    margin: 30px 40px 10px;
 }
 
 h3 {
-  color: #34495e;
+    color: #34495e;
+    margin: 20px 40px 10px;
 }
+
+/* Normale tekst */
 
 p {
-  margin-bottom: 16px;
+    margin: 10px 40px;
+    max-width: 750px;
+    line-height: 1.6;
 }
 
-a {
-  color: #2867a2;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* ===================================
-   FOTO'S
-   =================================== */
+/* Afbeeldingen */
 
 .foto {
-  display: block;
-  width: 100%;
-  max-width: 800px;
-  max-height: 380px;
-  object-fit: cover;
-  margin: 22px auto 5px;
-  border-radius: 12px;
+    width: 450px;
+    max-width: 85%;
+    height: auto;
+    margin: 15px 40px;
+    border-radius: 5px;
 }
 
-/* ===================================
-   KAARTEN EN KNOPPEN
-   =================================== */
-
-.kaarten {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  margin-top: 20px;
-}
-
-.kaart {
-  display: block;
-  background-color: #f1f5f9;
-  border: 1px solid #dce5ee;
-  border-radius: 10px;
-  padding: 20px;
-  color: #263e56;
-  text-decoration: none;
-}
-
-a.kaart:hover {
-  background-color: #e4edf6;
-  transform: translateY(-2px);
-  text-decoration: none;
-}
-
-.kaart h3 {
-  margin-top: 0;
-}
-
-button,
-.knop {
-  display: inline-block;
-  background-color: #34495e;
-  color: white;
-  border: none;
-  border-radius: 7px;
-  padding: 12px 20px;
-  font-size: 15px;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-button:hover,
-.knop:hover {
-  background-color: #263e56;
-}
-
-/* De menuknop behoudt zijn eigen vorm */
-.dropknop {
-  border-radius: 0;
-}
-
-/* ===================================
-   TABELLEN
-   =================================== */
+/* Tabellen */
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  background-color: white;
+    border-collapse: collapse;
+    margin: 20px 40px;
+    max-width: calc(100% - 80px);
 }
 
-th,
-td {
-  border: 1px solid #dce5ee;
-  padding: 12px;
-  text-align: left;
+th, td {
+    border: 1px solid #a9b6c3;
+    padding: 10px 15px;
+    text-align: left;
 }
 
 th {
-  background-color: #34495e;
-  color: white;
+    background-color: #dfe5ea;
+    color: #263e56;
 }
 
-tr:nth-child(even) {
-  background-color: #f1f5f9;
+/* Knoppen */
+
+button, .knop {
+    display: inline-block;
+    background-color: #34495e;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    text-decoration: none;
 }
 
-/* ===================================
-   INVULVELDEN EN OEFENINGEN
-   =================================== */
-
-input[type="number"] {
-  padding: 10px;
-  border: 1px solid #bdcbd8;
-  border-radius: 6px;
-  font-size: 16px;
-  max-width: 150px;
-  margin: 8px;
+button:hover, .knop:hover {
+    background-color: #56718c;
 }
 
-label {
-  display: inline-block;
-  margin: 8px 0;
+/* Oefeningen */
+
+.oefening {
+    background-color: #eceff2;
+    border-left: 4px solid #34495e;
+    padding: 20px;
+    margin: 20px 40px;
+    max-width: 750px;
+    border-radius: 5px;
 }
 
-/* ===================================
-   RGB-KLEURENMENGER
-   =================================== */
-
-.rgb-demo {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 500px;
+.oefening p {
+    margin: 15px 0;
 }
 
-.rgb-demo input[type="range"] {
-  width: 100%;
-  cursor: pointer;
+.oefening label {
+    display: block;
+    margin: 10px 0;
+    color: #263e56;
+}
+
+.oefening input[type="number"] {
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #a9b6c3;
+    border-radius: 4px;
+    max-width: 150px;
+}
+
+/* RGB-kleurvakjes */
+
+.kleuren {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 40px;
+}
+
+.kleuren div {
+    width: 100px;
+    height: 70px;
+    padding-top: 30px;
+    color: white;
+    text-align: center;
+}
+
+.rood {
+    background-color: #ff0000;
+}
+
+.groen {
+    background-color: #008000;
+}
+
+.blauw {
+    background-color: #0000ff;
+}
+
+/* RGB-schuifjes */
+
+.oefening input[type="range"] {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    margin: 10px 0 20px;
+    accent-color: #34495e;
 }
 
 .voorbeeldkleur {
-  width: 100%;
-  height: 150px;
-  background-color: rgb(255, 255, 0);
-  border: 1px solid #dce5ee;
-  border-radius: 10px;
-  margin: 20px 0;
+    background-color: rgb(255, 255, 0);
+    width: 100%;
+    max-width: 450px;
+    height: 130px;
+    border: 2px solid #34495e;
+    border-radius: 5px;
+    margin: 20px 0;
 }
 
-/* ===================================
-   BINARY BONANZA SPEL
-   =================================== */
+/* IVU-stappen */
+
+.stappen {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 25px 40px;
+}
+
+.stappen div {
+    background-color: #34495e;
+    color: white;
+    padding: 18px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.stappen span {
+    color: #263e56;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Binair spel */
 
 .spel {
-  display: block;
-  width: 100%;
-  height: 500px;
-  border: 1px solid #dce5ee;
-  border-radius: 10px;
-  margin: 20px 0;
+    display: block;
+    width: calc(100% - 80px);
+    max-width: 850px;
+    height: 480px;
+    border: 2px solid #34495e;
+    border-radius: 5px;
+    margin: 20px 40px;
 }
 
-/* ===================================
-   YOUTUBE-VIDEO'S
-   =================================== */
-
-.uitlegvideo {
-  margin-top: 35px;
-  border-top: 4px solid #34495e;
-}
-
-.video-omlijsting {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border-radius: 10px;
-  background-color: #111827;
-  margin: 20px 0;
-}
-
-.video-omlijsting iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.video-afbeelding {
-  display: block;
-  width: 100%;
-  max-width: 600px;
-  border-radius: 10px;
-  margin: 20px 0;
-  cursor: pointer;
-}
-
-/* ===================================
-   ONDERKANT VAN DE WEBSITE
-   =================================== */
-
-footer {
-  background-color: #34495e;
-  color: white;
-  text-align: center;
-  padding: 22px;
-  margin-top: 40px;
-}
-
-/* ===================================
-   WEERGAVE OP MOBIELE TELEFOONS
-   =================================== */
+/* Opmaak voor mobiele telefoons */
 
 @media (max-width: 650px) {
-  header h1 {
-    font-size: 26px;
-  }
+    .menu > li > a,
+    .dropdown summary {
+        padding: 12px 14px;
+    }
 
-  main {
-    padding: 0 12px;
-  }
+    .dropdown-inhoud {
+        min-width: 180px;
+    }
 
-  section {
-    padding: 20px;
-  }
+    .spel {
+        height: 350px;
+    }
 
-  .menu a,
-  .dropknop {
-    padding: 14px 16px;
-  }
-
-  .dropdown-inhoud {
-    left: auto;
-    right: 0;
-  }
-
-  .kaarten {
-    grid-template-columns: 1fr;
-  }
-
-  .spel {
-    height: 400px;
-  }
+    .stappen {
+        gap: 8px;
+    }
 }

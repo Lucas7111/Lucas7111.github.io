@@ -2,146 +2,112 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IVU - Website van Lucas</title>
-  <link rel="stylesheet" href="opmaak.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IVU - Website van Lucas</title>
+    <link rel="stylesheet" href="opmaak.css">
 </head>
 <body>
 
-<header>
-  <h1>Invoer, verwerking en uitvoer</h1>
-  <p>Hoe werkt een computer?</p>
-</header>
+    <!-- Dropdownmenu -->
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
 
-<!-- Menu -->
-<nav>
-  <ul class="menu">
-    <li><a href="index.html">Home</a></li>
-    <li class="dropdown">
-      <button class="dropknop" type="button">Onderwerpen ▾</button>
-      <ul class="dropdown-inhoud">
-        <li><a href="ivu.html">IVU</a></li>
-        <li><a href="binairstelsel.html">Binair stelsel</a></li>
-        <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-        <li><a href="compressie.html">Compressie</a></li>
-        <li><a href="ai.html">AI</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+        <li class="dropdown">
+            <details>
+                <summary>Onderwerpen &#9662;</summary>
+                <ul class="dropdown-inhoud">
+                    <li><a href="ivu.html" class="actief">IVU</a></li>
+                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
+                    <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+                    <li><a href="compressie.html">Compressie</a></li>
+                    <li><a href="ai.html">AI</a></li>
+                </ul>
+            </details>
+        </li>
+    </ul>
 
-<main>
-  <section>
-    <h2>Wat betekent IVU?</h2>
+    <h1>Invoer, verwerking en uitvoer</h1>
+
+    <h2>Wat is het IVU-model?</h2>
+
     <p>
-      IVU staat voor Invoer, Verwerking en Uitvoer.
-      Een computer ontvangt gegevens, verwerkt ze
-      en geeft daarna een resultaat.
+        IVU staat voor Invoer, Verwerking en Uitvoer.
+        Dit model laat zien hoe een computer met gegevens werkt.
+        Het bestaat uit drie stappen.
+    </p>
+
+    <h2>1. Invoer</h2>
+
+    <p>
+        Bij invoer geef je gegevens aan een computer.
+        Dat kan bijvoorbeeld met een toetsenbord,
+        een muis of een microfoon.
+    </p>
+
+    <h2>2. Verwerking</h2>
+
+    <p>
+        Bij verwerking gaat de computer aan de slag
+        met de ingevoerde gegevens.
+        De processor voert bijvoorbeeld berekeningen uit.
+    </p>
+
+    <h2>3. Uitvoer</h2>
+
+    <p>
+        Bij uitvoer laat de computer het resultaat
+        zien of horen. Dit gebeurt bijvoorbeeld via
+        een beeldscherm, printer of luidspreker.
+    </p>
+
+    <div class="stappen">
+        <div>Invoer</div>
+        <span>&#10132;</span>
+        <div>Verwerking</div>
+        <span>&#10132;</span>
+        <div>Uitvoer</div>
+    </div>
+
+    <h2>Voorbeeld van IVU</h2>
+
+    <p>
+        Stel dat je op een rekenmachine 5 + 3 invoert.
+        De invoer is 5 + 3, de verwerking is het optellen
+        van de getallen en de uitvoer is het antwoord 8.
     </p>
 
     <img class="foto"
-         src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80"
-         alt="Computerchip">
-  </section>
+         src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900"
+         alt="Computer op een bureau">
 
-  <section>
-    <h2>De drie stappen</h2>
+    <h2>Probeer het zelf!</h2>
 
-    <div class="kaarten">
-      <div class="kaart">
-        <h3>1. Invoer</h3>
-        <p>
-          Je voert gegevens in met bijvoorbeeld
-          een toetsenbord, muis of microfoon.
-        </p>
-      </div>
-
-      <div class="kaart">
-        <h3>2. Verwerking</h3>
-        <p>
-          De processor verwerkt de gegevens
-          en voert berekeningen uit.
-        </p>
-      </div>
-
-      <div class="kaart">
-        <h3>3. Uitvoer</h3>
-        <p>
-          Je krijgt het resultaat te zien of te horen,
-          bijvoorbeeld via een scherm of luidspreker.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Voorbeeld: rekenmachine</h2>
     <p>
-      Invoer: je typt 5 + 3.
-      Verwerking: de computer telt de getallen op.
-      Uitvoer: het antwoord 8 verschijnt op het scherm.
-    </p>
-  </section>
-
-  <!-- Interactief IVU-voorbeeld -->
-  <section class="kaart">
-    <h2>Probeer het zelf</h2>
-    <p>Vul twee getallen in en klik op Bereken.</p>
-
-    <label for="getal1">Eerste getal:</label>
-    <input type="number" id="getal1" value="5">
-
-    <label for="getal2">Tweede getal:</label>
-    <input type="number" id="getal2" value="3">
-
-    <button onclick="bereken()">Bereken</button>
-    <p id="antwoord" aria-live="polite">Uitvoer: 8</p>
-  </section>
-
-  <!-- Video helemaal onderaan -->
-  <section class="uitlegvideo">
-    <h2>Uitlegvideo: How Computers Work</h2>
-    <p>
-      Ik heb deze video toegevoegd omdat hij uitlegt
-      hoe computers gegevens ontvangen, verwerken
-      en een resultaat geven. Dat past bij IVU.
+        Vul twee getallen in en laat de computer ze optellen.
     </p>
 
-    <div class="video-omlijsting">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/mCq8-xTH7jA"
-        title="How Computers Work"
-        allowfullscreen>
-      </iframe>
+    <div class="oefening">
+        <label for="getal1">Eerste getal:</label>
+        <input type="number" id="getal1" value="5">
+
+        <label for="getal2">Tweede getal:</label>
+        <input type="number" id="getal2" value="3">
+
+        <button onclick="bereken()">Bereken</button>
+
+        <p id="antwoord">Uitvoer: 8</p>
     </div>
 
-    <p>
-      <a href="https://www.youtube.com/watch?v=mCq8-xTH7jA"
-         target="_blank">Bekijk de video op YouTube</a>
-    </p>
-  </section>
-</main>
+    <script>
+        function bereken() {
+            let a = Number(document.getElementById("getal1").value);
+            let b = Number(document.getElementById("getal2").value);
 
-<footer>Website van Lucas | Informatica HAVO 4</footer>
-
-<script>
-  // Twee getallen optellen: invoer, verwerking en uitvoer
-  function bereken() {
-    const a = Number(document.getElementById("getal1").value);
-    const b = Number(document.getElementById("getal2").value);
-    const uitkomst = a + b;
-
-    document.getElementById("antwoord").textContent =
-      "Uitvoer: " + uitkomst;
-  }
-
-  // Dropdownmenu
-  const dropdown = document.querySelector(".dropdown");
-  document.querySelector(".dropknop").onclick = function () {
-    dropdown.classList.toggle("open");
-  };
-</script>
+            document.getElementById("antwoord").textContent =
+                "Uitvoer: " + (a + b);
+        }
+    </script>
 
 </body>
 </html>

@@ -2,115 +2,72 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website van Lucas - Home</title>
-  <link rel="stylesheet" href="opmaak.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Website van Lucas</title>
+    <link rel="stylesheet" href="opmaak.css">
 </head>
 <body>
 
-  <!-- Bovenkant van de website -->
-  <header>
-    <h1>Welkom op mijn website!</h1>
-    <p>Informatica - HAVO 4</p>
-  </header>
-
-  <!-- Navigatiemenu met dropdown -->
-  <nav>
+    <!-- Dropdownmenu -->
     <ul class="menu">
-      <li><a href="index.html">Home</a></li>
-      <li class="dropdown">
-        <button class="dropknop" type="button">Onderwerpen ▾</button>
-        <ul class="dropdown-inhoud">
-          <li><a href="ivu.html">IVU</a></li>
-          <li><a href="binairstelsel.html">Binair stelsel</a></li>
-          <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-          <li><a href="compressie.html">Compressie</a></li>
-          <li><a href="ai.html">AI</a></li>
-        </ul>
-      </li>
+        <li><a href="index.html" class="actief">Home</a></li>
+
+        <li class="dropdown">
+            <details>
+                <summary>Onderwerpen &#9662;</summary>
+                <ul class="dropdown-inhoud">
+                    <li><a href="ivu.html">IVU</a></li>
+                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
+                    <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+                    <li><a href="compressie.html">Compressie</a></li>
+                    <li><a href="ai.html">AI</a></li>
+                </ul>
+            </details>
+        </li>
     </ul>
-  </nav>
 
-  <main>
-    <!-- Persoonlijke informatie -->
-    <section>
-      <h2>Over mij</h2>
-      <p>
+    <h1>Welkom op mijn website!</h1>
+
+    <h2>Over mij</h2>
+
+    <p>
         Hoi! Ik ben Lucas en ik ben 15 jaar oud.
-        Ik zit op het Vlietland College in HAVO 4.
-        In mijn vrije tijd ga ik vier keer per week
-        naar de sportschool en voetbal ik regelmatig
-        met vrienden.
-      </p>
-      <p>
-        Later wil ik graag een leuke opleiding volgen
-        en een baan vinden die bij mij past.
-        Ik weet nog niet precies wat ik wil worden.
-        Door de lessen Loopbaanoriëntatie en
-        -begeleiding (LOB) hoop ik dat te ontdekken.
-      </p>
-      <img class="foto"
-           src="David-Lloyd-Amsterdam.webp"
-           alt="Sportschool met fitnessapparaten">
-    </section>
+        Ik zit momenteel op het Vlietland College
+        en ik zit in havo 4.
+    </p>
 
-    <!-- Knoppen naar de verschillende onderwerpen -->
-    <section>
-      <h2>Over deze website</h2>
-      <p>
-        Ik heb deze website gemaakt voor Informatica.
-        Hieronder kun je kiezen welk onderwerp je wilt bekijken.
-      </p>
+    <p>
+        In mijn vrije tijd ga ik naar de sportschool.
+        Dat doe ik vier keer per week.
+        Daarnaast voetbal ik regelmatig met vrienden.
+    </p>
 
-      <div class="kaarten">
-        <a class="kaart" href="ivu.html">
-          <h3>IVU</h3>
-          <p>Invoer, verwerking en uitvoer</p>
-        </a>
+    <p>
+        In de toekomst wil ik graag een leuke opleiding volgen
+        en een leuke baan vinden.
+        Ik weet nog niet precies wat ik later wil worden.
+        Ik hoop dat ik daar door de lessen loopbaanoriëntatie
+        en begeleiding achter kom.
+    </p>
 
-        <a class="kaart" href="binairstelsel.html">
-          <h3>Binair stelsel</h3>
-          <p>Hoe computers met nullen en enen werken</p>
-        </a>
+    <img class="foto"
+         src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900"
+         alt="Sportschool met fitnessapparaten">
 
-        <a class="kaart" href="kleurmodellen.html">
-          <h3>Kleurmodellen</h3>
-          <p>RGB, CMYK en kleurcodes</p>
-        </a>
+    <h2>Over mijn website</h2>
 
-        <a class="kaart" href="compressie.html">
-          <h3>Compressie</h3>
-          <p>Bestanden kleiner maken</p>
-        </a>
+    <p>
+        Deze website heb ik gemaakt voor het vak informatica.
+        Je vindt hier uitleg over het IVU-model,
+        het binaire stelsel, kleurmodellen, compressie
+        en kunstmatige intelligentie.
+    </p>
 
-        <a class="kaart" href="ai.html">
-          <h3>Kunstmatige intelligentie</h3>
-          <p>Wat is AI en hoe gebruik ik het?</p>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    Website van Lucas | Informatica - HAVO 4
-  </footer>
-
-  <!-- JavaScript voor het dropdownmenu -->
-  <script>
-    const dropdown = document.querySelector(".dropdown");
-    const knop = document.querySelector(".dropknop");
-
-    knop.addEventListener("click", function () {
-      dropdown.classList.toggle("open");
-    });
-
-    document.addEventListener("click", function (event) {
-      if (!dropdown.contains(event.target)) {
-        dropdown.classList.remove("open");
-      }
-    });
-  </script>
+    <p>
+        Klik bovenaan op Onderwerpen om naar
+        de verschillende pagina's te gaan.
+    </p>
 
 </body>
 </html>
