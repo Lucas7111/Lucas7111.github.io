@@ -9,22 +9,14 @@
 </head>
 <body>
 
-    <!-- Dropdownmenu -->
+    <!-- Menu van mijn website -->
     <ul class="menu">
         <li><a href="index.html">Home</a></li>
-
-        <li class="dropdown">
-            <details>
-                <summary>Onderwerpen &#9662;</summary>
-                <ul class="dropdown-inhoud">
-                    <li><a href="ivu.html">IVU</a></li>
-                    <li><a href="binairstelsel.html" class="actief">Binair stelsel</a></li>
-                    <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
-                    <li><a href="compressie.html">Compressie</a></li>
-                    <li><a href="ai.html">AI</a></li>
-                </ul>
-            </details>
-        </li>
+        <li><a href="ivu.html">IVU</a></li>
+        <li><a href="binairstelsel.html" class="actief">Binair stelsel</a></li>
+        <li><a href="kleurmodellen.html">Kleurmodellen</a></li>
+        <li><a href="compressie.html">Compressie</a></li>
+        <li><a href="ai.html">AI</a></li>
     </ul>
 
     <h1>Het binaire stelsel</h1>
@@ -32,26 +24,23 @@
     <h2>Wat is het binaire stelsel?</h2>
 
     <p>
-        Het binaire stelsel is een getallenstelsel
-        dat alleen de cijfers 0 en 1 gebruikt.
-        Computers gebruiken dit stelsel om informatie
-        op te slaan en te verwerken.
+        Het binaire stelsel is een getallenstelsel dat alleen
+        de cijfers 0 en 1 gebruikt. Computers gebruiken dit
+        stelsel om informatie op te slaan en te verwerken.
     </p>
 
     <p>
         Wij gebruiken normaal gesproken het decimale stelsel.
-        Dat bestaat uit de cijfers 0 tot en met 9.
-        Computers werken met bits.
-        Een bit kan 0 of 1 zijn.
+        Dit bestaat uit de cijfers 0 tot en met 9.
+        Computers werken met bits. Een bit kan 0 of 1 zijn.
     </p>
 
     <h2>Hoe werkt het binaire stelsel?</h2>
 
     <p>
-        Bij het binaire stelsel heeft iedere positie
-        een bepaalde waarde.
-        Van rechts naar links zijn dat
-        1, 2, 4, 8, 16, 32, 64 en 128.
+        Bij het binaire stelsel heeft iedere positie een waarde.
+        Van rechts naar links zijn dat 1, 2, 4, 8, 16, 32,
+        64 en 128.
     </p>
 
     <table>
@@ -79,18 +68,12 @@
     <h2>Zelf omrekenen</h2>
 
     <p>
-        Vul een heel getal tussen 0 en 255 in
-        om te zien hoe je dit binair schrijft.
+        Vul een getal tussen 0 en 255 in om te zien
+        hoe je dit binair schrijft.
     </p>
 
     <div class="oefening">
-        <label for="decimaal">Decimaal getal:</label>
-
-        <input type="number"
-               id="decimaal"
-               min="0"
-               max="255"
-               value="13">
+        <input type="number" id="decimaal" min="0" max="255" value="13">
 
         <button onclick="omrekenen()">Omrekenen</button>
 
@@ -104,6 +87,7 @@
         Probeer zoveel mogelijk goede antwoorden te geven!
     </p>
 
+    <!-- Het spel wordt hieronder geladen -->
     <iframe
         class="spel"
         src="https://games.penjee.com/binary-bonanza/"
@@ -111,30 +95,23 @@
     </iframe>
 
     <p>
-        Als het spel hierboven niet werkt,
-        kun je het via deze link openen:
+        Werkt het spel hierboven niet?
+        Klik dan op de onderstaande link.
     </p>
 
     <p>
         <a class="knop"
            href="https://games.penjee.com/binary-bonanza/"
-           target="_blank"
-           rel="noopener noreferrer">
+           target="_blank">
             Speel Binary Bonanza
         </a>
     </p>
 
     <script>
         function omrekenen() {
-            let getal = Number(
-                document.getElementById("decimaal").value
-            );
+            let getal = Number(document.getElementById("decimaal").value);
 
-            if (
-                Number.isInteger(getal) &&
-                getal >= 0 &&
-                getal <= 255
-            ) {
+            if (Number.isInteger(getal) && getal >= 0 && getal <= 255) {
                 document.getElementById("binairantwoord").textContent =
                     "Binair: " + getal.toString(2);
             } else {
